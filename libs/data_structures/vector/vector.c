@@ -73,23 +73,19 @@ bool isFull(vector *vec) {
 }
 
 
-int* elementInVector(vector* vec, size_t i) {
-    validateIndex(vec, i);
-
-    return &(vec->data[i]);
-}
-
-
 int getVectorValue(vector *vec, size_t i) {
-    return *elementInVector(vec, i);
+    return vec->data[i];
 }
 
 
 void pushBack(vector *vec, int x) {
     if (isFull(vec)) {
-        reserve(vec, vec->capacity << 1);
+        if (vec->capacity == 0)
+            vec->capacity = 1;
+        else
+            reserve(vec, vec->capacity << 1);
     }
-
+        
     vec->data[vec->size++] = x;
 }
 
@@ -101,4 +97,20 @@ void popBack(vector *vec) {
     }
 
     vec->size--;
+}
+
+
+int* atVector(vector *vec, size_t index) {
+    validateIndex(vec, index);
+    return &(vec->data[index]);
+}
+
+
+int* back(vector* vec) {
+    return atVector(vec, vec->size - 1);
+}
+
+
+int* front(vector* vec) {
+    return atVector(vec, 0);
 }
