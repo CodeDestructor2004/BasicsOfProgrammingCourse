@@ -1,3 +1,6 @@
+#ifndef INC_VECTOR_H
+#define INC_VECTOR_H
+
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -46,3 +49,5 @@ int* back(vector *v);
 
 // возвращает указатель на нулевой элемент вектора
 int* front(vector *v);
+
+#endif
