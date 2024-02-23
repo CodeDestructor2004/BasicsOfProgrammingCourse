@@ -14,6 +14,14 @@ void* validateMemory(void* memory) {
 }
 
 
+void validateIndex(vector* vec, size_t index) {
+    if (index >= vec->size) {
+        fprintf(stderr, "Invalid index %zu for size %zu", index, vec->size);
+        exit(1);
+    }
+}
+
+
 vector createVector(size_t capacity) {
     return (vector) {
         validateMemory(malloc(capacity * sizeof(int))),
@@ -23,7 +31,7 @@ vector createVector(size_t capacity) {
 }
 
 
-void setIntVectorCapacity(vector *vec, size_t new_capacity) {
+void reserve(vector *vec, size_t new_capacity) {
     if (new_capacity == 0) {
         free(vec->data);
         vec->data = NULL;
@@ -52,4 +60,45 @@ void deleteVector(vector *vec) {
     vec->data = NULL;
     vec->size = 0;
     vec->capacity = 0;
+}
+
+
+bool isEmpty(vector *vec) {
+    return vec->size == 0;
+}
+
+
+bool isFull(vector *vec) {
+    return vec->size >= vec->capacity;
+}
+
+
+int* elementInVector(vector* vec, size_t i) {
+    validateIndex(vec, i);
+
+    return &(vec->data[i]);
+}
+
+
+int getVectorValue(vector *vec, size_t i) {
+    return *elementInVector(vec, i);
+}
+
+
+void pushBack(vector *vec, int x) {
+    if (isFull(vec)) {
+        reserve(vec, vec->capacity << 1);
+    }
+
+    vec->data[vec->size++] = x;
+}
+
+
+void popBack(vector *vec) {
+    if (vec->size == 0) {
+        fprintf(stderr, "vector is empty!");
+        exit(1);
+    }
+
+    vec->size--;
 }

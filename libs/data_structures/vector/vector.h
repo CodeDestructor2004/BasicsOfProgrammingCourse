@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct vector {
     int *data; // указатель на элементы вектора
@@ -11,13 +12,28 @@ typedef struct vector {
 vector createVector(size_t capacity);
 
 // изменяет количество памяти, выделенное под хранение элементов вектора
-void setIntVectorCapacity(vector *vector, size_t newCapacity);
+void reserve(vector *vec, size_t newCapacity);
 
 // удаляет элементы из контейнера, но не освобождает выделенную память
-void clear(vector *v);
+void clear(vector *vec);
 
 // освобождает память, выделенную под неиспользуемые элементы
-void shrinkToFit(vector *v);
+void shrinkToFit(vector *vec);
 
 // освобождает память, выделенную вектору
-void deleteVector(vector *vector);
+void deleteVector(vector *vect);
+
+// функция проверки на то, является ли вектор пустым
+bool isEmpty(vector *vec);
+
+// функция проверки на то, является ли вектор полным
+bool isFull(vector *vec);
+
+// возвращает i-ый элемент вектора vec
+int getVectorValue(vector *vec, size_t i);
+
+// добавляет элемент x в конец вектора v
+void pushBack(vector *vec, int x);
+
+// удаляет последний элемент из вектора
+void popBack(vector *vec);
