@@ -178,6 +178,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/main.c.s
 .PHONY : main.c.s
 
+vec.obj: vec.c.obj
+.PHONY : vec.obj
+
+# target to build an object file
+vec.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/vec.c.obj
+.PHONY : vec.c.obj
+
+vec.i: vec.c.i
+.PHONY : vec.i
+
+# target to preprocess a source file
+vec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/vec.c.i
+.PHONY : vec.c.i
+
+vec.s: vec.c.s
+.PHONY : vec.s
+
+# target to generate assembly for a file
+vec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/vec.c.s
+.PHONY : vec.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -192,6 +216,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... vec.obj
+	@echo ... vec.i
+	@echo ... vec.s
 .PHONY : help
 
 

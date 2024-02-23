@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/data_structures.dir/ordered_set/ordered_array_set.c.obj.d"
   "CMakeFiles/data_structures.dir/unordered_set/unordered_array_set.c.obj"
   "CMakeFiles/data_structures.dir/unordered_set/unordered_array_set.c.obj.d"
+  "CMakeFiles/data_structures.dir/vector/vector.c.obj"
+  "CMakeFiles/data_structures.dir/vector/vector.c.obj.d"
   "libdata_structures.a"
   "libdata_structures.pdb"
 )
