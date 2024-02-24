@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/course.dir/main.c.obj.d"
   "CMakeFiles/course.dir/vec.c.obj"
   "CMakeFiles/course.dir/vec.c.obj.d"
+  "CMakeFiles/course.dir/vecV.c.obj"
+  "CMakeFiles/course.dir/vecV.c.obj.d"
   "course.exe"
   "course.exe.manifest"
   "course.pdb"

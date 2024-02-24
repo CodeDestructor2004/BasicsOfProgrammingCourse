@@ -4,7 +4,8 @@ project(course C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(course main.c
-vec.c)
+vec.c
+vecV.c)
 
 add_subdirectory(libs)
 target_link_libraries(course data_structures)

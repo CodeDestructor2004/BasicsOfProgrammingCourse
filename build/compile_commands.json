@@ -12,6 +12,12 @@
   "output": "CMakeFiles/course.dir/vec.c.obj"
 },
 {
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\vecV.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\vecV.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/vecV.c",
+  "output": "CMakeFiles/course.dir/vecV.c.obj"
+},
+{
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\bitset\\bitset.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\bitset\\bitset.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/bitset/bitset.c",
@@ -34,6 +40,12 @@
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\vector\\vector.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\vector\\vector.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/vector/vector.c",
   "output": "libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\vector\\vectorVoid.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\vector\\vectorVoid.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/vector/vectorVoid.c",
+  "output": "libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj"
 },
 {
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms",
