@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <assert.h>
+#include <string.h>
 
 matrix getMemMatrix(int rows, int cols) {
     int **values = (int **) malloc(sizeof(int*) * rows);
@@ -150,7 +151,7 @@ int* getColumn(matrix m, int index) {
 
 
 int indexOfMaxColumnByCriteria(matrix matrix, int start, 
-int end, int (*criteria)(const int*, int)) {
+int end, int (*criteria)(int*, int)) {
     int max_index = 0;
     int max_weight = criteria(getColumn(matrix, start), matrix.rows);
 
@@ -335,7 +336,7 @@ size_t rows, size_t cols) {
 matrix *createArrayOfMatrixFromArray(const int *values,
 size_t matrices_amount, size_t rows, size_t cols) {
     matrix *ms = getMemArrayOfMatrices(matrices_amount, rows, cols);
-    
+
     int l = 0;
     for (size_t k = 0; k < matrices_amount; k++)
         for (size_t i = 0; i < rows; i++)
@@ -343,4 +344,21 @@ size_t matrices_amount, size_t rows, size_t cols) {
                 ms[k].values[i][j] = values[l++];
     
     return ms;
+}
+
+
+int countZeroRows(matrix m) {
+    int amount = 0;
+
+    for (int i = 0; i < m.rows; i++) {
+        int row_sum = 0;
+
+        for (int j = 0; j < m.cols; j++)
+            row_sum += m.values[i][j];
+        
+        if (row_sum == 0)
+            amount++;
+    }
+
+    return amount;
 }
