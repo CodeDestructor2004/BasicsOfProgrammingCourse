@@ -36,3 +36,48 @@ void freeMemMatrices(matrix* ms, int matrices_amount) {
     }
 }
 
+
+void inputMatrix(matrix* m) {
+    for (int i = 0; i < m->rows; i++) {
+        printf("Input matrix row #%d:\n", i);
+
+        int* row = m->values[i];
+
+        for (int j = 0; j < m->cols; j++) {
+            scanf("%d", row + j);
+        }
+    }
+}
+
+
+void inputMatrices(matrix* ms, int matrices_amount) {
+    for (int i = 0; i < matrices_amount; i++) {
+        inputMatrix(ms + i);
+    }
+}
+
+
+void outputMatrix(matrix m) {
+    for (int i = 0; i < m.rows; i++) {
+        int* row = m.values[i];
+
+        printf("[");
+
+        for (int j = 0; j < m.cols; j++) {
+            printf("%d", row[j]);
+
+            if (j != (m.cols - 1)) {
+                printf(", ");
+            }
+        }
+
+        printf("]\n");
+    }
+}
+
+
+void outputMatrices(matrix* ms, int matrices_amount) {
+    for (int i = 0; i < matrices_amount; i++) {
+        outputMatrix(ms[i]);
+    }
+}
