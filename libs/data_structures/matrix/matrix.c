@@ -81,3 +81,38 @@ void outputMatrices(matrix* ms, int matrices_amount) {
         outputMatrix(ms[i]);
     }
 }
+
+
+void swapRows(matrix m, int i1, int i2) {
+    if (i1 == i2) {
+        return;
+    }
+
+    assert(0 < i1 < m.rows);
+    assert(0 < i2 < m.rows);
+
+    int* row1 = m.values[i1];
+    int* row2 = m.values[i2];
+
+    m.values[i1] = row2;
+    m.values[i2] = row1;
+}
+
+
+void swapColumns(matrix m, int j1, int j2) {
+    if (j1 == j2) {
+        return;
+    }
+
+    assert(0 < j1 < m.cols);
+    assert(0 < j2 < m.cols);
+
+    for (int i = 0; i < m.rows; ++i) {
+        int* row = m.values[i];
+        int value1 = row[j1];
+        int value2 = row[j2];
+
+        row[j1] = value2;
+        row[j2] = value1;
+    }
+}

@@ -39,4 +39,10 @@ void outputMatrix(matrix m);
 
 void outputMatrices(matrix *ms, int matrices_amount);
 
+
+void swapRows(matrix m, int i1, int i2);
+
+
+void swapColumns(matrix m, int j1, int j2);
+
 #endif
