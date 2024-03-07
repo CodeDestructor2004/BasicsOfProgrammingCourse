@@ -167,10 +167,71 @@ int end, int (*criteria)(const int*, int)) {
 }
 
 
-
 void selectionSortColsMatrixByColCriteria(matrix m,
 int (*criteria)(int*, int)) {
     for (int i = 0; i < m.cols; i++) {
         swapColumns(m, i, indexOfMaxColumnByCriteria(m, i + 1, m.cols, criteria));
     }
+}
+
+
+bool isSquareMatrix(matrix* m) {
+    return m->rows == m->cols;
+}
+
+
+bool areTwoMatricesEqual(matrix* m1, matrix* m2) {
+    if (m1->rows != m2->rows || m1->cols != m2->rows) {
+        return false;
+    }
+
+    for (int i = 0; i < m1->rows; i++) {
+        if (!memcpy(m1->values[i], m2->values[i], m1->cols)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+bool isEMatrix(matrix* m) {
+    if (!isSquareMatrix(m)) {
+        return false;
+    }
+
+    for (int i = 0; i < m->rows; i++) {
+        int* row = m->values[i];
+
+        for (int j = 0; j < m->cols; j++) {
+            if (row[j] != ((i == j) ? 1 : 0)) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+
+bool isSymmetricMatrix(matrix* m) {
+    if (!isSquareMatrix(m)) {
+        return false;
+    }
+
+    for (int i = 0; i < m->rows; i++) {
+        int* row = m->values[i];
+
+        for (int j = 0; j < m->cols; j++) {
+            if (i == j) {
+                continue;
+            }
+
+            if (row[j] != m->values[j][i]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
