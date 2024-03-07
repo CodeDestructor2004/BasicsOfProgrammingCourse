@@ -235,3 +235,46 @@ bool isSymmetricMatrix(matrix* m) {
 
     return true;
 }
+
+
+int** allocateValues(int rows, int cols) {
+    int** values = (int**) malloc(sizeof(int*) * rows);
+
+    for (int i = 0; i < rows; i++) {
+        values[i] = (int*) malloc(sizeof(int) * cols);
+    }
+
+    return values;
+}
+
+
+
+void transposeSquareMatrix(matrix* m) {
+    int** new_values = allocateValues(m->rows, m->cols);
+
+    for (int i = 0; i < m->rows; i++) {
+        int* row = m->values[i];
+
+        for (int j = 0; j < m->cols; j++) {
+            new_values[j][i] = row[j];
+        }
+    }
+
+    m->values = new_values;
+}
+
+
+void transposeMatrix(matrix* m) {
+    int** new_values = allocateValues(m->cols, m->rows);
+
+    for (int i = 0; i < m->rows; i++) {
+        int* row = m->values[i];
+
+        for (int j = 0; j < m->cols; j++) {
+            new_values[j][i] = row[j];
+        }
+    }
+
+    m->values = new_values;
+}
+
