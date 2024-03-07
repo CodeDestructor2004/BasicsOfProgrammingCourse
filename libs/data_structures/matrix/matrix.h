@@ -78,4 +78,12 @@ position getMinValuePos(matrix m);
 
 position getMaxValuePos(matrix m);
 
+
+matrix createMatrixFromArray(const int *a, size_t rows,
+size_t cols);
+
+
+matrix *createArrayOfMatrixFromArray(const int *values,
+size_t matrices_amount, size_t rows, size_t cols);
+
 #endif
