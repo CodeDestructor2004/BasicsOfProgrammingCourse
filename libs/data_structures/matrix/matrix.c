@@ -1,6 +1,7 @@
 #include "matrix.h"
 #include <stdio.h>
 #include <malloc.h>
+#include <assert.h>
 
 matrix getMemMatrix(int rows, int cols) {
     int **values = (int **) malloc(sizeof(int*) * rows);
@@ -114,5 +115,62 @@ void swapColumns(matrix m, int j1, int j2) {
 
         row[j1] = value2;
         row[j2] = value1;
+    }
+}
+
+
+void insertionSortRowsMatrixByRowCriteria(matrix m,
+int (*criteria)(int*, int)) {
+    for (int i = 0; i < m.rows; i++) {
+        int* row = m.values[i];
+        int weight = criteria(row, m.cols);
+        int j = i + 1;
+        int current_weight;
+
+        while (j >= 0 && (current_weight = criteria(m.values[j], m.cols)) > weight) {
+            m.values[j + 1] = m.values[j];
+            weight = current_weight;
+            j--;
+        }
+
+        m.values[j + 1] = row;
+    }
+}
+
+
+int* getColumn(matrix m, int index) {
+    int* column = malloc(sizeof(int) * m.rows);
+
+    for (int i = 0; i < m.rows; i++) {
+        column[i] = m.values[i][index];
+    }
+
+    return column;
+}
+
+
+int indexOfMaxColumnByCriteria(matrix matrix, int start, 
+int end, int (*criteria)(const int*, int)) {
+    int max_index = 0;
+    int max_weight = criteria(getColumn(matrix, start), matrix.rows);
+
+    for (int i = start + 1; i < end; i++) {
+        int weight = criteria(getColumn(matrix, i), matrix.rows);
+
+        if (weight > max_weight) {
+            max_index = i;
+            max_weight = weight;
+        }
+    }
+
+    return max_index;
+}
+
+
+
+void selectionSortColsMatrixByColCriteria(matrix m,
+int (*criteria)(int*, int)) {
+    for (int i = 0; i < m.cols; i++) {
+        swapColumns(m, i, indexOfMaxColumnByCriteria(m, i + 1, m.cols, criteria));
     }
 }
