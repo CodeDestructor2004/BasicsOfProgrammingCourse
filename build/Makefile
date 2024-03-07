@@ -178,6 +178,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/main.c.s
 .PHONY : main.c.s
 
+matrix_test.obj: matrix_test.c.obj
+.PHONY : matrix_test.obj
+
+# target to build an object file
+matrix_test.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_test.c.obj
+.PHONY : matrix_test.c.obj
+
+matrix_test.i: matrix_test.c.i
+.PHONY : matrix_test.i
+
+# target to preprocess a source file
+matrix_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_test.c.i
+.PHONY : matrix_test.c.i
+
+matrix_test.s: matrix_test.c.s
+.PHONY : matrix_test.s
+
+# target to generate assembly for a file
+matrix_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_test.c.s
+.PHONY : matrix_test.c.s
+
 vec.obj: vec.c.obj
 .PHONY : vec.obj
 
@@ -240,6 +264,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... matrix_test.obj
+	@echo ... matrix_test.i
+	@echo ... matrix_test.s
 	@echo ... vec.obj
 	@echo ... vec.i
 	@echo ... vec.s

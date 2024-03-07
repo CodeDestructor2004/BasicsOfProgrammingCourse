@@ -5,7 +5,8 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(course main.c
 vec.c
-vecV.c)
+vecV.c
+matrix_test.c)
 
 add_subdirectory(libs)
 target_link_libraries(course data_structures)

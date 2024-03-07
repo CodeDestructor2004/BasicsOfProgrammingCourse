@@ -18,6 +18,12 @@
   "output": "CMakeFiles/course.dir/vecV.c.obj"
 },
 {
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\matrix_test.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\matrix_test.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/matrix_test.c",
+  "output": "CMakeFiles/course.dir/matrix_test.c.obj"
+},
+{
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\bitset\\bitset.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\bitset\\bitset.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/bitset/bitset.c",
@@ -46,6 +52,12 @@
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\vector\\vectorVoid.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\vector\\vectorVoid.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/vector/vectorVoid.c",
   "output": "libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\matrix\\matrix.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\matrix\\matrix.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/matrix/matrix.c",
+  "output": "libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj"
 },
 {
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms",
