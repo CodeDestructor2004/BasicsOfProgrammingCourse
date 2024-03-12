@@ -6,16 +6,18 @@
 
 matrix getMemMatrix(int rows, int cols) {
     int **values = (int **) malloc(sizeof(int*) * rows);
+
     for (int i = 0; i < rows; i++)
-    values[i] = (int *) malloc(sizeof(int) * cols);
+        values[i] = (int *) malloc(sizeof(int) * cols);
     return (matrix){values, rows, cols};
 }
 
 
 matrix *getMemArrayOfMatrices(int matrices_amount, int rows, int cols) {
     matrix *ms = (matrix*) malloc(sizeof(matrix) * matrices_amount);
+
     for (int i = 0; i < matrices_amount; i++)
-    ms[i] = getMemMatrix(rows, cols);
+        ms[i] = getMemMatrix(rows, cols);
     return ms;
 }
 
@@ -120,23 +122,24 @@ void swapColumns(matrix m, int j1, int j2) {
 }
 
 
-void insertionSortRowsMatrixByRowCriteria(matrix m,
+void insertionSortRowsMatrixByRowCriteria(matrix m, 
 int (*criteria)(int*, int)) {
     for (int i = 0; i < m.rows; i++) {
         int* row = m.values[i];
         int weight = criteria(row, m.cols);
         int j = i + 1;
-        int current_weight;
+        int currentWeight;
 
-        while (j >= 0 && (current_weight = criteria(m.values[j], m.cols)) > weight) {
+        while (j >= 0 && (currentWeight = criteria(m.values[j], m.cols)) > weight) {
             m.values[j + 1] = m.values[j];
-            weight = current_weight;
+            weight = currentWeight;
             j--;
         }
 
         m.values[j + 1] = row;
     }
 }
+
 
 
 int* getColumn(matrix m, int index) {
@@ -150,13 +153,13 @@ int* getColumn(matrix m, int index) {
 }
 
 
-int indexOfMaxColumnByCriteria(matrix matrix, int start, 
+int indexOfMaxColumnByCriteria(matrix m, int start, 
 int end, int (*criteria)(int*, int)) {
     int max_index = 0;
-    int max_weight = criteria(getColumn(matrix, start), matrix.rows);
+    int max_weight = criteria(getColumn(m, start), m.rows);
 
     for (int i = start + 1; i < end; i++) {
-        int weight = criteria(getColumn(matrix, i), matrix.rows);
+        int weight = criteria(getColumn(m, i), m.rows);
 
         if (weight > max_weight) {
             max_index = i;
@@ -275,7 +278,9 @@ void transposeMatrix(matrix* m) {
             new_values[j][i] = row[j];
         }
     }
-
+    int tmp = m->cols;
+    m->cols = m->rows;
+    m->rows = tmp;
     m->values = new_values;
 }
 
