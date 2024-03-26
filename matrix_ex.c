@@ -248,6 +248,39 @@ void printMatrixWithMaxZeroRows(const matrix* matrices, int matrix_amount) {
     }
 }
 
+// Task15
+int getMatrixNorm(matrix matrix) {
+    int max = 0;
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        int* row = matrix.values[i];
+
+        for (int j = 0; j < matrix.cols; ++j) {
+            max = maxValue(max, abs(row[j]));
+        }
+    }
+
+    return max;
+}
+
+
+void printMatricesWithMinNorm(matrix* matrices, int matrix_amount) {
+    int matrix_norms[matrix_amount];
+
+    for (int i = 0; i < matrix_amount; ++i) {
+        matrix_norms[i] = getMatrixNorm(matrices[i]);
+    }
+
+    int min_norm = getMin(matrix_norms, matrix_amount);
+
+    for (int i = 0; i < matrix_amount; ++i) {
+        if (matrix_norms[i] == min_norm) {
+            outputMatrix(matrices[i]);
+            printf("----------\n");
+        }
+    }
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -552,7 +585,7 @@ void test_ex12() {
 
 
 void test_ex13() {
-    printf("test_ex12\n");
+    printf("test_ex13\n");
     matrix *ms = createArrayOfMatrixFromArray((int[]) {
             7, 1, 1, 1, 
             1, 6, 2, 2, 
@@ -573,7 +606,7 @@ void test_ex13() {
 
 
 void test_ex14() {
-    printf("test_ex12\n");
+    printf("test_ex14\n");
     matrix *ms = createArrayOfMatrixFromArray((int[]) {
             0, 1, 1, 0, 0, 0,
             1, 1, 2, 1, 1, 1,
@@ -594,6 +627,27 @@ void test_ex14() {
 }
 
 
+void test_ex15() {
+    printf("test_ex15\n");
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {
+            7, 1, 1, 1, 
+            1, 6, 2, 2, 
+            5, 4, 2, 3, 
+            1, 3, 7, 9
+        }, 4, 2, 2
+    );
+
+    printf("test matrices:\n");
+    outputMatrices(ms, 4);
+
+    printf("Answer: \n");
+    printMatricesWithMinNorm(ms, 4);
+
+    freeMemMatrices(ms, 4);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -610,6 +664,7 @@ void tests() {
     test_ex12();
     test_ex13();
     test_ex14();
+    test_ex15();
 }
 
 
