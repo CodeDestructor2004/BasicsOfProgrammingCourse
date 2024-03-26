@@ -29,6 +29,11 @@ void sortRowsByMaxElement(matrix matrix) {
     insertionSortRowsMatrixByRowCriteria(matrix, getMax);
 }
 
+// Task3
+void sortColsByMinElement(matrix matrix) {
+    selectionSortColsMatrixByColCriteria(matrix, getMin);
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -74,9 +79,33 @@ void test_ex2() {
 }
 
 
+void test_ex3() {
+    printf("test_ex3\n");
+    matrix m = createMatrixFromArray((int[]) {
+        3, 5, 2, 4, 3, 3,
+        2, 5, 1, 8, 2, 7,
+        6, 1, 4, 4, 8, 3,
+        }, 3, 6
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    sortColsByMinElement(m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
+
 void tests() {
     test_ex1();
     test_ex2();
+    test_ex3();
 }
 
 
