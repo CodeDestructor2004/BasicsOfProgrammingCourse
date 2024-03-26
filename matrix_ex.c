@@ -109,6 +109,42 @@ int getMinInArea(matrix matrix) {
     return min;
 }
 
+// Task 9
+float getDistance(const int* values, int value_amount) {
+    float squared_distance = 0;
+
+    for (int i = 0; i < value_amount; ++i) {
+        int value = values[i];
+
+        squared_distance += ((float) (value * value));
+    }
+
+    return sqrtf(squared_distance);
+}
+
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, 
+float (*criteria)(const int*, int)) {
+    for (int i = 0; i < m.rows; i++) {
+        int* row = m.values[i];
+        int weight = criteria(row, m.cols);
+        int j = i + 1;
+        int current_weight;
+
+        while (j >= 0 && (current_weight = criteria(m.values[j], m.cols)) > weight) {
+            m.values[j + 1] = m.values[j];
+            weight = current_weight;
+            j--;
+        }
+
+        m.values[j + 1] = row;
+    }
+}
+
+
+void sortByDistances(matrix matrix) {
+    insertionSortRowsMatrixByRowCriteriaF(matrix, getDistance);
+}
 
 
 void test_ex1() {
@@ -324,6 +360,28 @@ void test_ex8() {
 }
 
 
+void test_ex9() {
+    printf("test_ex9\n");
+    matrix m = createMatrixFromArray((int[]) {
+        3, 5, 2, 4,
+        2, 5, 1, 8,
+        6, 1, 4, 4,
+        }, 3, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    sortByDistances(m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -334,6 +392,7 @@ void tests() {
     test_ex6_1();
     test_ex7();
     test_ex8();
+    test_ex9();
 }
 
 
