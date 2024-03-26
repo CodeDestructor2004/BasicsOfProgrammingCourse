@@ -281,6 +281,42 @@ void printMatricesWithMinNorm(matrix* matrices, int matrix_amount) {
     }
 }
 
+// Task16
+static bool isSpecial2(const int* array, int size, int index) {
+    int value = array[index];
+
+    for (int i = 0; i < index; i++) {
+        if (array[i] >= value) {
+            return false;
+        }
+    }
+
+    for (int i = index + 1; i < size; i++) {
+        if (array[i] <= value) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+int getNSpecialElement2(matrix matrix) {
+    int amount = 0;
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        int* row = matrix.values[i];
+
+        for (int j = 0; j < matrix.cols; j++) {
+            if (isSpecial2(row, matrix.cols, j)) {
+                amount++;
+            }
+        }
+    }
+
+    return amount;
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -648,6 +684,27 @@ void test_ex15() {
 }
 
 
+void test_ex16() {
+    printf("test_ex16\n");
+    matrix m = createMatrixFromArray((int[]) {
+        2, 3, 5, 5, 4,
+        6, 2, 3, 8, 12,
+        12, 12, 2, 1, 2,
+        }, 3, 5
+    );
+
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = getNSpecialElement2(m);
+
+    printf("Answer:%d \n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -665,6 +722,7 @@ void tests() {
     test_ex13();
     test_ex14();
     test_ex15();
+    test_ex16();
 }
 
 
