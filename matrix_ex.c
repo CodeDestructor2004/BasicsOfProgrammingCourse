@@ -24,6 +24,11 @@ void swapMaxElementRowAndMinElementRow(matrix matrix) {
     swapRows(matrix, minRow, maxRow);
 }
 
+// Task2
+void sortRowsByMaxElement(matrix matrix) {
+    insertionSortRowsMatrixByRowCriteria(matrix, getMax);
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -47,8 +52,31 @@ void test_ex1() {
 }
 
 
+void test_ex2() {
+    printf("test_ex2\n");
+    matrix m = createMatrixFromArray((int[]) {
+        7, 1, 2,
+        1, 8, 1,
+        3, 2, 3,
+        }, 3, 3
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    sortRowsByMaxElement(m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
+    test_ex2();
 }
 
 

@@ -149,7 +149,6 @@ int (*criteria)(int*, int)) {
         }
 
         m.values[j + 1] = row;
-        printf("a");
     }
 }
 
