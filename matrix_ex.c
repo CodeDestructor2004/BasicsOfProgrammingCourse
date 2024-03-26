@@ -146,6 +146,17 @@ void sortByDistances(matrix matrix) {
     insertionSortRowsMatrixByRowCriteriaF(matrix, getDistance);
 }
 
+// Task10
+int countEqClassesByRowsSum(matrix matrix) {
+    long long row_sums[matrix.rows];
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        row_sums[i] = getSum(matrix.values[i], matrix.cols);
+    }
+
+    return countUniques(row_sums, matrix.rows);
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -382,6 +393,30 @@ void test_ex9() {
 }
 
 
+void test_ex10() {
+    printf("test_ex10\n");
+    matrix m = createMatrixFromArray((int[]) {
+        7, 1, 
+        2, 7, 
+        5, 4, 
+        4, 3, 
+        1, 6, 
+        8, 0, 
+        }, 6, 2
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = countEqClassesByRowsSum(m);
+
+    printf("Answer: %d\n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -393,6 +428,7 @@ void tests() {
     test_ex7();
     test_ex8();
     test_ex9();
+    test_ex10();
 }
 
 
