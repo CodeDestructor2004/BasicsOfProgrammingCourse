@@ -91,6 +91,25 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix matrix) {
     return sum;
 }
 
+//Task8
+int getMinInArea(matrix matrix) {
+    position maximum_position = getMaxValuePos(matrix);
+    int min = INT_MAX;
+
+    for (int i = 0; i <= maximum_position.rowIndex; ++i) {
+        int column_offset = (maximum_position.rowIndex - i) << 1;
+        int start_column = maxValue(0, maximum_position.colIndex - column_offset);
+        int end_column = minValue(matrix.cols - 1, maximum_position.colIndex + column_offset);
+
+        for (int j = start_column; j <= end_column; ++j) {
+            min = minValue(min, matrix.values[i][j]);
+        }
+    }
+
+    return min;
+}
+
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -284,6 +303,27 @@ void test_ex7() {
 }
 
 
+void test_ex8() {
+    printf("test_ex8\n");
+    matrix m = createMatrixFromArray((int[]) {
+        10, 7, 5, 6,
+        3, 11, 8, 9,
+        4, 1, 12, 2,
+        }, 3, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = getMinInArea(m);
+
+    printf("Answer: %d\n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -293,6 +333,7 @@ void tests() {
     test_ex6();
     test_ex6_1();
     test_ex7();
+    test_ex8();
 }
 
 
