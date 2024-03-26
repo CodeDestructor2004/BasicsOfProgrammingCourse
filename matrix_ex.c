@@ -61,6 +61,36 @@ bool isMutuallyInverseMatrices(matrix left, matrix right) {
     return isEMatrix(&multiplication);
 }
 
+// Task7
+long long findSumOfMaxesOfPseudoDiagonal(matrix matrix) {
+    int arraySize = matrix.rows + matrix.cols - 1;
+    int maxes[arraySize];
+
+    for (int i = 0; i < arraySize; ++i) {
+        maxes[i] = INT_MIN;
+    }
+
+    int increment = matrix.cols - 1;
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        for (int j = 0; j < matrix.cols; ++j) {
+            int index = i - j + increment;
+
+            maxes[index] = maxValue(maxes[index], matrix.values[i][j]);
+        }
+    }
+
+    long long sum = 0;
+
+    for (int i = 0; i < arraySize; ++i) {
+        if (i != increment) {
+            sum += maxes[i];
+        }
+    }
+
+    return sum;
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -233,6 +263,27 @@ void test_ex6_1() {
 }
 
 
+void test_ex7() {
+    printf("test_ex7\n");
+    matrix m = createMatrixFromArray((int[]) {
+        3, 2, 5, 4,
+        1, 3, 6, 3,
+        3, 2, 1, 2,
+        }, 3, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = findSumOfMaxesOfPseudoDiagonal(m);
+
+    printf("Answer: %d\n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -241,6 +292,7 @@ void tests() {
     test_ex5();
     test_ex6();
     test_ex6_1();
+    test_ex7();
 }
 
 
