@@ -41,6 +41,20 @@ void getSquareOfMatrixIfSymmetric(matrix* matrix) {
     }
 }
 
+// Task5
+void transposeIfMatrixHasNotEqualSumOfRows(matrix* matrix) {
+    long long sums[matrix->rows];
+
+    for (int i = 0; i < matrix->rows; ++i) {
+        sums[i] = getSum(matrix->values[i], matrix->cols);
+    }
+
+    if (isSet(sums, matrix->rows)) {
+        transposeMatrix(matrix);
+    }
+}
+
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -131,11 +145,36 @@ void test_ex4() {
 }
 
 
+void test_ex5() {
+    printf("test_ex5\n");
+    matrix m = createMatrixFromArray((int[]) {
+        1, 2, 3, 4,
+        5, 6, 7, 8,
+        9, 10, 11, 12,
+        13, 14, 15, 16,
+        }, 4, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
+
 void tests() {
     test_ex1();
     test_ex2();
     test_ex3();
     test_ex4();
+    test_ex5();
 }
 
 
