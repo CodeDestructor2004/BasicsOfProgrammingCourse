@@ -228,6 +228,26 @@ int countNonDescendingRowsMatrices(const matrix* matrices, int matrix_amount) {
     return amount;
 }
 
+// Task14
+void printMatrixWithMaxZeroRows(const matrix* matrices, int matrix_amount) {
+    int max_amount;
+    int zero_row_amounts[matrix_amount];
+
+    for (int i = 0; i < matrix_amount; ++i) {
+        int amount = countZeroRows(matrices[i]);
+
+        zero_row_amounts[i] = amount;
+        max_amount = maxValue(max_amount, amount);
+    }
+
+    for (int i = 0; i < matrix_amount; ++i) {
+        if (zero_row_amounts[i] == max_amount) {
+            outputMatrix(matrices[i]);
+            printf("----------\n");
+        }
+    }
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -552,6 +572,28 @@ void test_ex13() {
 }
 
 
+void test_ex14() {
+    printf("test_ex12\n");
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {
+            0, 1, 1, 0, 0, 0,
+            1, 1, 2, 1, 1, 1,
+            0, 0, 0, 0, 4, 7,
+            0, 0, 0, 1, 0, 0,
+            0, 1, 0, 2, 0, 3,
+        }, 5, 3, 2
+    );
+
+    printf("test matrices:\n");
+    outputMatrices(ms, 5);
+
+    printf("Answer: \n");
+    printMatrixWithMaxZeroRows(ms, 5);
+
+    freeMemMatrices(ms, 5);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -567,6 +609,7 @@ void tests() {
     test_ex11();
     test_ex12();
     test_ex13();
+    test_ex14();
 }
 
 
