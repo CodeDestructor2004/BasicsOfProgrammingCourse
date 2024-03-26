@@ -157,7 +157,7 @@ int countEqClassesByRowsSum(matrix matrix) {
     return countUniques(row_sums, matrix.rows);
 }
 
-// Task 11
+// Task11
 int countSpecialElements(matrix matrix) {
     int amount = 0;
 
@@ -181,6 +181,26 @@ int countSpecialElements(matrix matrix) {
     }
 
     return amount;
+}
+
+// Task12
+void swapPenultimateRow(matrix matrix) {
+    if (matrix.rows == 1) {
+        return;
+    }
+
+    int min_column = getMinValuePos(matrix).colIndex;
+    int column[matrix.rows];
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        column[i] = matrix.values[i][min_column];
+    }
+
+    int destination_row = matrix.rows - 2;
+
+    for (int i = 0; i < matrix.cols; ++i) {
+        matrix.values[destination_row][i] = column[i];
+    }
 }
 
 
@@ -464,6 +484,28 @@ void test_ex11() {
 }
 
 
+void test_ex12() {
+    printf("test_ex12\n");
+    matrix m = createMatrixFromArray((int[]) {
+        1, 2, 3,
+        4, 5, 6,
+        7, 8, 1,
+        }, 3, 3
+    );
+
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    swapPenultimateRow(m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -477,6 +519,7 @@ void tests() {
     test_ex9();
     test_ex10();
     test_ex11();
+    test_ex12();
 }
 
 
