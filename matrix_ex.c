@@ -54,6 +54,12 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix* matrix) {
     }
 }
 
+// Task6
+bool isMutuallyInverseMatrices(matrix left, matrix right) {
+    matrix multiplication = multiplyMatrices(left, right);
+
+    return isEMatrix(&multiplication);
+}
 
 
 void test_ex1() {
@@ -167,6 +173,64 @@ void test_ex5() {
     printf("\n\n");
 }
 
+void test_ex6() {
+    printf("test_ex6\n");
+    matrix m1 = createMatrixFromArray((int[]) {
+        1, 0, 0,
+        0, 1, 0,
+        0, 0, 1,
+        }, 3, 3
+    );
+
+    matrix m2 = createMatrixFromArray((int[]) {
+        1, 0, 0,
+        0, 1, 0,
+        0, 0, 1,
+        }, 3, 3
+    );
+    
+    printf("test matrix 1:\n");
+    outputMatrix(m1);
+    printf("test matrix 2:\n");
+    outputMatrix(m2);
+
+    printf("Answer: %d", isMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+
+    printf("\n\n");
+}
+
+
+void test_ex6_1() {
+    printf("test_ex6_1\n");
+    matrix m1 = createMatrixFromArray((int[]) {
+        1, 8, 7,
+        4, 2, 3,
+        7, 6, 5,
+        }, 3, 3
+    );
+
+    matrix m2 = createMatrixFromArray((int[]) {
+        4, 2, 9,
+        4, 4, 3,
+        0, 8, 1,
+        }, 3, 3
+    );
+    
+    printf("test matrix 1:\n");
+    outputMatrix(m1);
+    printf("test matrix 2:\n");
+    outputMatrix(m2);
+
+    printf("Answer: %d", isMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+
+    printf("\n\n");
+}
 
 
 void tests() {
@@ -175,6 +239,8 @@ void tests() {
     test_ex3();
     test_ex4();
     test_ex5();
+    test_ex6();
+    test_ex6_1();
 }
 
 
