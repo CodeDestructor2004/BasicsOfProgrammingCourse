@@ -317,6 +317,60 @@ int getNSpecialElement2(matrix matrix) {
     return amount;
 }
 
+// Task17
+static double getScalarProduct(const int* left_vector, 
+const int* right_vector, int vector_value_amount) {
+    double product = 0;
+
+    for (int i = 0; i < vector_value_amount; ++i) {
+        product += left_vector[i] * right_vector[i];
+    }
+
+    return product;
+}
+
+
+double getVectorLength(const int* vector, int vector_value_amount) {
+    double squared_values_sum = 0;
+
+    for (int i = 0; i < vector_value_amount; ++i) {
+        squared_values_sum += pow(vector[i], 2);
+    }
+
+    return sqrt(squared_values_sum);
+}
+
+
+double getCosine(const int* left_vector, const int* right_vector, int vector_value_amount) {
+    double scalar_product = getScalarProduct(left_vector, right_vector, vector_value_amount);
+    double left_vector_length = getVectorLength(left_vector, vector_value_amount);
+    double right_vector_length = getVectorLength(right_vector, vector_value_amount);
+
+    return scalar_product / (left_vector_length * right_vector_length);
+}
+
+
+double getAngle(const int* left_vector, const int* right_vector, int vector_value_amount) {
+    return acos(getCosine(left_vector, right_vector, vector_value_amount));
+}
+
+
+int getVectorIndexWithMaxAngle(matrix vectors_matrix, const int* vector) {
+    int max_index = 0;
+    double max_angle = getAngle(vectors_matrix.values[0], vector, vectors_matrix.cols);
+
+    for (int i = 1; i < vectors_matrix.rows; ++i) {
+        double angle = getAngle(vectors_matrix.values[i], vector, vectors_matrix.cols);
+
+        if (angle > max_angle) {
+            max_index = i;
+            max_angle = angle;
+        }
+    }
+
+    return max_index;
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -705,6 +759,31 @@ void test_ex16() {
 }
 
 
+void test_ex17() {
+    printf("test_ex16\n");
+    matrix m = createMatrixFromArray((int[]) {
+        2, 3, 5, 
+        5, 4, 6, 
+        2, 3, 8, 
+        12, 12, 12, 
+        2, 1, 2,
+        }, 5, 3
+    );
+
+    const int vc[] = {4, 3, 2, 6, 5};
+
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    int answer = getVectorIndexWithMaxAngle(m, vc);
+
+    printf("Answer: %d \n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -723,6 +802,7 @@ void tests() {
     test_ex14();
     test_ex15();
     test_ex16();
+    test_ex17();
 }
 
 
