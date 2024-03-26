@@ -157,6 +157,32 @@ int countEqClassesByRowsSum(matrix matrix) {
     return countUniques(row_sums, matrix.rows);
 }
 
+// Task 11
+int countSpecialElements(matrix matrix) {
+    int amount = 0;
+
+    for (int i = 0; i < matrix.cols; ++i) {
+        int* row = matrix.values[i];
+
+        for (int j = 0; j < matrix.rows; ++j) {
+            int sum_other = 0;
+
+            for (int k = 0; k < matrix.rows; k++) {
+                if (k != j) {
+                    sum_other += row[k];
+                }
+            }
+
+            if (row[j] > sum_other) {
+                amount++;
+                break;
+            }
+        }
+    }
+
+    return amount;
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -417,6 +443,27 @@ void test_ex10() {
 }
 
 
+void test_ex11() {
+    printf("test_ex11\n");
+    matrix m = createMatrixFromArray((int[]) {
+        3, 5, 5, 4,
+        2, 3, 6, 7,
+        12, 2, 1, 2,
+        }, 3, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = countSpecialElements(m);
+
+    printf("Answer: %d\n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -429,6 +476,7 @@ void tests() {
     test_ex8();
     test_ex9();
     test_ex10();
+    test_ex11();
 }
 
 
