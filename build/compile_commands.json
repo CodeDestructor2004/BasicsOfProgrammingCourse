@@ -24,6 +24,12 @@
   "output": "CMakeFiles/course.dir/matrix_test.c.obj"
 },
 {
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\matrix_ex.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\matrix_ex.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/matrix_ex.c",
+  "output": "CMakeFiles/course.dir/matrix_ex.c.obj"
+},
+{
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\bitset\\bitset.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\bitset\\bitset.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/bitset/bitset.c",
@@ -70,5 +76,11 @@
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\algorithms.dir\\array\\array.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\algorithms\\array\\array.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/algorithms/array/array.c",
   "output": "libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/util",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\util.dir\\util.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\util\\util.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/util/util.c",
+  "output": "libs/util/CMakeFiles/util.dir/util.c.obj"
 }
 ]

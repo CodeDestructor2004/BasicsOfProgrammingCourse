@@ -9,3 +9,6 @@ C:/Users/Danila/Documents/Лабы/Основы программирования
 C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms/CMakeFiles/algorithms.dir
 C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms/CMakeFiles/edit_cache.dir
 C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms/CMakeFiles/rebuild_cache.dir
+C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/util/CMakeFiles/util.dir
+C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/util/CMakeFiles/edit_cache.dir
+C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/util/CMakeFiles/rebuild_cache.dir

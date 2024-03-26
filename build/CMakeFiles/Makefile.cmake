@@ -32,6 +32,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/CMakeLists.txt"
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/algorithms/CMakeLists.txt"
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/CMakeLists.txt"
+  "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/util/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -46,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "libs/CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/data_structures/CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/algorithms/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/util/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/course.dir/DependInfo.cmake"
   "libs/data_structures/CMakeFiles/data_structures.dir/DependInfo.cmake"
   "libs/algorithms/CMakeFiles/algorithms.dir/DependInfo.cmake"
+  "libs/util/CMakeFiles/util.dir/DependInfo.cmake"
   )

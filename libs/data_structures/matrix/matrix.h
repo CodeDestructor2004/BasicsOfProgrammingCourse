@@ -100,4 +100,7 @@ size_t matrices_amount, size_t rows, size_t cols);
 // Возвращает количество нулевых строк в матрице m
 int countZeroRows(matrix m);
 
+// Умножает матрицу left на матрицу right
+matrix multiplyMatrices(matrix left, matrix right);
+
 #endif

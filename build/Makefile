@@ -154,6 +154,19 @@ algorithms/fast:
 	$(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/build
 .PHONY : algorithms/fast
 
+#=============================================================================
+# Target rules for targets named util
+
+# Build rule for target.
+util: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 util
+.PHONY : util
+
+# fast build rule for target.
+util/fast:
+	$(MAKE) $(MAKESILENT) -f libs\util\CMakeFiles\util.dir\build.make libs/util/CMakeFiles/util.dir/build
+.PHONY : util/fast
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -177,6 +190,30 @@ main.s: main.c.s
 main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/main.c.s
 .PHONY : main.c.s
+
+matrix_ex.obj: matrix_ex.c.obj
+.PHONY : matrix_ex.obj
+
+# target to build an object file
+matrix_ex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_ex.c.obj
+.PHONY : matrix_ex.c.obj
+
+matrix_ex.i: matrix_ex.c.i
+.PHONY : matrix_ex.i
+
+# target to preprocess a source file
+matrix_ex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_ex.c.i
+.PHONY : matrix_ex.c.i
+
+matrix_ex.s: matrix_ex.c.s
+.PHONY : matrix_ex.s
+
+# target to generate assembly for a file
+matrix_ex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_ex.c.s
+.PHONY : matrix_ex.c.s
 
 matrix_test.obj: matrix_test.c.obj
 .PHONY : matrix_test.obj
@@ -261,9 +298,13 @@ help:
 	@echo ... algorithms
 	@echo ... course
 	@echo ... data_structures
+	@echo ... util
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... matrix_ex.obj
+	@echo ... matrix_ex.i
+	@echo ... matrix_ex.s
 	@echo ... matrix_test.obj
 	@echo ... matrix_test.i
 	@echo ... matrix_test.s

@@ -4,6 +4,18 @@
 #include <assert.h>
 #include <string.h>
 
+
+int** allocateCells(int rows, int columns) {
+    int** cells = (int**) malloc(sizeof(int*) * rows);
+
+    for (int i = 0; i < rows; i++) {
+        cells[i] = (int*) malloc(sizeof(int) * columns);
+    }
+
+    return cells;
+}
+
+
 matrix getMemMatrix(int rows, int cols) {
     int **values = (int **) malloc(sizeof(int*) * rows);
 
@@ -137,6 +149,7 @@ int (*criteria)(int*, int)) {
         }
 
         m.values[j + 1] = row;
+        printf("a");
     }
 }
 
@@ -366,4 +379,32 @@ int countZeroRows(matrix m) {
     }
 
     return amount;
+}
+
+
+matrix multiplyMatrices(matrix left, matrix right) {
+    if (left.cols != right.rows) {
+        fprintf(stderr, "Unable to multiply matrices.");
+        exit(EXIT_FAILURE);
+    }
+
+    int result_rows = left.rows;
+    int result_columns = right.cols;
+    int** resultCells = allocateCells(result_rows, result_columns);
+
+    for (int i = 0; i < result_rows; ++i) {
+        int* row = left.values[i];
+
+        for (int j = 0; j < result_columns; ++j) {
+            int sum = 0;
+
+            for (int k = 0; k < left.cols; ++k) {
+                sum += row[k] * right.values[j][k];
+            }
+
+            resultCells[i][j] = sum;
+        }
+    }
+
+    return (matrix) { resultCells, result_rows, result_columns };
 }
