@@ -5,7 +5,7 @@
 
 // Task1
 void swapMaxElementRowAndMinElementRow(matrix matrix) {
-    int min = INT_MAX, minRow = -1, max = 0, maxRow = -1;
+    int min = INT_MAX, min_row = -1, max = 0, max_row = -1;
 
     for (int i = 0; i < matrix.rows; ++i) {
         for (int j = 0; j < matrix.cols; ++j) {
@@ -13,15 +13,15 @@ void swapMaxElementRowAndMinElementRow(matrix matrix) {
 
             if (value < min) {
                 min = value;
-                minRow = i;
+                min_row = i;
             } else if (value > max) {
                 max = value;
-                maxRow = i;
+                max_row = i;
             }
         }
     }
 
-    swapRows(matrix, minRow, maxRow);
+    swapRows(matrix, min_row, max_row);
 }
 
 // Task2
@@ -32,6 +32,13 @@ void sortRowsByMaxElement(matrix matrix) {
 // Task3
 void sortColsByMinElement(matrix matrix) {
     selectionSortColsMatrixByColCriteria(matrix, getMin);
+}
+
+// Task4
+void getSquareOfMatrixIfSymmetric(matrix* matrix) {
+    if (isSymmetricMatrix(matrix)) {
+        *matrix = multiplyMatrices(*matrix, *matrix);
+    }
 }
 
 
@@ -101,11 +108,34 @@ void test_ex3() {
 }
 
 
+void test_ex4() {
+    printf("test_ex4\n");
+    matrix m = createMatrixFromArray((int[]) {
+        2, 0, 0, 2,
+        0, 2, 2, 0,
+        0, 2, 2, 0,
+        2, 0, 0, 2,
+        }, 4, 4
+    );
+    
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    printf("Answer:\n");
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
 
 void tests() {
     test_ex1();
     test_ex2();
     test_ex3();
+    test_ex4();
 }
 
 
