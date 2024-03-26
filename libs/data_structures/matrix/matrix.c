@@ -95,6 +95,7 @@ void outputMatrix(matrix m) {
 void outputMatrices(matrix* ms, int matrices_amount) {
     for (int i = 0; i < matrices_amount; i++) {
         outputMatrix(ms[i]);
+        printf("----------\n");
     }
 }
 

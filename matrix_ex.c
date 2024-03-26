@@ -204,6 +204,31 @@ void swapPenultimateRow(matrix matrix) {
 }
 
 
+// Task 13
+static bool hasAllNonDescendingRows(matrix matrix) {
+    for (int i = 0; i < matrix.rows; ++i) {
+        if (!isNonDescending(matrix.values[i], matrix.cols)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+int countNonDescendingRowsMatrices(const matrix* matrices, int matrix_amount) {
+    int amount = 0;
+
+    for (int i = 0; i < matrix_amount; ++i) {
+        if (hasAllNonDescendingRows(matrices[i])) {
+            amount++;
+        }
+    }
+
+    return amount;
+}
+
+
 void test_ex1() {
     printf("test_ex1\n");
     matrix m = createMatrixFromArray((int[]) {
@@ -506,6 +531,27 @@ void test_ex12() {
 }
 
 
+void test_ex13() {
+    printf("test_ex12\n");
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {
+            7, 1, 1, 1, 
+            1, 6, 2, 2, 
+            5, 4, 2, 3, 
+            1, 3, 7, 9
+        }, 4, 2, 2
+    );
+
+    printf("test matrices:\n");
+    outputMatrices(ms, 4);
+
+    long long answer = countNonDescendingRowsMatrices(ms, 4);
+    printf("Answer: %d\n", answer);
+
+    freeMemMatrices(ms, 4);
+    printf("\n\n");
+}
+
+
 void tests() {
     test_ex1();
     test_ex2();
@@ -520,6 +566,7 @@ void tests() {
     test_ex10();
     test_ex11();
     test_ex12();
+    test_ex13();
 }
 
 
