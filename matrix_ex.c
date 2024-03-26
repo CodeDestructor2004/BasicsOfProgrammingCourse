@@ -371,6 +371,23 @@ int getVectorIndexWithMaxAngle(matrix vectors_matrix, const int* vector) {
     return max_index;
 }
 
+// Task18
+long long getScalarProductRowAndCol(matrix matrix, int row_index, int column_index) {
+    int column[matrix.rows];
+
+    for (int i = 0; i < matrix.rows; ++i) {
+        column[i] = matrix.values[i][column_index];
+    }
+
+    return (long long) getScalarProduct(column, matrix.values[row_index], matrix.rows);
+}
+
+
+long long getSpecialScalarProduct(matrix matrix) {
+    return getScalarProductRowAndCol(
+        matrix,getMaxValuePos(matrix).rowIndex,getMinValuePos(matrix).colIndex);
+}
+
 
 void test_ex1() {
     printf("test_ex1\n");
@@ -752,7 +769,7 @@ void test_ex16() {
 
     long long answer = getNSpecialElement2(m);
 
-    printf("Answer:%d \n", answer);
+    printf("Answer:%lld \n", answer);
 
     freeMemMatrix(&m);
     printf("\n\n");
@@ -760,7 +777,7 @@ void test_ex16() {
 
 
 void test_ex17() {
-    printf("test_ex16\n");
+    printf("test_ex17\n");
     matrix m = createMatrixFromArray((int[]) {
         2, 3, 5, 
         5, 4, 6, 
@@ -778,6 +795,28 @@ void test_ex17() {
     int answer = getVectorIndexWithMaxAngle(m, vc);
 
     printf("Answer: %d \n", answer);
+
+    freeMemMatrix(&m);
+    printf("\n\n");
+}
+
+
+void test_ex18() {
+    printf("test_ex18\n");
+    matrix m = createMatrixFromArray((int[]) {
+        3, 5, 12, 6,
+        0, 8, 15, 11,
+        1, 4, 7, 9,
+        13, 2, 10, 14
+        }, 4, 4
+    );
+
+    printf("test matrix:\n");
+    outputMatrix(m);
+
+    long long answer = getSpecialScalarProduct(m);
+
+    printf("Answer: %lld \n", answer);
 
     freeMemMatrix(&m);
     printf("\n\n");
@@ -803,6 +842,7 @@ void tests() {
     test_ex15();
     test_ex16();
     test_ex17();
+    test_ex18();
 }
 
 
