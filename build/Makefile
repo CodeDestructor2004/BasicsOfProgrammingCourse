@@ -167,6 +167,30 @@ util/fast:
 	$(MAKE) $(MAKESILENT) -f libs\util\CMakeFiles\util.dir\build.make libs/util/CMakeFiles/util.dir/build
 .PHONY : util/fast
 
+libs/data_structures/string/tasks/str_test.obj: libs/data_structures/string/tasks/str_test.c.obj
+.PHONY : libs/data_structures/string/tasks/str_test.obj
+
+# target to build an object file
+libs/data_structures/string/tasks/str_test.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj
+.PHONY : libs/data_structures/string/tasks/str_test.c.obj
+
+libs/data_structures/string/tasks/str_test.i: libs/data_structures/string/tasks/str_test.c.i
+.PHONY : libs/data_structures/string/tasks/str_test.i
+
+# target to preprocess a source file
+libs/data_structures/string/tasks/str_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.i
+.PHONY : libs/data_structures/string/tasks/str_test.c.i
+
+libs/data_structures/string/tasks/str_test.s: libs/data_structures/string/tasks/str_test.c.s
+.PHONY : libs/data_structures/string/tasks/str_test.s
+
+# target to generate assembly for a file
+libs/data_structures/string/tasks/str_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.s
+.PHONY : libs/data_structures/string/tasks/str_test.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -299,6 +323,9 @@ help:
 	@echo ... course
 	@echo ... data_structures
 	@echo ... util
+	@echo ... libs/data_structures/string/tasks/str_test.obj
+	@echo ... libs/data_structures/string/tasks/str_test.i
+	@echo ... libs/data_structures/string/tasks/str_test.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -30,6 +30,12 @@
   "output": "CMakeFiles/course.dir/matrix_ex.c.obj"
 },
 {
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\libs\\data_structures\\string\\tasks\\str_test.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\string\\tasks\\str_test.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/string/tasks/str_test.c",
+  "output": "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
+},
+{
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\bitset\\bitset.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\bitset\\bitset.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/bitset/bitset.c",
@@ -64,6 +70,12 @@
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\matrix\\matrix.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\matrix\\matrix.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/matrix/matrix.c",
   "output": "libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\data_structures.dir\\string\\string_.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\string\\string_.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/string/string_.c",
+  "output": "libs/data_structures/CMakeFiles/data_structures.dir/string/string_.c.obj"
 },
 {
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/algorithms",

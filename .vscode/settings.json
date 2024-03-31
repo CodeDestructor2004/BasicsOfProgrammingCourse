@@ -3,7 +3,9 @@
         "limits.h": "c",
         "array.h": "c",
         "matrix.h": "c",
-        "limits": "c"
+        "limits": "c",
+        "ctype.h": "c",
+        "string_.h": "c"
     },
     "cmake.configureOnOpen": false
 }

@@ -7,7 +7,8 @@ add_executable(course main.c
 vec.c
 vecV.c
 matrix_test.c
-matrix_ex.c)
+matrix_ex.c
+libs/data_structures/string/tasks/str_test.c)
 
 add_subdirectory(libs)
 target_link_libraries(course data_structures)

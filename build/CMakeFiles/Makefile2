@@ -150,12 +150,12 @@ CMakeFiles/course.dir/all: libs/algorithms/CMakeFiles/algorithms.dir/all
 CMakeFiles/course.dir/all: libs/util/CMakeFiles/util.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=4,5,6,7,8,9 "Built target course"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=4,5,6,7,8,9,10 "Built target course"
 .PHONY : CMakeFiles/course.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/course.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 18
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/course.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 0
 .PHONY : CMakeFiles/course.dir/rule
@@ -176,12 +176,12 @@ CMakeFiles/course.dir/clean:
 libs/data_structures/CMakeFiles/data_structures.dir/all: libs/algorithms/CMakeFiles/algorithms.dir/all
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=10,11,12,13,14,15,16 "Built target data_structures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=11,12,13,14,15,16,17,18 "Built target data_structures"
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/all
 
 # Build rule for subdir invocation for target.
 libs/data_structures/CMakeFiles/data_structures.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 libs/data_structures/CMakeFiles/data_structures.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" 0
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/rule
@@ -228,7 +228,7 @@ libs/algorithms/CMakeFiles/algorithms.dir/clean:
 libs/util/CMakeFiles/util.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs\util\CMakeFiles\util.dir\build.make libs/util/CMakeFiles/util.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\util\CMakeFiles\util.dir\build.make libs/util/CMakeFiles/util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=17,18 "Built target util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=19,20 "Built target util"
 .PHONY : libs/util/CMakeFiles/util.dir/all
 
 # Build rule for subdir invocation for target.

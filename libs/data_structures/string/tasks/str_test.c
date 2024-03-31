@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../string_.c"
 
-
+// Тесты
 void test_strlen_1() {
     printf("test_strlen_1\n");
     char str_test[] = "\tHello\t";
