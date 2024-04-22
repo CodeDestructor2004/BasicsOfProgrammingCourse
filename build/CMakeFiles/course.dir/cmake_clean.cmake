@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
   "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj.d"
+  "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj"
+  "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj.d"
   "CMakeFiles/course.dir/main.c.obj"
   "CMakeFiles/course.dir/main.c.obj.d"
   "CMakeFiles/course.dir/matrix_ex.c.obj"

@@ -6,6 +6,11 @@
 #include <memory.h>
 #include <stdbool.h>
 
+// Функция теста строк
+void assertString(const char *expected, char *got,
+char const *fileName, char const *funcName,
+int line);
+
 // Поиск длины строки по адресу begin
 size_t strlen_(char* begin);
 
@@ -34,7 +39,7 @@ char* findNonSpaceReverse(char* rbegin, const char* rend);
 char* findSpaceReverse(char* rbegin, const char* rend);
 
 // Проверка строк по адресу left и right на равенство
-int strAreEqual(char* left, char* right);
+int strcmp_(const char* left, const char* right);
 
 // Записывает по адресу destination фрагмент памяти, начиная 
 // с адреса begin до end. Возвращает 
@@ -44,12 +49,14 @@ char* copy(const char* begin, const char* end, char* destination);
 // Записывает по адресу destination элементы из фрагмента памяти 
 // начиная с begin заканчивая end, удовлетворяющие функции-предикату f. Функция
 // возвращает указатель на следующий свободный для записи фрагмент в памяти.
-char* copyIf(char* begin, const char* end, char* destination, int (*f)(char));
+char* copyIf(char* begin, const char* end, char* destination, int (*f)(int));
 
 // записывает по адресу destination элементы из фрагмента памяти 
 // начиная с rbegin заканчивая rend, удовлетворяющие функции-предикату f. 
 // Функция возвращает значение destination по окончанию работы функции.
-char* copyIfReverse(char* rbegin, const char* rend, char* destination, int (*f)(char));
+char* copyIfReverse(char* rbegin, const char* rend, char* destination, int (*f)(int));
 
+
+void removeNonLetters(char *s);
 
 #endif //STRING__H

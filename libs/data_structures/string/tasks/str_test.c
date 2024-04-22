@@ -238,7 +238,7 @@ void test_strAreEqual_1() {
     char str_test_2[] = "These strings are equal";
     printf("Test string 2: \"%s\"\n", str_test_2);
 
-    printf("Answer: %d\n", strAreEqual(str_test_1, str_test_2));
+    printf("Answer: %d\n", strcmp_(str_test_1, str_test_2));
     printf("\n");
 }
 
@@ -252,7 +252,7 @@ void test_strAreEqual_2() {
     char str_test_2[] = "These strings are not equal-";
     printf("Test string 2: \"%s\"\n", str_test_2);
 
-    printf("Answer: %d\n", strAreEqual(str_test_1, str_test_2));
+    printf("Answer: %d\n", strcmp_(str_test_1, str_test_2));
     printf("\n");
 }
 
@@ -266,7 +266,7 @@ void test_strAreEqual_3() {
     char str_test_2[] = "These strings are equal?";
     printf("Test string 2: \"%s\"\n", str_test_2);
 
-    printf("Answer: %d\n", strAreEqual(str_test_1, str_test_2));
+    printf("Answer: %d\n", strcmp_(str_test_1, str_test_2));
     printf("\n");
 }
 
@@ -299,7 +299,7 @@ void test_copy() {
 }
 
 
-int copyIf_predicate(char symbol) {
+int copyIf_predicate(int symbol) {
     return symbol <= (int) 'M'; 
 }
 

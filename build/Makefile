@@ -191,6 +191,30 @@ libs/data_structures/string/tasks/str_test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.s
 .PHONY : libs/data_structures/string/tasks/str_test.c.s
 
+libs/data_structures/string/tasks/str_test_2.obj: libs/data_structures/string/tasks/str_test_2.c.obj
+.PHONY : libs/data_structures/string/tasks/str_test_2.obj
+
+# target to build an object file
+libs/data_structures/string/tasks/str_test_2.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj
+.PHONY : libs/data_structures/string/tasks/str_test_2.c.obj
+
+libs/data_structures/string/tasks/str_test_2.i: libs/data_structures/string/tasks/str_test_2.c.i
+.PHONY : libs/data_structures/string/tasks/str_test_2.i
+
+# target to preprocess a source file
+libs/data_structures/string/tasks/str_test_2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.i
+.PHONY : libs/data_structures/string/tasks/str_test_2.c.i
+
+libs/data_structures/string/tasks/str_test_2.s: libs/data_structures/string/tasks/str_test_2.c.s
+.PHONY : libs/data_structures/string/tasks/str_test_2.s
+
+# target to generate assembly for a file
+libs/data_structures/string/tasks/str_test_2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.s
+.PHONY : libs/data_structures/string/tasks/str_test_2.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -326,6 +350,9 @@ help:
 	@echo ... libs/data_structures/string/tasks/str_test.obj
 	@echo ... libs/data_structures/string/tasks/str_test.i
 	@echo ... libs/data_structures/string/tasks/str_test.s
+	@echo ... libs/data_structures/string/tasks/str_test_2.obj
+	@echo ... libs/data_structures/string/tasks/str_test_2.i
+	@echo ... libs/data_structures/string/tasks/str_test_2.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
