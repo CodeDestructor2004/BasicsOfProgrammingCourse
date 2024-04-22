@@ -3,7 +3,7 @@
 #include <ctype.h>
 
 
-void assertString(const char *expected, char *got,
+void assertString(const char *expected, const char *got,
 char const *fileName, char const *funcName,
 int line) {
     if (strcmp_(expected, got)) {
@@ -120,5 +120,24 @@ char* getEndOfString(char *begin) {
 void removeNonLetters(char *s) {
     char *endSource = getEndOfString(s);
     char *destination = copyIf(s, endSource, s, isgraph);
+    *destination = '\0';
+}
+
+
+void removeAdjacentEqualLetters(char *s) {
+    char *endSource = getEndOfString(s);
+    char prev = *s;
+    char *destination = s;
+
+    for (char *i = s + sizeof(char); i <= endSource; i += sizeof(char)) {
+        if(*i != prev) {
+            *destination = prev;
+            destination += sizeof(char);
+            prev = *i;
+        }
+    }
+
+    *destination = *endSource;
+    destination += sizeof(char);
     *destination = '\0';
 }

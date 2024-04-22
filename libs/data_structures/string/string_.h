@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 // Функция теста строк
-void assertString(const char *expected, char *got,
+void assertString(const char *expected, const char *got,
 char const *fileName, char const *funcName,
 int line);
 
@@ -56,7 +56,10 @@ char* copyIf(char* begin, const char* end, char* destination, int (*f)(int));
 // Функция возвращает значение destination по окончанию работы функции.
 char* copyIfReverse(char* rbegin, const char* rend, char* destination, int (*f)(int));
 
-
+// Удаляет пробелы из строки по адресу s
 void removeNonLetters(char *s);
+
+// Преобразует строку, оставляя только один символ в каждой последовательности подряд идущих одинаковых символов
+void removeAdjacentEqualLetters(char *s);
 
 #endif //STRING__H
