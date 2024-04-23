@@ -113,7 +113,7 @@ void test_outputWordsInReverseOrder_2() {
 
 
 void test_countPalindroms_1() {
-    char test_string[] = "aba,asdf,zxxz,huji,abcdcba";
+    char test_string[] = "aba,qwe,zxxz,asdf,abcdcba";
     int result = countPalindroms(test_string);
     if (result == 3)
         printf("test_countPalindroms_1 - OK\n");
@@ -164,6 +164,34 @@ void test_stringReverse_2() {
 }
 
 
+void test_getWordBeforeFirstWordWithA() {
+    WordDescriptor word;
+
+    char string_1[] = "";
+    assert(
+        getWordBeforeFirstWordWithA(string_1, &word) == EMPTY_STRING
+    );
+
+    char string_2[] = "ABC";
+    assert(
+        getWordBeforeFirstWordWithA(string_2, &word) == FIRST_WORD_WITH_A
+    );
+
+    char string_3[] = "BC A";
+    assert(
+        getWordBeforeFirstWordWithA(string_3, &word) == WORD_FOUND
+    );
+
+    char got[MAX_STRING_SIZE];
+    copy(word.begin, word.end, got);
+    got[word.end - word.begin] = '\0';
+    ASSERT_STRING("BC", got);
+
+    char string_4[] = "B Q WE YR OW IUWR";
+    assert(getWordBeforeFirstWordWithA(string_4, &word) == NOT_FOUND_A_WORD_WITH_A);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -183,6 +211,7 @@ void tests() {
     test_getMixedString_2();
     test_stringReverse_1();
     test_stringReverse_2();
+    test_getWordBeforeFirstWordWithA();
 }
 
 

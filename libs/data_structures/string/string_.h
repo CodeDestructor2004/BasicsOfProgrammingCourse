@@ -127,4 +127,15 @@ void getMixedString(char *res, char *s1, char *s2);
 // Изменяет порядок следования слов в строке на обратный
 void stringReverse(char *s);
 
+
+typedef enum WordBeforeFirstWordWithAReturnCode {
+    FIRST_WORD_WITH_A,
+    NOT_FOUND_A_WORD_WITH_A,
+    WORD_FOUND,
+    EMPTY_STRING
+} WordBeforeFirstWordWithAReturnCode;
+
+// Выводит слово данной строки, предшествующее первому из слов, содержащих букву "а". 
+void printWordBeforeFirstWordWithA(char *s);
+
 #endif //STRING__H

@@ -450,3 +450,63 @@ void stringReverse(char *s) {
     s -= sizeof(char);
     *s = '\0';
 }
+
+int hasWordLetter(WordDescriptor *word, char letter) {
+    for (char *i = word->begin; i <= word->end; i += sizeof(char)) {
+        if (*i == letter) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *source, WordDescriptor *w) {
+    WordDescriptor word_res;
+    WordDescriptor prev_word_res;
+
+
+    if (!getWord(source, &prev_word_res)) {
+        return EMPTY_STRING;
+    }
+
+    if (hasWordLetter(&prev_word_res, 'a') || hasWordLetter(&prev_word_res, 'A')) {
+        w->begin = prev_word_res.begin;
+        w->end = prev_word_res.end;
+        return FIRST_WORD_WITH_A;
+    }
+
+    source = prev_word_res.end;
+    while (getWord(source, &word_res)) {
+
+        if (hasWordLetter(&word_res, 'a') || hasWordLetter(&word_res, 'A')) {
+            w->begin = prev_word_res.begin;
+            w->end = prev_word_res.end;
+            return WORD_FOUND;
+        }
+
+        prev_word_res = word_res;
+        source = word_res.end;
+    }
+    return NOT_FOUND_A_WORD_WITH_A;
+}
+
+void printWordBeforeFirstWordWithA(char *s) {
+    WordDescriptor word;
+    WordBeforeFirstWordWithAReturnCode result = getWordBeforeFirstWordWithA(s, &word);
+
+    switch (result) {
+        case EMPTY_STRING:
+            printf("String without words");
+            break;
+        case FIRST_WORD_WITH_A:
+            printf("The first word with 'a' is first in string\n");
+            printWord(word);
+            break;
+        case WORD_FOUND:
+            printf("There is a string with word with 'a'\n");
+            printWord(word);
+        case NOT_FOUND_A_WORD_WITH_A:
+            printf("There is a string without word with 'a'");
+            break;
+    }
+}
