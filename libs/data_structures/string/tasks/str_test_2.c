@@ -205,9 +205,30 @@ void test_findLastWord_1() {
 void test_findLastWord_2() {
     char string_1[] = "lol";
     char string_2[] = "kek";
+
     printf("test_findLastWord_2\n");
     printf("\n");
     findLastWord(string_1, string_2);
+}
+
+
+void test_hasSameWords_1() {
+    char test_string[] = "asd qwe asd";
+    int result = hasSameWords(test_string);
+    if (result == 1)
+        printf("test_hasSameWords_1 - OK\n");
+    else
+        printf("test_hasSameWords_1 - ERROR\n");
+}
+
+
+void test_hasSameWords_2() {
+    char test_string[] = "asd qwe";
+    int result = hasSameWords(test_string);
+    if (result == 0)
+        printf("test_hasSameWords_2 - OK\n");
+    else
+        printf("test_hasSameWords_2 - ERROR\n");
 }
 
 
@@ -233,6 +254,8 @@ void tests() {
     test_getWordBeforeFirstWordWithA();
     test_findLastWord_1();
     test_findLastWord_2();
+    test_hasSameWords_1();
+    test_hasSameWords_2();
 }
 
 

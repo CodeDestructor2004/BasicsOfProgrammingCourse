@@ -141,4 +141,7 @@ void printWordBeforeFirstWordWithA(char *s);
 // Определяет последнее из слов первой строки, которое есть во второй строке
 void findLastWord(char *string_1, char *string_2);
 
+// Определяет, есть ли в данной строке одинаковые слова
+int hasSameWords(char *string);
+
 #endif //STRING__H
