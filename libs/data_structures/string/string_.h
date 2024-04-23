@@ -5,6 +5,11 @@
 
 #include <memory.h>
 #include <stdbool.h>
+#define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
+
+char _string_buffer[MAX_STRING_SIZE + 1];
 
 // Функция теста строк
 void assertString(const char *expected, const char *got,
@@ -61,5 +66,29 @@ void removeNonLetters(char *s);
 
 // Преобразует строку, оставляя только один символ в каждой последовательности подряд идущих одинаковых символов
 void removeAdjacentEqualLetters(char *s);
+
+
+typedef struct WordDescriptor {
+    char *begin; // позиция начала слова
+    char *end; // позиция первого символа, после последнего символа
+} WordDescriptor;
+
+// вернёт значение 0, если слово не было считано, в противном
+//случае будет возвращено значение 1 и в переменную word типа WordDescriptor
+// будут записаны позиции начала слова, и первого символа после конца слова
+int getWord(char *begin_search, WordDescriptor *word);
+
+
+// преобразует строку таким образом, чтобы цифры каждого слова были перенесены
+// в начало слова и изменить порядок следования цифр в слове на обратный
+void digitToStart(WordDescriptor word);
+
+// Аналогично getWord, но считывает слова с конца строки
+int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word);
+
+// Преобразовать строку таким образом, чтобы цифры каждого слова были
+// перенесены в конец слова без изменения порядка следования их в слове, а
+// буквы – в начало
+void digitToEnd(WordDescriptor word);
 
 #endif //STRING__H

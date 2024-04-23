@@ -141,3 +141,39 @@ void removeAdjacentEqualLetters(char *s) {
     destination += sizeof(char);
     *destination = '\0';
 }
+
+
+int getWord(char *begin_search, WordDescriptor *word) {
+    word->begin = findNonSpace(begin_search);
+    if (*word->begin == '\0')
+        return 0;
+    word->end = findSpace(word->begin);
+    return 1;
+}
+
+
+void digitToStart(WordDescriptor word) {
+    char *end_string_buffer = copy(word.begin, word.end,
+    _string_buffer);
+    char *rec_position = copyIfReverse(end_string_buffer - 1,
+    _string_buffer - 1,
+    word.begin, isdigit);
+    copyIf(_string_buffer, end_string_buffer, rec_position, isalpha);
+}
+
+
+int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word) {
+    word->begin = findNonSpaceReverse(begin_search, end_search);
+    if (word->begin == begin_search)
+        return 0;
+    word->end = begin_search;
+    return 1;
+}
+
+void digitToEnd(WordDescriptor word) {
+    char *end_string_buffer = copy(word.begin, word.end,
+                                 _string_buffer);
+    char *rec_position = copyIf(_string_buffer, end_string_buffer - 1, word.begin, isalpha);
+    copyIf(_string_buffer, end_string_buffer - 1, rec_position, isdigit);
+    *word.end = ' ';
+}
