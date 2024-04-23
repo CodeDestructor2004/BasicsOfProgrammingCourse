@@ -121,4 +121,7 @@ void outputWordsInReverseOrder(char* string);
 // Определяет количество слов-палиндромов в строке, где слова разделены запятыми
 int countPalindroms(char *s);
 
+// Получает строку, в которой чередуются слова первой и второй строки
+void getMixedString(char *res, char *s1, char *s2);
+
 #endif //STRING__H

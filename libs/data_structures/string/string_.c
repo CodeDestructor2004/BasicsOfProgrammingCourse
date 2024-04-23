@@ -397,3 +397,37 @@ int countPalindroms(char *s) {
     }
     return counter;
 }
+
+
+void getMixedString(char *res, char *s1, char *s2) {
+    WordDescriptor word1, word2;
+    bool is_w1_found, is_w2_found;
+    char *begin_search1 = s1;
+    char *begin_search2 = s2;
+    while ((is_w1_found = getWord(begin_search1, &word1)),
+            (is_w2_found = getWord(begin_search2, &word2)),
+            is_w1_found || is_w2_found) {
+
+        if (is_w1_found) {
+            if (*word1.end == '\0') {
+                *word1.end = ' ';
+            }
+
+            copy(word1.begin, word1.end, res);
+            res += word1.end - word1.begin + 1;
+            begin_search1 = word1.end;
+        }
+        if (is_w2_found) {
+            if (*word2.end == '\0') {
+                *word2.end = ' ';
+            }
+
+            copy(word2.begin, word2.end, res);
+            res += word2.end - word2.begin + 1;
+            begin_search2 = word2.end;
+        }
+
+    }
+    res -= sizeof(char);
+    *res = '\0';
+}

@@ -108,6 +108,7 @@ void test_outputWordsInReverseOrder_1() {
 void test_outputWordsInReverseOrder_2() {
     char test_string[] = "Ya";
     printf("test_outputWordsInReverseOrder_2:\n%s\n", test_string);
+    outputWordsInReverseOrder(test_string);
 }
 
 
@@ -131,6 +132,24 @@ void test_countPalindroms_2() {
 }
 
 
+void test_getMixedString_1() {
+    char test_string[MAX_STRING_SIZE] = "";
+    char string_1[] = "red blue\0";
+    char string_2[] = "green\0";
+    getMixedString(test_string, string_1, string_2);
+    ASSERT_STRING("aga1 rug2 buga3 tot4 duga5 kol6 ola7", test_string);
+}
+
+
+void test_getMixedString_2() {
+    char test_string[MAX_STRING_SIZE] = "";
+    char string_1[] = "a a a a a\0";
+    char string_2[] = "b\0";
+    getMixedString(test_string, string_1, string_2);
+    ASSERT_STRING("a b a a a a", test_string);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -146,6 +165,9 @@ void tests() {
     test_outputWordsInReverseOrder_2();
     test_countPalindroms_1();
     test_countPalindroms_2();
+    test_getMixedString_1();
+    test_getMixedString_2();
+
 }
 
 
