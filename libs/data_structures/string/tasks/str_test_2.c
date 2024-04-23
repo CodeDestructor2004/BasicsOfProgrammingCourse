@@ -59,6 +59,24 @@ void test_numToSpace_2() {
 }
 
 
+void test_replace_1() {
+    char s[MAX_STRING_SIZE] = "Ya hochu dva za laboratornuyu";
+    char s1[] = "dva";
+    char s2[] = "pyat";
+    replace(s, s1, s2);
+    ASSERT_STRING("Ya hochu pyat za laboratornuyu", s);
+}
+
+
+void test_replace_2() {
+    char s[MAX_STRING_SIZE] = "Hunter X Hunter";
+    char s1[] = "Hunter";
+    char s2[] = "Pivo";
+    replace(s, s1, s2);
+    ASSERT_STRING("Pivo X Pivo", s);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -66,6 +84,8 @@ void tests() {
     test_removeAdjacentEqualLetters_2();
     test_numToSpace_1();
     test_numToSpace_2();
+    test_replace_1();
+    test_replace_2();
 }
 
 

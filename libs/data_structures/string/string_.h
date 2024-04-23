@@ -95,4 +95,7 @@ void digitToEnd(WordDescriptor word);
 // цифру соответствующим ей числом пробелов
 void numToSpace(char *source);
 
+// Заменяет все вхождения слова w1 на слово w2
+void replace(char *source, char *w1, char *w2);
+
 #endif //STRING__H

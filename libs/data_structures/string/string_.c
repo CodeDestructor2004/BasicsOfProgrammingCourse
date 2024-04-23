@@ -192,10 +192,70 @@ void numToSpace(char *source) {
                 *rec_position = ' ';
                 rec_position += sizeof(char);
             }
-        } else {
+        } 
+        else {
             *rec_position = *read_position;
             rec_position += sizeof(char);
         }
     }
     *rec_position = '\0';
+}
+
+
+int findWord(char *begin_search, WordDescriptor *pattern_word, WordDescriptor *res_word) {
+    int counter = 0;
+    int word_len = pattern_word->end - pattern_word->begin;
+    char *search_position = pattern_word->begin;;
+    while (*begin_search != '\0') {
+        if (*begin_search == *search_position) {
+            counter++;
+            search_position += sizeof(char);
+        } else {
+            counter = 0;
+            search_position = pattern_word->begin;
+        }
+
+        if (counter == word_len) {
+            res_word->begin = begin_search - word_len + 1;
+            res_word->end = begin_search + 1;
+            return 1;
+        }
+        begin_search += sizeof(char);
+    }
+    return 0;
+}
+
+
+void replace(char *source, char *w1, char *w2) {
+    size_t w1_size = strlen_(w1);
+    size_t w2_size = strlen_(w2);
+    WordDescriptor word1 = {w1, w1 + w1_size * sizeof(char)};
+    WordDescriptor word2 = {w2, w2 + w2_size * sizeof(char)};
+    WordDescriptor wordRes;
+
+    char *read_position, *rec_position;
+
+    if (w1_size >= w2_size) {
+        read_position = source;
+        rec_position = source;
+    } 
+    else {
+        copy(source, getEndOfString(source), _string_buffer);
+        read_position = _string_buffer;
+        rec_position = source;
+    }
+
+    while (findWord(read_position, &word1, &wordRes)) {
+        if (read_position != wordRes.begin) {
+            rec_position = copy(read_position, wordRes.begin - 1, rec_position);
+        }
+        rec_position = copy(word2.begin, word2.end - 1, rec_position);
+        read_position = wordRes.end;
+    }
+
+    char *read_position_end = getEndOfString(read_position);
+    if (read_position >= read_position_end) {
+        read_position = copy(read_position, read_position_end, rec_position);
+    }
+    *read_position = '\0';
 }
