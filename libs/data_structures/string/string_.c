@@ -292,3 +292,38 @@ int isOrdered(char *source) {
     }
     return 1;
 }
+
+
+void getBagOfWords(BagOfWords *bag, char *s) {
+    WordDescriptor word_res;
+
+    int i = 0;
+    while (getWord(s, &word_res)) {
+        bag->words[i++] = word_res;
+        bag->size++;
+
+        s = word_res.end;
+    }
+}
+
+
+void printWord(WordDescriptor word) {
+    if (*word.begin == '\0') {
+        return;
+    }
+
+    while (word.begin != word.end) {
+        putc(*word.begin, stdout);
+        word.begin++;
+    }
+}
+
+
+void outputWordsInReverseOrder(char* string) {
+    getBagOfWords(&_bag, string);
+
+    for (size_t i = _bag.size - 1; i != -1; i--) {
+        printWord(_bag.words[i]);
+        putchar('\n');
+    }
+}

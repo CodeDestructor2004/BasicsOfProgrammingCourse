@@ -9,6 +9,7 @@
 #define MAX_N_WORDS_IN_STRING 100
 #define MAX_WORD_SIZE 20
 
+
 char _string_buffer[MAX_STRING_SIZE + 1];
 
 // Функция теста строк
@@ -100,5 +101,21 @@ void replace(char *source, char *w1, char *w2);
 
 // Определяет, упорядочены ли лексикографически слова данного предложения
 int isOrdered(char *source);
+
+
+typedef struct BagOfWords {
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+} BagOfWords;
+
+
+BagOfWords _bag;
+BagOfWords _bag2;
+
+// Получает позиции начала и конца каждого слова строки
+void getBagOfWords(BagOfWords *bag, char *s);
+
+// Выводит слова данной строки в обратном порядке по одному в строке экрана
+void outputWordsInReverseOrder(char* string);
 
 #endif //STRING__H

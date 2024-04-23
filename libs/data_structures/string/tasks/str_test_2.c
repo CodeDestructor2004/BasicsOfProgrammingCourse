@@ -98,6 +98,20 @@ void test_isOrdered_2() {
 }
 
 
+void test_outputWordsInReverseOrder_1() {
+    char test_string[] = "March April May";
+    printf("test_outputWordsInReverseOrder_1:\n%s\n", test_string);
+    outputWordsInReverseOrder(test_string);
+}
+
+
+void test_outputWordsInReverseOrder_2() {
+    char test_string[] = "Ya";
+    printf("test_outputWordsInReverseOrder_2:\n%s\n", test_string);
+    outputWordsInReverseOrder(test_string);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -109,6 +123,8 @@ void tests() {
     test_replace_2();
     test_isOrdered_1();
     test_isOrdered_2();
+    test_outputWordsInReverseOrder_1();
+    test_outputWordsInReverseOrder_2();
 }
 
 
