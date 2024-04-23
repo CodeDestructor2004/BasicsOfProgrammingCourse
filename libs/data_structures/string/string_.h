@@ -98,4 +98,7 @@ void numToSpace(char *source);
 // Заменяет все вхождения слова w1 на слово w2
 void replace(char *source, char *w1, char *w2);
 
+// Определяет, упорядочены ли лексикографически слова данного предложения
+int isOrdered(char *source);
+
 #endif //STRING__H

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "../string_.c"
+#include <assert.h>
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, \
 __FILE__, __FUNCTION__, __LINE__)
@@ -42,38 +43,58 @@ void test_removeAdjacentEqualLetters_2() {
 
 
 void test_numToSpace_1() {
-    char s1[] = "amo3gus!1!";
+    char test_string[] = "amo3gus!1!";
 
-    numToSpace(s1);
+    numToSpace(test_string);
 
-    ASSERT_STRING("amo   gus! !", s1);
+    ASSERT_STRING("amo   gus! !", test_string);
 }
 
 
 void test_numToSpace_2() {
-    char s1[] = "1van";
+    char test_string[] = "1van";
 
-    numToSpace(s1);
+    numToSpace(test_string);
 
-    ASSERT_STRING(" van", s1);
+    ASSERT_STRING(" van", test_string);
 }
 
 
 void test_replace_1() {
-    char s[MAX_STRING_SIZE] = "Ya hochu dva za laboratornuyu";
-    char s1[] = "dva";
-    char s2[] = "pyat";
-    replace(s, s1, s2);
-    ASSERT_STRING("Ya hochu pyat za laboratornuyu", s);
+    char test_string[MAX_STRING_SIZE] = "Ya hochu dva za laboratornuyu";
+    char string_1[] = "dva";
+    char string_2[] = "pyat";
+    replace(test_string, string_1, string_2);
+    ASSERT_STRING("Ya hochu pyat za laboratornuyu", test_string);
 }
 
 
 void test_replace_2() {
-    char s[MAX_STRING_SIZE] = "Hunter X Hunter";
-    char s1[] = "Hunter";
-    char s2[] = "Pivo";
-    replace(s, s1, s2);
-    ASSERT_STRING("Pivo X Pivo", s);
+    char test_string[MAX_STRING_SIZE] = "Hunter X Hunter";
+    char string_1[] = "Hunter";
+    char string_2[] = "Pivo";
+    replace(test_string, string_1, string_2);
+    ASSERT_STRING("Pivo X Pivo", test_string);
+}
+
+
+void test_isOrdered_1() {
+    char test_string[] = "alpha beta gamma";
+    int result = isOrdered(test_string);
+    if (result == 1)
+        printf("test_isOrdered_1 - OK\n");
+    else
+        printf("test_isOrdered_1 - ERROR\n");
+}
+
+
+void test_isOrdered_2() {
+    char test_string[] = "z a";
+    int result = isOrdered(test_string);
+    if (result == 0)
+        printf("test_isOrdered_2 - OK\n");
+    else
+        printf("test_isOrdered_2 - ERROR\n");
 }
 
 
@@ -86,6 +107,8 @@ void tests() {
     test_numToSpace_2();
     test_replace_1();
     test_replace_2();
+    test_isOrdered_1();
+    test_isOrdered_2();
 }
 
 

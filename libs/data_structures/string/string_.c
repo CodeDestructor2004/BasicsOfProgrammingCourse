@@ -259,3 +259,36 @@ void replace(char *source, char *w1, char *w2) {
     }
     *read_position = '\0';
 }
+
+
+int isOrdered(char *source) {
+    WordDescriptor word_res;
+    WordDescriptor prev_word_res;
+
+    if (!getWord(source, &prev_word_res)) {
+        return 1;
+    }
+
+    source = prev_word_res.end;
+    while (getWord(source, &word_res)) {
+        unsigned long len1 = prev_word_res.end - prev_word_res.begin;
+        unsigned long len2 = word_res.end - word_res.begin;
+        unsigned long min_len = len1;
+        if (min_len > len2) {
+            min_len = len2;
+        }
+
+        int res = memcmp(prev_word_res.begin, word_res.begin, min_len);
+
+        if (res > 0) {
+            return 0;
+        }
+        if ((res == 0) && (len1 > len2)) {
+            return 0;
+        }
+
+        prev_word_res = word_res;
+        source = word_res.end;
+    }
+    return 1;
+}
