@@ -135,7 +135,10 @@ typedef enum WordBeforeFirstWordWithAReturnCode {
     EMPTY_STRING
 } WordBeforeFirstWordWithAReturnCode;
 
-// Выводит слово данной строки, предшествующее первому из слов, содержащих букву "а". 
+// Выводит слово данной строки, предшествующее первому из слов, содержащих букву "а"
 void printWordBeforeFirstWordWithA(char *s);
+
+// Определяет последнее из слов первой строки, которое есть во второй строке
+void findLastWord(char *string_1, char *string_2);
 
 #endif //STRING__H

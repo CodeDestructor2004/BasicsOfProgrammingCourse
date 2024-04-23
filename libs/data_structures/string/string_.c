@@ -1,5 +1,6 @@
 #include "string_.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 
@@ -316,6 +317,7 @@ void printWord(WordDescriptor word) {
         putc(*word.begin, stdout);
         word.begin++;
     }
+    putc('\n', stdout);
 }
 
 
@@ -324,7 +326,6 @@ void outputWordsInReverseOrder(char* string) {
 
     for (size_t i = _bag.size - 1; i != -1; i--) {
         printWord(_bag.words[i]);
-        putchar('\n');
     }
 }
 
@@ -508,5 +509,38 @@ void printWordBeforeFirstWordWithA(char *s) {
         case NOT_FOUND_A_WORD_WITH_A:
             printf("There is a string without word with 'a'");
             break;
+    }
+}
+
+
+void clearBagOfWords(BagOfWords *bag) {
+    bag->size = 0;
+}
+
+
+void findLastWord(char *string_1, char *string_2) {
+    clearBagOfWords(&_bag);
+    clearBagOfWords(&_bag2);
+    getBagOfWords(&_bag, string_1);
+    getBagOfWords(&_bag2, string_2);
+
+    size_t len1 = 0;
+    size_t len2 = 0;
+
+    for (int i = _bag.size - 1; i >= 0; i--) {
+        for (int j = _bag2.size - 1; j >= 0; j--) {
+            len1 = &_bag.words[i].end - &_bag.words[i].begin;
+            len2 = &_bag2.words[j].end - &_bag2.words[j].begin;
+
+            if (len1 != len2) {
+                continue;
+            }
+
+            int res = memcmp(_bag.words[i].begin, _bag2.words[j].begin, len1);
+
+            if (res == 0) {
+                printWord(_bag.words[i]);
+            }
+        }
     }
 }

@@ -5,7 +5,8 @@
         "matrix.h": "c",
         "limits": "c",
         "ctype.h": "c",
-        "string_.h": "c"
+        "string_.h": "c",
+        "stdlib.h": "c"
     },
     "cmake.configureOnOpen": false
 }

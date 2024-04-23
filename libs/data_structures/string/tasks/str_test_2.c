@@ -192,6 +192,25 @@ void test_getWordBeforeFirstWordWithA() {
 }
 
 
+void test_findLastWord_1() {
+    char string_1[] = "one three";
+    char string_2[] = "one three four";
+
+    printf("test_findLastWord_1\n");
+    printf("three\n");
+    findLastWord(string_1, string_2);
+}
+
+
+void test_findLastWord_2() {
+    char string_1[] = "lol";
+    char string_2[] = "kek";
+    printf("test_findLastWord_2\n");
+    printf("\n");
+    findLastWord(string_1, string_2);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -212,6 +231,8 @@ void tests() {
     test_stringReverse_1();
     test_stringReverse_2();
     test_getWordBeforeFirstWordWithA();
+    test_findLastWord_1();
+    test_findLastWord_2();
 }
 
 
