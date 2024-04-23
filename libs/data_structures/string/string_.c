@@ -431,3 +431,22 @@ void getMixedString(char *res, char *s1, char *s2) {
     res -= sizeof(char);
     *res = '\0';
 }
+
+
+void stringReverse(char *s) {
+    copy(s, getEndOfString(s), _string_buffer);
+
+    WordDescriptor wordRes;
+    char *end = getEndOfString(_string_buffer) + sizeof(char);
+
+    while ((end >= _string_buffer) && getWordReverse(end, _string_buffer,&wordRes)) {
+        end = wordRes.begin - sizeof(char);
+
+        copy(wordRes.begin, wordRes.end, s);
+        s += wordRes.end - wordRes.begin;
+        *s = ' ';
+        s += sizeof(char);
+    }
+    s -= sizeof(char);
+    *s = '\0';
+}

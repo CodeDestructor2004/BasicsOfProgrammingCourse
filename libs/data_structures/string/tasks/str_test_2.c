@@ -113,7 +113,7 @@ void test_outputWordsInReverseOrder_2() {
 
 
 void test_countPalindroms_1() {
-    char test_string[] = "aba,asdf,zxxz,huji,abcdcba\0";
+    char test_string[] = "aba,asdf,zxxz,huji,abcdcba";
     int result = countPalindroms(test_string);
     if (result == 3)
         printf("test_countPalindroms_1 - OK\n");
@@ -123,7 +123,7 @@ void test_countPalindroms_1() {
 
 
 void test_countPalindroms_2() {
-    char test_string[] = "abc\0";
+    char test_string[] = "abc";
     int result = countPalindroms(test_string);
     if (result == 0)
         printf("test_countPalindroms_2 - OK\n");
@@ -134,19 +134,33 @@ void test_countPalindroms_2() {
 
 void test_getMixedString_1() {
     char test_string[MAX_STRING_SIZE] = "";
-    char string_1[] = "red blue\0";
-    char string_2[] = "green\0";
+    char string_1[] = "red blue";
+    char string_2[] = "green";
     getMixedString(test_string, string_1, string_2);
-    ASSERT_STRING("aga1 rug2 buga3 tot4 duga5 kol6 ola7", test_string);
+    ASSERT_STRING("red green blue", test_string);
 }
 
 
 void test_getMixedString_2() {
     char test_string[MAX_STRING_SIZE] = "";
-    char string_1[] = "a a a a a\0";
-    char string_2[] = "b\0";
+    char string_1[] = "a a a a a";
+    char string_2[] = "b";
     getMixedString(test_string, string_1, string_2);
     ASSERT_STRING("a b a a a a", test_string);
+}
+
+
+void test_stringReverse_1() {
+    char test_string[] = "first second third";
+    stringReverse(test_string);
+    ASSERT_STRING("third second first", test_string);
+}
+
+
+void test_stringReverse_2() {
+    char test_string[] = "one";
+    stringReverse(test_string);
+    ASSERT_STRING("one", test_string);
 }
 
 
@@ -167,7 +181,8 @@ void tests() {
     test_countPalindroms_2();
     test_getMixedString_1();
     test_getMixedString_2();
-
+    test_stringReverse_1();
+    test_stringReverse_2();
 }
 
 

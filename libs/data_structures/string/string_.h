@@ -124,4 +124,7 @@ int countPalindroms(char *s);
 // Получает строку, в которой чередуются слова первой и второй строки
 void getMixedString(char *res, char *s1, char *s2);
 
+// Изменяет порядок следования слов в строке на обратный
+void stringReverse(char *s);
+
 #endif //STRING__H
