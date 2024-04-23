@@ -232,6 +232,26 @@ void test_hasSameWords_2() {
 }
 
 
+void test_hasWordsWithSameLetters_1() {
+    char test_string[] = "coconut coc lol";
+    int result = hasWordsWithSameLetters(test_string);
+    if (result == 1)
+        printf("test_hasWordsWithSameLetters_1 - OK\n");
+    else
+        printf("test_hasWordsWithSameLetters_1 - ERROR\n");
+}
+
+
+void test_hasWordsWithSameLetters_2() {
+    char test_string[] = "mama odinochka";
+    int result = hasWordsWithSameLetters(test_string);
+    if (result == 0)
+        printf("test_hasWordsWithSameLetters_1 - OK\n");
+    else
+        printf("test_hasWordsWithSameLetters_1 - ERROR\n");
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -256,6 +276,8 @@ void tests() {
     test_findLastWord_2();
     test_hasSameWords_1();
     test_hasSameWords_2();
+    test_hasWordsWithSameLetters_1();
+    test_hasWordsWithSameLetters_2();
 }
 
 

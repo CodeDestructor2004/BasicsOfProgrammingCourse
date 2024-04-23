@@ -144,4 +144,7 @@ void findLastWord(char *string_1, char *string_2);
 // Определяет, есть ли в данной строке одинаковые слова
 int hasSameWords(char *string);
 
+// Определяет, есть ли в данной строке пара слов, составленных из одинакового набора букв
+int hasWordsWithSameLetters(char *string);
+
 #endif //STRING__H

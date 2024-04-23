@@ -582,3 +582,32 @@ int hasSameWords(char *string) {
     }
     return 1;
 }
+
+
+int compareLetters(const void* char_ptr_1, const void* char_ptr_2) {
+    const char *char1 = (const char*)char_ptr_1;
+    const char *char2 = (const char*)char_ptr_2;
+
+    return *char1 - *char2;
+}
+
+
+int hasWordsWithSameLetters(char *string) {
+    copy(string, getEndOfString(string), _string_buffer);
+    clearBagOfWords(&_bag);
+
+    for (int i = 0; i <= _bag.size; i++) {
+        qsort(_bag.words[i].begin, _bag.words[i].end - _bag.words[i].begin, sizeof(char), compareLetters);
+    }
+
+    qsort(_bag.words, _bag.size, sizeof(WordDescriptor), compareWordDescriptors);
+
+    for (int i = 1; i <= _bag.size; i++) {
+        int res = compareWordDescriptors(&_bag.words[i - 1], &_bag.words[i]);
+
+        if (res == 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
