@@ -41,11 +41,31 @@ void test_removeAdjacentEqualLetters_2() {
 }
 
 
+void test_numToSpace_1() {
+    char s1[] = "amo3gus!1!";
+
+    numToSpace(s1);
+
+    ASSERT_STRING("amo   gus! !", s1);
+}
+
+
+void test_numToSpace_2() {
+    char s1[] = "1van";
+
+    numToSpace(s1);
+
+    ASSERT_STRING(" van", s1);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
     test_removeAdjacentEqualLetters_1();
     test_removeAdjacentEqualLetters_2();
+    test_numToSpace_1();
+    test_numToSpace_2();
 }
 
 

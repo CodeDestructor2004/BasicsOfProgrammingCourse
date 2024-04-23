@@ -170,10 +170,32 @@ int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word) {
     return 1;
 }
 
+
 void digitToEnd(WordDescriptor word) {
     char *end_string_buffer = copy(word.begin, word.end,
                                  _string_buffer);
     char *rec_position = copyIf(_string_buffer, end_string_buffer - 1, word.begin, isalpha);
     copyIf(_string_buffer, end_string_buffer - 1, rec_position, isdigit);
     *word.end = ' ';
+}
+
+
+void numToSpace(char *source) {
+    copy(source, getEndOfString(source), _string_buffer);
+    char *end_source = getEndOfString(_string_buffer);
+    char *rec_position = source;
+
+    for (char *read_position = _string_buffer; read_position <= end_source; read_position += sizeof(char)) {
+        if (isdigit(*read_position)) {
+            int num = *read_position - '0' - 1;
+            for (int j = 0; j <= num; j++) {
+                *rec_position = ' ';
+                rec_position += sizeof(char);
+            }
+        } else {
+            *rec_position = *read_position;
+            rec_position += sizeof(char);
+        }
+    }
+    *rec_position = '\0';
 }

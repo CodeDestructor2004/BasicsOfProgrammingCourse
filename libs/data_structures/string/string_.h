@@ -91,4 +91,8 @@ int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word);
 // буквы – в начало
 void digitToEnd(WordDescriptor word);
 
+// Преобразует строку, заменяя каждую 
+// цифру соответствующим ей числом пробелов
+void numToSpace(char *source);
+
 #endif //STRING__H
