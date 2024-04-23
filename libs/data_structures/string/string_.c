@@ -327,3 +327,73 @@ void outputWordsInReverseOrder(char* string) {
         putchar('\n');
     }
 }
+
+
+char* findComma(char *begin) {
+    char *ptr = begin;
+
+    while (*ptr != '\0') {
+        int res = 0;
+        res = *ptr == ',';
+        if (res) {
+            return ptr;
+        }
+
+        ptr += sizeof(char);
+    }
+    return ptr;
+}
+
+char* findNonComma(char *begin) {
+    char *ptr = begin;
+
+    while (*ptr != '\0') {
+        int res = 0;
+        res = *ptr == ',';
+        if (!res) {
+            return ptr;
+        }
+
+        ptr += sizeof(char);
+    }
+    return ptr;
+}
+
+
+int getWordByComma(char *begin_search, WordDescriptor *word) {
+    word->begin = findNonComma(begin_search);
+    if (*word->begin == '\0')
+        return 0;
+    word->end = findComma(word->begin);
+    return 1;
+}
+
+
+int isPalindrom(WordDescriptor *word_res) {
+    int is_palindrom = 1;
+    unsigned long len = (*word_res).end - (*word_res).begin;
+    (*word_res).end -= sizeof(char);
+
+    for (int i = 0; i < len / 2; i++) {
+        if (*(*word_res).begin != *(*word_res).end) {
+            is_palindrom = 0;
+            break;
+        }
+        (*word_res).begin += sizeof(char);
+        (*word_res).end -= sizeof(char);
+    }
+    return is_palindrom;
+}
+
+
+int countPalindroms(char *s) {
+    WordDescriptor wordRes;
+
+    int counter = 0;
+
+    while (getWordByComma(s, &wordRes)) {
+        s = wordRes.end;
+        counter += isPalindrom(&wordRes);
+    }
+    return counter;
+}

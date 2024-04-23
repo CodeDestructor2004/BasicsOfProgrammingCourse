@@ -118,4 +118,7 @@ void getBagOfWords(BagOfWords *bag, char *s);
 // Выводит слова данной строки в обратном порядке по одному в строке экрана
 void outputWordsInReverseOrder(char* string);
 
+// Определяет количество слов-палиндромов в строке, где слова разделены запятыми
+int countPalindroms(char *s);
+
 #endif //STRING__H

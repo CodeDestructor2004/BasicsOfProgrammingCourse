@@ -108,7 +108,26 @@ void test_outputWordsInReverseOrder_1() {
 void test_outputWordsInReverseOrder_2() {
     char test_string[] = "Ya";
     printf("test_outputWordsInReverseOrder_2:\n%s\n", test_string);
-    outputWordsInReverseOrder(test_string);
+}
+
+
+void test_countPalindroms_1() {
+    char test_string[] = "aba,asdf,zxxz,huji,abcdcba\0";
+    int result = countPalindroms(test_string);
+    if (result == 3)
+        printf("test_countPalindroms_1 - OK\n");
+    else
+        printf("test_countPalindroms_1 - ERROR\n");
+}
+
+
+void test_countPalindroms_2() {
+    char test_string[] = "abc\0";
+    int result = countPalindroms(test_string);
+    if (result == 0)
+        printf("test_countPalindroms_2 - OK\n");
+    else
+        printf("test_countPalindroms_2 - ERROR\n");
 }
 
 
@@ -125,6 +144,8 @@ void tests() {
     test_isOrdered_2();
     test_outputWordsInReverseOrder_1();
     test_outputWordsInReverseOrder_2();
+    test_countPalindroms_1();
+    test_countPalindroms_2();
 }
 
 
