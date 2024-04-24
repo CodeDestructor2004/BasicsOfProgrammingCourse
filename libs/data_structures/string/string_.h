@@ -11,6 +11,7 @@
 
 
 char _string_buffer[MAX_STRING_SIZE + 1];
+char _string_buffer2[MAX_STRING_SIZE + 1];
 
 // Функция теста строк
 void assertString(const char *expected, const char *got,
@@ -159,5 +160,8 @@ void deletePalindromes(char *string);
 // Дополняет строку, содержащую меньшее количество слов, 
 // последними словами строки, в которой содержится большее количество слов
 void appendMissingWords(char *string_1, char *string_2);
+
+// Определяет, входит ли в данную строку каждая буква данного слова
+int isStringIncludeLetters(char *string, char *word);
 
 #endif //STRING__H

@@ -332,6 +332,30 @@ void test_appendMissingWords_2() {
 }
 
 
+void test_isStringIncludeLetters_1() {
+    char string_1[MAX_STRING_SIZE] = "lorem ipsum";
+    char string_2[MAX_STRING_SIZE] = "eoi";
+    int result = isStringIncludeLetters(string_1, string_2);
+
+    if (result == 1)
+        printf("test_findWordBefore_2 - OK\n");
+    else
+        printf("test_findWordBefore_2 - ERROR\n");
+}
+
+
+void test_isStringIncludeLetters_2() {
+    char string_1[MAX_STRING_SIZE] = "nope";
+    char string_2[MAX_STRING_SIZE] = "yep";
+    int result = isStringIncludeLetters(string_1, string_2);
+
+    if (result == 0)
+        printf("test_findWordBefore_2 - OK\n");
+    else
+        printf("test_findWordBefore_2 - ERROR\n");
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -366,6 +390,8 @@ void tests() {
     test_deletePalindromes_2();
     test_appendMissingWords_1();
     test_appendMissingWords_2();
+    test_isStringIncludeLetters_1();
+    test_isStringIncludeLetters_2();
 }
 
 

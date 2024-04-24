@@ -713,3 +713,30 @@ void appendMissingWords(char *string_1, char *string_2) {
         res_string += word.end - word.begin + 1;
     }
 }
+
+
+int isStringIncludeLetters(char *string, char *word) {
+    copy(string, getEndOfString(string), _string_buffer);
+    copy(word, getEndOfString(word), _string_buffer2);
+
+    size_t len_string = strlen_(_string_buffer);
+    qsort(_string_buffer, len_string, sizeof(char), compareLetters);
+    size_t len_string_1 = strlen_(_string_buffer2);
+    qsort(_string_buffer2, len_string_1, sizeof(char), compareLetters);
+
+    int amount = 0;
+    char *end_string_ptr = _string_buffer + len_string;
+    char *current_char = _string_buffer2;
+    for (char *i = _string_buffer; i <= end_string_ptr; i += sizeof(char)) {
+        if (*i == *current_char) {
+            amount++;
+
+            if (amount == len_string_1) {
+                return 1;
+            }
+            current_char += sizeof(char);
+        }
+
+    }
+    return 0;
+}
