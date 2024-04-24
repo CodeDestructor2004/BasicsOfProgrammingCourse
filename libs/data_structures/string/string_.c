@@ -545,9 +545,9 @@ void findLastWord(char *string_1, char *string_2) {
 }
 
 
-int compareWordDescriptors(const void *wordPtr1, const void *wordPtr2) {
-    WordDescriptor *word1 = (WordDescriptor *)wordPtr1;
-    WordDescriptor *word2 = (WordDescriptor *)wordPtr2;
+int compareWordDescriptors(const void *word_ptr_1, const void *word_ptr_2) {
+    WordDescriptor *word1 = (WordDescriptor *)word_ptr_1;
+    WordDescriptor *word2 = (WordDescriptor *)word_ptr_2;
 
     unsigned long len1 = word1->end - word1->begin;
     unsigned long len2 = word2->end - word2->begin;
@@ -679,4 +679,37 @@ void deletePalindromes(char *string) {
     }
     string -= sizeof(char);
     *string = '\0';
+}
+
+
+void appendMissingWords(char *string_1, char *string_2) {
+    clearBagOfWords(&_bag);
+    clearBagOfWords(&_bag2);
+    getBagOfWords(&_bag, string_1);
+    getBagOfWords(&_bag2, string_2);
+
+    size_t min_len = 0;
+    BagOfWords *max_ptr;
+    char *res_string;
+
+    if (_bag.size < _bag2.size) {
+        min_len = _bag.size;
+        max_ptr = &_bag2;
+        res_string = string_1;
+    } else {
+        min_len = _bag2.size;
+        max_ptr = &_bag;
+        res_string = string_2;
+    }
+
+    res_string += strlen_(res_string);
+    *res_string = ' ';
+    res_string += sizeof(char);
+
+    WordDescriptor word;
+    for (int i = min_len; i < max_ptr->size; i++) {
+        word = max_ptr->words[i];
+        copy(word.begin, word.end, res_string);
+        res_string += word.end - word.begin + 1;
+    }
 }

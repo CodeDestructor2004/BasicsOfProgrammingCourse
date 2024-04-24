@@ -156,4 +156,8 @@ int findWordBefore(char *string_1, char *string_2, char *res);
 // Удаляет из данной строки слова-палиндромы
 void deletePalindromes(char *string);
 
+// Дополняет строку, содержащую меньшее количество слов, 
+// последними словами строки, в которой содержится большее количество слов
+void appendMissingWords(char *string_1, char *string_2);
+
 #endif //STRING__H

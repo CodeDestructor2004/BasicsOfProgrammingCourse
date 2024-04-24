@@ -312,6 +312,26 @@ void test_deletePalindromes_2() {
 }
 
 
+void test_appendMissingWords_1() {
+    char string_1[MAX_STRING_SIZE] = "two words";
+    char string_2[MAX_STRING_SIZE] = "one more word";
+
+    appendMissingWords(string_1, string_2);
+
+    ASSERT_STRING("two words word", string_1);
+}
+
+
+void test_appendMissingWords_2() {
+    char string_1[MAX_STRING_SIZE] = "the same amount of words";
+    char string_2[MAX_STRING_SIZE] = "a b c d e";
+    
+    appendMissingWords(string_1, string_2);
+
+    ASSERT_STRING("the same amount of words", string_1);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -344,6 +364,8 @@ void tests() {
     test_findWordBefore_2();
     test_deletePalindromes_1();
     test_deletePalindromes_2();
+    test_appendMissingWords_1();
+    test_appendMissingWords_2();
 }
 
 
