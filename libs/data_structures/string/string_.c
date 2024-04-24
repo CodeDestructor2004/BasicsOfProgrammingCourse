@@ -112,25 +112,27 @@ char* copyIfReverse(char* rbegin, const char* rend, char* destination, int (*f)(
 
 char* getEndOfString(char *begin) {
     char *end = begin;
+
     while (*end != '\0')
         end += sizeof(char);
+
     return end;
 }
 
 
-void removeNonLetters(char *s) {
-    char *endSource = getEndOfString(s);
-    char *destination = copyIf(s, endSource, s, isgraph);
+void removeNonLetters(char *string) {
+    char *end_source = getEndOfString(string);
+    char *destination = copyIf(string, end_source, string, isgraph);
     *destination = '\0';
 }
 
 
-void removeAdjacentEqualLetters(char *s) {
-    char *endSource = getEndOfString(s);
-    char prev = *s;
-    char *destination = s;
+void removeAdjacentEqualLetters(char *string) {
+    char *end_source = getEndOfString(string);
+    char prev = *string;
+    char *destination = string;
 
-    for (char *i = s + sizeof(char); i <= endSource; i += sizeof(char)) {
+    for (char *i = string + sizeof(char); i <= end_source; i += sizeof(char)) {
         if(*i != prev) {
             *destination = prev;
             destination += sizeof(char);
@@ -138,7 +140,7 @@ void removeAdjacentEqualLetters(char *s) {
         }
     }
 
-    *destination = *endSource;
+    *destination = *end_source;
     destination += sizeof(char);
     *destination = '\0';
 }
@@ -148,7 +150,9 @@ int getWord(char *begin_search, WordDescriptor *word) {
     word->begin = findNonSpace(begin_search);
     if (*word->begin == '\0')
         return 0;
+
     word->end = findSpace(word->begin);
+
     return 1;
 }
 
@@ -165,9 +169,12 @@ void digitToStart(WordDescriptor word) {
 
 int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word) {
     word->begin = findNonSpaceReverse(begin_search, end_search);
+
     if (word->begin == begin_search)
         return 0;
+        
     word->end = begin_search;
+
     return 1;
 }
 
@@ -199,30 +206,33 @@ void numToSpace(char *source) {
             rec_position += sizeof(char);
         }
     }
+
     *rec_position = '\0';
 }
 
 
 int findWord(char *begin_search, WordDescriptor *pattern_word, WordDescriptor *res_word) {
-    int counter = 0;
+    int amount = 0;
     int word_len = pattern_word->end - pattern_word->begin;
-    char *search_position = pattern_word->begin;;
+    char *search_position = pattern_word->begin;
+
     while (*begin_search != '\0') {
         if (*begin_search == *search_position) {
-            counter++;
+            amount++;
             search_position += sizeof(char);
         } else {
-            counter = 0;
+            amount = 0;
             search_position = pattern_word->begin;
         }
 
-        if (counter == word_len) {
+        if (amount == word_len) {
             res_word->begin = begin_search - word_len + 1;
             res_word->end = begin_search + 1;
             return 1;
         }
         begin_search += sizeof(char);
     }
+
     return 0;
 }
 
@@ -247,17 +257,17 @@ void replace(char *source, char *w1, char *w2) {
     }
 
     while (findWord(read_position, &word1, &wordRes)) {
-        if (read_position != wordRes.begin) {
+        if (read_position != wordRes.begin) 
             rec_position = copy(read_position, wordRes.begin - 1, rec_position);
-        }
+
         rec_position = copy(word2.begin, word2.end - 1, rec_position);
         read_position = wordRes.end;
     }
 
     char *read_position_end = getEndOfString(read_position);
-    if (read_position >= read_position_end) {
+    if (read_position >= read_position_end) 
         read_position = copy(read_position, read_position_end, rec_position);
-    }
+
     *read_position = '\0';
 }
 
@@ -275,6 +285,7 @@ int isOrdered(char *source) {
         unsigned long len1 = prev_word_res.end - prev_word_res.begin;
         unsigned long len2 = word_res.end - word_res.begin;
         unsigned long min_len = len1;
+
         if (min_len > len2) {
             min_len = len2;
         }
@@ -295,15 +306,15 @@ int isOrdered(char *source) {
 }
 
 
-void getBagOfWords(BagOfWords *bag, char *s) {
+void getBagOfWords(BagOfWords *bag, char *string) {
     WordDescriptor word_res;
 
     int i = 0;
-    while (getWord(s, &word_res)) {
+    while (getWord(string, &word_res)) {
         bag->words[i++] = word_res;
         bag->size++;
 
-        s = word_res.end;
+        string = word_res.end;
     }
 }
 
@@ -336,12 +347,11 @@ char* findComma(char *begin) {
     while (*ptr != '\0') {
         int res = 0;
         res = *ptr == ',';
-        if (res) {
+        if (res) 
             return ptr;
-        }
-
         ptr += sizeof(char);
     }
+
     return ptr;
 }
 
@@ -351,20 +361,21 @@ char* findNonComma(char *begin) {
     while (*ptr != '\0') {
         int res = 0;
         res = *ptr == ',';
-        if (!res) {
+        if (!res) 
             return ptr;
-        }
-
         ptr += sizeof(char);
     }
+
     return ptr;
 }
 
 
 int getWordByComma(char *begin_search, WordDescriptor *word) {
     word->begin = findNonComma(begin_search);
+
     if (*word->begin == '\0')
         return 0;
+    
     word->end = findComma(word->begin);
     return 1;
 }
@@ -387,24 +398,24 @@ int isPalindrom(WordDescriptor *word_res) {
 }
 
 
-int countPalindroms(char *s) {
-    WordDescriptor wordRes;
+int countPalindroms(char *string) {
+    WordDescriptor word_res;
 
     int counter = 0;
 
-    while (getWordByComma(s, &wordRes)) {
-        s = wordRes.end;
-        counter += isPalindrom(&wordRes);
+    while (getWordByComma(string, &word_res)) {
+        string = word_res.end;
+        counter += isPalindrom(&word_res);
     }
     return counter;
 }
 
 
-void getMixedString(char *res, char *s1, char *s2) {
+void getMixedString(char *result, char *string_1, char *string_2) {
     WordDescriptor word1, word2;
     bool is_w1_found, is_w2_found;
-    char *begin_search1 = s1;
-    char *begin_search2 = s2;
+    char *begin_search1 = string_1;
+    char *begin_search2 = string_2;
     while ((is_w1_found = getWord(begin_search1, &word1)),
             (is_w2_found = getWord(begin_search2, &word2)),
             is_w1_found || is_w2_found) {
@@ -414,8 +425,8 @@ void getMixedString(char *res, char *s1, char *s2) {
                 *word1.end = ' ';
             }
 
-            copy(word1.begin, word1.end, res);
-            res += word1.end - word1.begin + 1;
+            copy(word1.begin, word1.end, result);
+            result += word1.end - word1.begin + 1;
             begin_search1 = word1.end;
         }
         if (is_w2_found) {
@@ -423,33 +434,32 @@ void getMixedString(char *res, char *s1, char *s2) {
                 *word2.end = ' ';
             }
 
-            copy(word2.begin, word2.end, res);
-            res += word2.end - word2.begin + 1;
+            copy(word2.begin, word2.end, result);
+            result += word2.end - word2.begin + 1;
             begin_search2 = word2.end;
         }
 
     }
-    res -= sizeof(char);
-    *res = '\0';
+    result -= sizeof(char);
+    *result = '\0';
 }
 
 
-void stringReverse(char *s) {
-    copy(s, getEndOfString(s), _string_buffer);
+void stringReverse(char *string) {
+    copy(string, getEndOfString(string), _string_buffer);
 
     WordDescriptor wordRes;
     char *end = getEndOfString(_string_buffer) + sizeof(char);
 
     while ((end >= _string_buffer) && getWordReverse(end, _string_buffer,&wordRes)) {
         end = wordRes.begin - sizeof(char);
-
-        copy(wordRes.begin, wordRes.end, s);
-        s += wordRes.end - wordRes.begin;
-        *s = ' ';
-        s += sizeof(char);
+        copy(wordRes.begin, wordRes.end, string);
+        string += wordRes.end - wordRes.begin;
+        *string = ' ';
+        string += sizeof(char);
     }
-    s -= sizeof(char);
-    *s = '\0';
+    string -= sizeof(char);
+    *string = '\0';
 }
 
 int hasWordLetter(WordDescriptor *word, char letter) {
@@ -458,6 +468,7 @@ int hasWordLetter(WordDescriptor *word, char letter) {
             return 1;
         }
     }
+
     return 0;
 }
 
@@ -487,12 +498,13 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *source, Wor
         prev_word_res = word_res;
         source = word_res.end;
     }
+
     return NOT_FOUND_A_WORD_WITH_A;
 }
 
-void printWordBeforeFirstWordWithA(char *s) {
+void printWordBeforeFirstWordWithA(char *string) {
     WordDescriptor word;
-    WordBeforeFirstWordWithAReturnCode result = getWordBeforeFirstWordWithA(s, &word);
+    WordBeforeFirstWordWithAReturnCode result = getWordBeforeFirstWordWithA(string, &word);
 
     switch (result) {
         case EMPTY_STRING:
@@ -575,10 +587,10 @@ int hasSameWords(char *string) {
     for (int i = 1; i <= _bag.size; i++) {
         int res = compareWordDescriptors(&_bag.words[i - 1], &_bag.words[i]);
 
-        if (res == 0) {
+        if (res == 0)
             return 0;
-        }
     }
+
     return 1;
 }
 
@@ -604,10 +616,10 @@ int hasWordsWithSameLetters(char *string) {
     for (int i = 1; i <= _bag.size; i++) {
         int res = compareWordDescriptors(&_bag.words[i - 1], &_bag.words[i]);
 
-        if (res == 0) {
+        if (res == 0) 
             return 1;
-        }
     }
+
     return 0;
 }
 
@@ -629,6 +641,7 @@ void getStringWithoutEndWords(char *string) {
             string += sizeof(char);
         }
     }
+
     string -= sizeof(char);
     *string = '\0';
 }
@@ -656,6 +669,7 @@ int findWordBefore(char *string_1, char *string_2, char *res) {
             }
         }
     }
+
     return 0;
 }
 
@@ -677,6 +691,7 @@ void deletePalindromes(char *string) {
             string += sizeof(char);
         }
     }
+
     string -= sizeof(char);
     *string = '\0';
 }
@@ -730,13 +745,12 @@ int isStringIncludeLetters(char *string, char *word) {
     for (char *i = _string_buffer; i <= end_string_ptr; i += sizeof(char)) {
         if (*i == *current_char) {
             amount++;
-
-            if (amount == len_string_1) {
+            if (amount == len_string_1) 
                 return 1;
-            }
             current_char += sizeof(char);
         }
 
     }
+
     return 0;
 }

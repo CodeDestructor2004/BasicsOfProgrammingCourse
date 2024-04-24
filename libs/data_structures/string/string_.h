@@ -114,19 +114,19 @@ BagOfWords _bag;
 BagOfWords _bag2;
 
 // Получает позиции начала и конца каждого слова строки
-void getBagOfWords(BagOfWords *bag, char *s);
+void getBagOfWords(BagOfWords *bag, char *string);
 
 // Выводит слова данной строки в обратном порядке по одному в строке экрана
 void outputWordsInReverseOrder(char* string);
 
 // Определяет количество слов-палиндромов в строке, где слова разделены запятыми
-int countPalindroms(char *s);
+int countPalindroms(char *string);
 
 // Получает строку, в которой чередуются слова первой и второй строки
-void getMixedString(char *res, char *s1, char *s2);
+void getMixedString(char *result, char *string_1, char *string_2);
 
 // Изменяет порядок следования слов в строке на обратный
-void stringReverse(char *s);
+void stringReverse(char *string);
 
 
 typedef enum WordBeforeFirstWordWithAReturnCode {
@@ -137,7 +137,7 @@ typedef enum WordBeforeFirstWordWithAReturnCode {
 } WordBeforeFirstWordWithAReturnCode;
 
 // Выводит слово данной строки, предшествующее первому из слов, содержащих букву "а"
-void printWordBeforeFirstWordWithA(char *s);
+void printWordBeforeFirstWordWithA(char *string);
 
 // Определяет последнее из слов первой строки, которое есть во второй строке
 void findLastWord(char *string_1, char *string_2);

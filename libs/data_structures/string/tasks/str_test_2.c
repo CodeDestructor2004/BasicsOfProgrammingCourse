@@ -64,7 +64,9 @@ void test_replace_1() {
     char test_string[MAX_STRING_SIZE] = "Ya hochu dva za laboratornuyu";
     char string_1[] = "dva";
     char string_2[] = "pyat";
+
     replace(test_string, string_1, string_2);
+
     ASSERT_STRING("Ya hochu pyat za laboratornuyu", test_string);
 }
 
@@ -73,7 +75,9 @@ void test_replace_2() {
     char test_string[MAX_STRING_SIZE] = "Hunter X Hunter";
     char string_1[] = "Hunter";
     char string_2[] = "Pivo";
+
     replace(test_string, string_1, string_2);
+
     ASSERT_STRING("Pivo X Pivo", test_string);
 }
 
@@ -81,6 +85,7 @@ void test_replace_2() {
 void test_isOrdered_1() {
     char test_string[] = "alpha beta gamma";
     int result = isOrdered(test_string);
+
     if (result == 1)
         printf("test_isOrdered_1 - OK\n");
     else
@@ -91,6 +96,7 @@ void test_isOrdered_1() {
 void test_isOrdered_2() {
     char test_string[] = "z a";
     int result = isOrdered(test_string);
+
     if (result == 0)
         printf("test_isOrdered_2 - OK\n");
     else
@@ -100,14 +106,18 @@ void test_isOrdered_2() {
 
 void test_outputWordsInReverseOrder_1() {
     char test_string[] = "March April May";
+
     printf("test_outputWordsInReverseOrder_1:\n%s\n", test_string);
+
     outputWordsInReverseOrder(test_string);
 }
 
 
 void test_outputWordsInReverseOrder_2() {
     char test_string[] = "Ya";
+
     printf("test_outputWordsInReverseOrder_2:\n%s\n", test_string);
+
     outputWordsInReverseOrder(test_string);
 }
 
@@ -115,6 +125,7 @@ void test_outputWordsInReverseOrder_2() {
 void test_countPalindroms_1() {
     char test_string[] = "aba,qwe,zxxz,asdf,abcdcba";
     int result = countPalindroms(test_string);
+
     if (result == 3)
         printf("test_countPalindroms_1 - OK\n");
     else
@@ -125,6 +136,7 @@ void test_countPalindroms_1() {
 void test_countPalindroms_2() {
     char test_string[] = "abc";
     int result = countPalindroms(test_string);
+
     if (result == 0)
         printf("test_countPalindroms_2 - OK\n");
     else
@@ -136,7 +148,9 @@ void test_getMixedString_1() {
     char test_string[MAX_STRING_SIZE] = "";
     char string_1[] = "red blue";
     char string_2[] = "green";
+
     getMixedString(test_string, string_1, string_2);
+
     ASSERT_STRING("red green blue", test_string);
 }
 
@@ -145,21 +159,27 @@ void test_getMixedString_2() {
     char test_string[MAX_STRING_SIZE] = "";
     char string_1[] = "a a a a a";
     char string_2[] = "b";
+
     getMixedString(test_string, string_1, string_2);
+
     ASSERT_STRING("a b a a a a", test_string);
 }
 
 
 void test_stringReverse_1() {
     char test_string[] = "first second third";
+
     stringReverse(test_string);
+
     ASSERT_STRING("third second first", test_string);
 }
 
 
 void test_stringReverse_2() {
     char test_string[] = "one";
+
     stringReverse(test_string);
+
     ASSERT_STRING("one", test_string);
 }
 
@@ -197,7 +217,6 @@ void test_findLastWord_1() {
     char string_2[] = "one three four";
 
     printf("test_findLastWord_1\n");
-    printf("three\n");
     findLastWord(string_1, string_2);
 }
 
@@ -207,7 +226,6 @@ void test_findLastWord_2() {
     char string_2[] = "kek";
 
     printf("test_findLastWord_2\n");
-    printf("\n");
     findLastWord(string_1, string_2);
 }
 
@@ -215,6 +233,7 @@ void test_findLastWord_2() {
 void test_hasSameWords_1() {
     char test_string[] = "asd qwe asd";
     int result = hasSameWords(test_string);
+
     if (result == 1)
         printf("test_hasSameWords_1 - OK\n");
     else
@@ -225,6 +244,7 @@ void test_hasSameWords_1() {
 void test_hasSameWords_2() {
     char test_string[] = "asd qwe";
     int result = hasSameWords(test_string);
+
     if (result == 0)
         printf("test_hasSameWords_2 - OK\n");
     else
@@ -235,6 +255,7 @@ void test_hasSameWords_2() {
 void test_hasWordsWithSameLetters_1() {
     char test_string[] = "coconut coc lol";
     int result = hasWordsWithSameLetters(test_string);
+
     if (result == 1)
         printf("test_hasWordsWithSameLetters_1 - OK\n");
     else
@@ -245,6 +266,7 @@ void test_hasWordsWithSameLetters_1() {
 void test_hasWordsWithSameLetters_2() {
     char test_string[] = "mama odinochka";
     int result = hasWordsWithSameLetters(test_string);
+
     if (result == 0)
         printf("test_hasWordsWithSameLetters_1 - OK\n");
     else
@@ -274,7 +296,9 @@ void test_findWordBefore_1() {
     char string_1[MAX_STRING_SIZE] = "asd qwe zxc gg";
     char string_2[MAX_STRING_SIZE] = "zxc asd asd qwe";
     char test_string[MAX_STRING_SIZE];
+
     int result = findWordBefore(string_1, string_2, test_string);
+
     if (result == 1)
         printf("test_findWordBefore_1 - OK\n");
     else
@@ -286,7 +310,9 @@ void test_findWordBefore_2() {
     char string_1[MAX_STRING_SIZE] = "rdfd";
     char string_2[MAX_STRING_SIZE] = "123designer fusion360";
     char test_string[MAX_STRING_SIZE];
+
     int result = findWordBefore(string_1, string_2, test_string);
+    
     if (result == 0)
         printf("test_findWordBefore_2 - OK\n");
     else
