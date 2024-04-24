@@ -364,9 +364,9 @@ void test_isStringIncludeLetters_1() {
     int result = isStringIncludeLetters(string_1, string_2);
 
     if (result == 1)
-        printf("test_findWordBefore_2 - OK\n");
+        printf("test_isStringIncludeLetters_1 - OK\n");
     else
-        printf("test_findWordBefore_2 - ERROR\n");
+        printf("test_isStringIncludeLetters_1 - ERROR\n");
 }
 
 
@@ -376,9 +376,9 @@ void test_isStringIncludeLetters_2() {
     int result = isStringIncludeLetters(string_1, string_2);
 
     if (result == 0)
-        printf("test_findWordBefore_2 - OK\n");
+        printf("test_isStringIncludeLetters_2 - OK\n");
     else
-        printf("test_findWordBefore_2 - ERROR\n");
+        printf("test_isStringIncludeLetters_2 - ERROR\n");
 }
 
 
