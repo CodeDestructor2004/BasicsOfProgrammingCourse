@@ -294,6 +294,24 @@ void test_findWordBefore_2() {
 }
 
 
+void test_deletePalindromes_1() {
+    char test_string[] = "asa palindrome asa";
+
+    deletePalindromes(test_string);
+
+    ASSERT_STRING("palindrome", test_string);
+}
+
+
+void test_deletePalindromes_2() {
+    char test_string[] = "there is no palindromes";
+
+    deletePalindromes(test_string);
+
+    ASSERT_STRING("there is no palindromes", test_string);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -323,6 +341,9 @@ void tests() {
     test_getStringWithoutEndWords_1();
     test_getStringWithoutEndWords_2();
     test_findWordBefore_1();
+    test_findWordBefore_2();
+    test_deletePalindromes_1();
+    test_deletePalindromes_2();
 }
 
 

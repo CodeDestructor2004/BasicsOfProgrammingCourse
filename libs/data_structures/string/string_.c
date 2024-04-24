@@ -658,3 +658,25 @@ int findWordBefore(char *string_1, char *string_2, char *res) {
     }
     return 0;
 }
+
+
+void deletePalindromes(char *string) {
+    copy(string, getEndOfString(string) + sizeof (char), _string_buffer);
+    clearBagOfWords(&_bag);
+    getBagOfWords(&_bag, _string_buffer);
+
+    for (int i = 0; i < _bag.size; i++) {
+        WordDescriptor line_word = _bag.words[i];
+
+        int isPal = isPalindrom(&line_word);
+
+        if (!isPal) {
+            copy(line_word.begin, line_word.end, string);
+            string += line_word.end - line_word.begin + 1;
+            *string = ' ';
+            string += sizeof(char);
+        }
+    }
+    string -= sizeof(char);
+    *string = '\0';
+}

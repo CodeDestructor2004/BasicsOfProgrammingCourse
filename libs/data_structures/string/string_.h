@@ -153,4 +153,7 @@ void getStringWithoutEndWords(char *string);
 // Находит слово в string_1, предшествующее первому вхождению первого слова, котороe есть в обоих строках
 int findWordBefore(char *string_1, char *string_2, char *res);
 
+// Удаляет из данной строки слова-палиндромы
+void deletePalindromes(char *string);
+
 #endif //STRING__H
