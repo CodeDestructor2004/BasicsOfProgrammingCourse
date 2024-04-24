@@ -1,1 +1,1 @@
-getMixedString
+getStringWithoutEndWords

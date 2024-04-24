@@ -252,6 +252,24 @@ void test_hasWordsWithSameLetters_2() {
 }
 
 
+void test_getStringWithoutEndWords_1() {
+    char test_string[] = "anton bot bkf len anton";
+
+    getStringWithoutEndWords(test_string);
+
+    ASSERT_STRING("bot bkf len", test_string);
+}
+
+
+void test_getStringWithoutEndWords_2() {
+    char test_string[] = "asd zxc qwe";
+
+    getStringWithoutEndWords(test_string);
+
+    ASSERT_STRING("asd zxc", test_string);
+}
+
+
 void tests() {
     test_removeNonLetters_1();
     test_removeNonLetters_2();
@@ -278,6 +296,8 @@ void tests() {
     test_hasSameWords_2();
     test_hasWordsWithSameLetters_1();
     test_hasWordsWithSameLetters_2();
+    test_getStringWithoutEndWords_1();
+    void test_getStringWithoutEndWords_2();
 }
 
 

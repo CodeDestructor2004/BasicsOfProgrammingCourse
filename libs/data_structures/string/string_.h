@@ -147,4 +147,7 @@ int hasSameWords(char *string);
 // Определяет, есть ли в данной строке пара слов, составленных из одинакового набора букв
 int hasWordsWithSameLetters(char *string);
 
+// Получает строку из слов данной строки, которые отличны от последнего слова
+void getStringWithoutEndWords(char *string);
+
 #endif //STRING__H

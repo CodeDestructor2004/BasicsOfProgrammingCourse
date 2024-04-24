@@ -611,3 +611,25 @@ int hasWordsWithSameLetters(char *string) {
     }
     return 0;
 }
+
+
+void getStringWithoutEndWords(char *string) {
+    copy(string, getEndOfString(string), _string_buffer);
+    clearBagOfWords(&_bag);
+    getBagOfWords(&_bag, _string_buffer);
+    WordDescriptor last_word = _bag.words[_bag.size - 1];
+
+    for (int i = 0; i < _bag.size - 1; i++) {
+        WordDescriptor current_word = _bag.words[i];
+        int res = compareWordDescriptors(&current_word, &last_word);
+
+        if (res != 0) {
+            copy(current_word.begin, current_word.end, string);
+            string += current_word.end - current_word.begin;
+            *string = ' ';
+            string += sizeof(char);
+        }
+    }
+    string -= sizeof(char);
+    *string = '\0';
+}
