@@ -465,7 +465,6 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *source, Wor
     WordDescriptor word_res;
     WordDescriptor prev_word_res;
 
-
     if (!getWord(source, &prev_word_res)) {
         return EMPTY_STRING;
     }
@@ -632,4 +631,30 @@ void getStringWithoutEndWords(char *string) {
     }
     string -= sizeof(char);
     *string = '\0';
+}
+
+
+int findWordBefore(char *string_1, char *string_2, char *res) {
+    clearBagOfWords(&_bag);
+    clearBagOfWords(&_bag2);
+    getBagOfWords(&_bag, string_1);
+    getBagOfWords(&_bag2, string_2);
+
+    int get;
+    for (int i = 1; i < _bag.size - 1; i++) {
+        WordDescriptor line_word_1 = _bag.words[i];
+        for (int j = 0; j < _bag2.size - 1; j++) {
+            WordDescriptor line_word_2 = _bag2.words[j];
+            get = compareWordDescriptors(&line_word_1, &line_word_2);
+
+            if (get == 0) {
+                WordDescriptor res_word = _bag.words[i - 1];
+                copy(res_word.begin, res_word.end, res);
+                res += res_word.end - res_word.begin;
+                *res = '\0';
+                return 1;
+            }
+        }
+    }
+    return 0;
 }

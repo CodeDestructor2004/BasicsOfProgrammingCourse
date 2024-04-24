@@ -1,1 +1,1 @@
-getStringWithoutEndWords
+hasWordsWithSameLetters(test_string)

@@ -150,4 +150,7 @@ int hasWordsWithSameLetters(char *string);
 // Получает строку из слов данной строки, которые отличны от последнего слова
 void getStringWithoutEndWords(char *string);
 
+// Находит слово в string_1, предшествующее первому вхождению первого слова, котороe есть в обоих строках
+int findWordBefore(char *string_1, char *string_2, char *res);
+
 #endif //STRING__H

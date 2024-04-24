@@ -253,11 +253,11 @@ void test_hasWordsWithSameLetters_2() {
 
 
 void test_getStringWithoutEndWords_1() {
-    char test_string[] = "anton bot bkf len anton";
+    char test_string[] = "oleg olga olga yaroslav oleg";
 
     getStringWithoutEndWords(test_string);
 
-    ASSERT_STRING("bot bkf len", test_string);
+    ASSERT_STRING("olga olga yaroslav", test_string);
 }
 
 
@@ -267,6 +267,30 @@ void test_getStringWithoutEndWords_2() {
     getStringWithoutEndWords(test_string);
 
     ASSERT_STRING("asd zxc", test_string);
+}
+
+
+void test_findWordBefore_1() {
+    char string_1[MAX_STRING_SIZE] = "asd qwe zxc gg";
+    char string_2[MAX_STRING_SIZE] = "zxc asd asd qwe";
+    char test_string[MAX_STRING_SIZE];
+    int result = findWordBefore(string_1, string_2, test_string);
+    if (result == 1)
+        printf("test_findWordBefore_1 - OK\n");
+    else
+        printf("test_findWordBefore_1 - ERROR\n");
+}
+
+
+void test_findWordBefore_2() {
+    char string_1[MAX_STRING_SIZE] = "rdfd";
+    char string_2[MAX_STRING_SIZE] = "123designer fusion360";
+    char test_string[MAX_STRING_SIZE];
+    int result = findWordBefore(string_1, string_2, test_string);
+    if (result == 0)
+        printf("test_findWordBefore_2 - OK\n");
+    else
+        printf("test_findWordBefore_2 - ERROR\n");
 }
 
 
@@ -297,7 +321,8 @@ void tests() {
     test_hasWordsWithSameLetters_1();
     test_hasWordsWithSameLetters_2();
     test_getStringWithoutEndWords_1();
-    void test_getStringWithoutEndWords_2();
+    test_getStringWithoutEndWords_2();
+    test_findWordBefore_1();
 }
 
 
