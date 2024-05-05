@@ -480,6 +480,88 @@ void test_task_19_9() {
 }
 
 
+// В бинарном файле f структур хранится следующая информация о
+// товарах, имеющихся на складе: наименование товара, цена единицы
+// товара, общая стоимость и количество. В бинарном файле структур g
+// хранится информация о заказах: наименование товара и его
+// количество. Обновить файл f с учетом отпущенных товаров в
+// соответствии с заказами из файла g. Если товар отпущен полностью,
+// запись о нем из файла f удаляется.
+typedef struct {
+    char *name;
+    int unit_price;
+    int all_price;
+    int amount;
+} Goods;
+
+typedef struct {
+    char *name;
+    int amount;
+} OrderedGoods;
+
+int task_19_10(const char *str_f, const char *str_g) {
+    FILE *file_f = fopen(str_f, "rb");
+    if (file_f == NULL) {
+        printf("Error: input file f not found\n");
+        return 1;
+    }
+
+    FILE *file_g = fopen(str_g, "rb");
+    if (file_g == NULL) {
+        printf("Error: output file g not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "wb");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+
+    Goods stuff;
+    OrderedGoods ordered_stuff;
+    
+    while (fread(&ordered_stuff, sizeof(OrderedGoods), 1, file_g)) {
+        while (fread(&stuff, sizeof(Goods), 1, file_f)) {
+            if (ordered_stuff.name == stuff.name) {
+                int price = ordered_stuff.amount * stuff.unit_price;
+                stuff.amount = stuff.amount - ordered_stuff.amount;
+                stuff.all_price = stuff.all_price - price;
+
+                if (stuff.amount > 0)
+                    fwrite(&stuff, sizeof(Goods), 1, output_file);
+                break;
+            } 
+
+            else
+                fwrite(&stuff, sizeof(Goods), 1, output_file);
+        }
+    }
+
+    fclose(file_f);
+    fclose(file_g);
+    fclose(output_file);
+
+    copyFileContent("buffer_file.txt", str_f);
+    return 0;
+}
+
+
+void test_task_19_10() {
+    printf("test_task_19_10 - ");
+    const char *str_1 =
+        "task_10_f.txt";
+    const char *str_2 =
+        "task_10_g.txt";
+    const char *str_3 =
+        "task_10_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_10(str_1, str_2);
+    printf("%d\n", assert_txt(str_1, str_3));
+}
+
+
 void tests() {
     test_task_19_1();
     test_task_19_2();
@@ -490,6 +572,7 @@ void tests() {
     test_task_19_7();
     test_task_19_8();
     test_task_19_9();
+    test_task_19_10();
 }
 
 
