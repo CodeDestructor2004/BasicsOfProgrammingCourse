@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/bitset/bitset.c" "libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj" "gcc" "libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj.d"
+  "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/files/file_lib.c" "libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj" "gcc" "libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj.d"
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/matrix/matrix.c" "libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj" "gcc" "libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj.d"
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/ordered_set/ordered_array_set.c" "libs/data_structures/CMakeFiles/data_structures.dir/ordered_set/ordered_array_set.c.obj" "gcc" "libs/data_structures/CMakeFiles/data_structures.dir/ordered_set/ordered_array_set.c.obj.d"
   "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/string/string_.c" "libs/data_structures/CMakeFiles/data_structures.dir/string/string_.c.obj" "gcc" "libs/data_structures/CMakeFiles/data_structures.dir/string/string_.c.obj.d"

@@ -166,6 +166,20 @@ libs/data_structures/CMakeFiles/data_structures.dir/string/string_.c.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/data_structures.dir/string/string_.c.s"
 	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\string\string_.c" -o CMakeFiles\data_structures.dir\string\string_.c.s
 
+libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj: libs/data_structures/CMakeFiles/data_structures.dir/flags.make
+libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/files/file_lib.c
+libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj: libs/data_structures/CMakeFiles/data_structures.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj"
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj -MF CMakeFiles\data_structures.dir\files\file_lib.c.obj.d -o CMakeFiles\data_structures.dir\files\file_lib.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\files\file_lib.c"
+
+libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/data_structures.dir/files/file_lib.c.i"
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\files\file_lib.c" > CMakeFiles\data_structures.dir\files\file_lib.c.i
+
+libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/data_structures.dir/files/file_lib.c.s"
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\files\file_lib.c" -o CMakeFiles\data_structures.dir\files\file_lib.c.s
+
 # Object files for target data_structures
 data_structures_OBJECTS = \
 "CMakeFiles/data_structures.dir/bitset/bitset.c.obj" \
@@ -174,7 +188,8 @@ data_structures_OBJECTS = \
 "CMakeFiles/data_structures.dir/vector/vector.c.obj" \
 "CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj" \
 "CMakeFiles/data_structures.dir/matrix/matrix.c.obj" \
-"CMakeFiles/data_structures.dir/string/string_.c.obj"
+"CMakeFiles/data_structures.dir/string/string_.c.obj" \
+"CMakeFiles/data_structures.dir/files/file_lib.c.obj"
 
 # External object files for target data_structures
 data_structures_EXTERNAL_OBJECTS =
@@ -186,9 +201,10 @@ libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/string/string_.c.obj
+libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/build.make
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library libdata_structures.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking C static library libdata_structures.a"
 	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && $(CMAKE_COMMAND) -P CMakeFiles\data_structures.dir\cmake_clean_target.cmake
 	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build\libs\DATA_S~1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\data_structures.dir\link.txt --verbose=$(VERBOSE)
 

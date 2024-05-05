@@ -5,7 +5,8 @@ ordered_set/ordered_array_set.c
 vector/vector.c
 vector/vectorVoid.c
 matrix/matrix.c
-string/string_.c)
+string/string_.c
+files/file_lib.c)
 
 
 target_link_libraries(data_structures algorithms)

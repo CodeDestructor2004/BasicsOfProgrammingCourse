@@ -153,6 +153,30 @@ bitset/bitset.c.s:
 	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.s
 .PHONY : bitset/bitset.c.s
 
+files/file_lib.obj: files/file_lib.c.obj
+.PHONY : files/file_lib.obj
+
+# target to build an object file
+files/file_lib.c.obj:
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.obj
+.PHONY : files/file_lib.c.obj
+
+files/file_lib.i: files/file_lib.c.i
+.PHONY : files/file_lib.i
+
+# target to preprocess a source file
+files/file_lib.c.i:
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.i
+.PHONY : files/file_lib.c.i
+
+files/file_lib.s: files/file_lib.c.s
+.PHONY : files/file_lib.s
+
+# target to generate assembly for a file
+files/file_lib.c.s:
+	cd /d C:\Users\Danila\DOCUME~1\4313~1\EB3F~1\course\build && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/files/file_lib.c.s
+.PHONY : files/file_lib.c.s
+
 matrix/matrix.obj: matrix/matrix.c.obj
 .PHONY : matrix/matrix.obj
 
@@ -309,6 +333,9 @@ help:
 	@echo ... bitset/bitset.obj
 	@echo ... bitset/bitset.i
 	@echo ... bitset/bitset.s
+	@echo ... files/file_lib.obj
+	@echo ... files/file_lib.i
+	@echo ... files/file_lib.s
 	@echo ... matrix/matrix.obj
 	@echo ... matrix/matrix.i
 	@echo ... matrix/matrix.s
