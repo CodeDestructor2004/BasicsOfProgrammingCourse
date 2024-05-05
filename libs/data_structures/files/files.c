@@ -308,6 +308,58 @@ void test_task_19_6() {
 }
 
 
+// Дан бинарный файл целых чисел. Нулевых компонент в файле нет.
+// Число отрицательных компонент равно числу положительных.
+// Преобразовать файл таким образом, чтобы сначала были
+// положительные числа, а затем отрицательные. Порядок следования
+// как положительных, так и отрицательных чисел сохранить.
+int task_19_7(const char *str) {
+    FILE *input_file = fopen(str, "r+");
+    if (input_file == NULL) {
+        printf("Error: input file not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "w");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+
+    int positive_number;
+    while (fread(&positive_number, sizeof(positive_number), 1, input_file))
+        if (positive_number > 0) 
+            fwrite(&positive_number, sizeof(positive_number), 1, output_file);
+        
+    fclose(input_file);
+    input_file = fopen(str, "rb");
+
+    int negative_number;
+    while (fread(&negative_number, sizeof(negative_number), 1, input_file))
+        if (negative_number < 0) 
+            fwrite(&negative_number, sizeof(negative_number), 1, output_file);
+
+    fclose(input_file);
+    fclose(output_file);
+
+    copyFileContent("buffer_file.txt", str);
+    return 0;
+}
+
+
+void test_task_19_7() {
+    printf("test_task_19_7 - ");
+    const char *str_1 =
+        "task_7.txt";
+    const char *str_2 =
+        "task_7_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_7(str_1);
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
+
 void tests() {
     test_task_19_1();
     test_task_19_2();
@@ -315,6 +367,7 @@ void tests() {
     test_task_19_4();
     test_task_19_5();
     test_task_19_6();
+    test_task_19_7();
 }
 
 
