@@ -270,13 +270,13 @@ int pow_(int base, int exp) {
 
 
 int task_19_6(const char *str, int x) {
-    FILE *input_file = fopen(str, "r+");
+    FILE *input_file = fopen(str, "rb");
     if (input_file == NULL) {
         printf("Error: input file not found\n");
         return 1;
     }
 
-    FILE *output_file = fopen("buffer_file.txt", "w");
+    FILE *output_file = fopen("buffer_file.txt", "wb");
     if (output_file == NULL) {
         printf("Error: output file not created\n");
         return 1;
@@ -314,13 +314,13 @@ void test_task_19_6() {
 // положительные числа, а затем отрицательные. Порядок следования
 // как положительных, так и отрицательных чисел сохранить.
 int task_19_7(const char *str) {
-    FILE *input_file = fopen(str, "r+");
+    FILE *input_file = fopen(str, "rb");
     if (input_file == NULL) {
         printf("Error: input file not found\n");
         return 1;
     }
 
-    FILE *output_file = fopen("buffer_file.txt", "w");
+    FILE *output_file = fopen("buffer_file.txt", "wb");
     if (output_file == NULL) {
         printf("Error: output file not created\n");
         return 1;
@@ -520,7 +520,7 @@ int task_19_10(const char *str_f, const char *str_g) {
 
     Goods stuff;
     OrderedGoods ordered_stuff;
-    
+
     while (fread(&ordered_stuff, sizeof(OrderedGoods), 1, file_g)) {
         while (fread(&stuff, sizeof(Goods), 1, file_f)) {
             if (ordered_stuff.name == stuff.name) {
@@ -556,7 +556,7 @@ void test_task_19_10() {
     const char *str_3 =
         "task_10_ref.txt";
     int answer = 1;
-    if (!assert_txt(str_1, str_2))
+    if (!assert_txt(str_1, str_3))
         answer = task_19_10(str_1, str_2);
     printf("%d\n", assert_txt(str_1, str_3));
 }
