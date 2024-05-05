@@ -96,7 +96,56 @@ void test_task_19_2() {
         "task_2_ref.txt";
     int answer = 1;
     if (!assert_txt(str_1, str_2))
-        answer = task_19_1(str_1);
+        answer = task_19_2(str_1);
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
+
+// Дан текстовый файл, представляющий собой запись
+// арифметического выражения, операндами которого являются
+// однозначные числа. Число операций в выражении не больше двух.
+// Вычислить значение этого выражения и дописать его в конец этого
+// файла.
+int task_19_3(const char *str) {
+    FILE *input_file = fopen(str, "r+");
+    if (input_file == NULL) {
+        printf("File opening error\n");
+        return 1;
+    }
+
+    char operator;
+    int operand1, operand2, result;
+
+    fscanf(input_file, "%d %c %d", &operand1, &operator, &operand2);
+
+    if (operator == '+') 
+        result = operand1 + operand2;
+    else if (operator == '-') 
+        result = operand1 - operand2;
+    else if (operator == '*') 
+        result = operand1 * operand2;
+    else if (operator == '/')
+        result = operand1 / operand2;
+    else {
+        printf("Unsupported operation\n");
+        fclose(input_file);
+        return 1;
+    }
+
+    fprintf(input_file, "\nResult: %d", result);
+    fclose(input_file);
+    return 0;
+}
+
+void test_task_19_3() {
+    printf("test_for_task_19_3 - ");
+    const char *str_1 =
+        "task_3.txt";
+    const char *str_2 =
+        "task_3_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_3(str_1);
     printf("%d\n", assert_txt(str_1, str_2));
 }
 
@@ -104,6 +153,7 @@ void test_task_19_2() {
 void tests() {
     test_task_19_1();
     test_task_19_2();
+    test_task_19_3();
 }
 
 
