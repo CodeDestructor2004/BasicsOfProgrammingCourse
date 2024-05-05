@@ -227,7 +227,7 @@ int task_19_5(const char *str) {
     }
     fclose(input_file);
     fclose(output_file);
-    
+
     copyFileContent("buffer_file.txt", str);
     return 0;
 }
@@ -246,12 +246,75 @@ void test_task_19_5() {
 }
 
 
+// В бинарном файле структур хранятся многочлены в порядке
+// убывания степеней. Каждая структура содержит два поля: показатель
+// степени члена и коэффициент. Члены с нулевыми коэффициентами
+// не хранятся. Свободный член присутствует обязательно, даже если он
+// равен нулю. Удалить из файла многочлены, для которых данное x
+// является корнем.
+typedef struct {
+ int power;
+ int coefficient;
+} Polynomial;
+
+
+int pow_(int base, int exp) {
+    int result = 1;
+    while (exp > 0) {
+        result *= base;
+        exp--;
+    }
+
+    return result;
+}
+
+
+int task_19_6(const char *str, int x) {
+    FILE *input_file = fopen(str, "r+");
+    if (input_file == NULL) {
+        printf("Error: input file not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "w");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+    
+    Polynomial poly;
+    while (fread(&poly, sizeof(Polynomial), 1, input_file)) {
+        if (poly.coefficient * pow_(x, poly.power) != (x * x)) 
+            fwrite(&poly, sizeof(Polynomial), 1, output_file);
+    }
+    
+    fclose(input_file);
+    fclose(output_file);
+    copyFileContent("buffer_file.txt", str);
+    return 0;
+}
+
+
+void test_task_19_6() {
+    printf("test_task_19_6 - ");
+    const char *str_1 =
+        "task_6.txt";
+    const char *str_2 =
+        "task_6_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_6(str_1, 2);
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
+
 void tests() {
     test_task_19_1();
     test_task_19_2();
     test_task_19_3();
     test_task_19_4();
     test_task_19_5();
+    test_task_19_6();
 }
 
 
