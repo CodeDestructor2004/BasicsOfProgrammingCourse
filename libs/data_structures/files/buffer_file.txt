@@ -1,3 +1,0 @@
-railgun
-question
-computer

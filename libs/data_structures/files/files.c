@@ -360,6 +360,53 @@ void test_task_19_7() {
 }
 
 
+// Дан бинарный файл квадратных матриц порядка n. Преобразовать
+// его, заменив каждую матрицу, не являющуюся симметричной,
+// транспонированной.
+int task_19_8(const char *str) {
+    FILE *input_file = fopen(str, "rb");
+    if (input_file == NULL) {
+        printf("Error: input file not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "wb");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+
+    matrix m;
+    while (fread(&m, sizeof(matrix), 1, input_file)) {
+        if (!isSymmetricMatrix(&m)) {
+            transposeMatrix(&m);
+            fwrite(&m, sizeof(matrix), 1, output_file);
+        } 
+        else 
+            fwrite(&m, sizeof(matrix), 1, output_file);
+    }
+
+    fclose(input_file);
+    fclose(output_file);
+
+    copyFileContent("buffer_file.txt", str);
+    return 0;
+}
+
+
+void test_task_19_8() {
+    printf("test_task_19_8 - ");
+    const char *str_1 =
+        "task_8.txt";
+    const char *str_2 =
+        "task_8_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_8(str_1);
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
+
 void tests() {
     test_task_19_1();
     test_task_19_2();
@@ -368,6 +415,7 @@ void tests() {
     test_task_19_5();
     test_task_19_6();
     test_task_19_7();
+    test_task_19_8();
 }
 
 
