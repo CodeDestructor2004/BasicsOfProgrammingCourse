@@ -164,7 +164,7 @@ int task_19_4(const char *str, char sequence[20]) {
         return 1;
     }
 
-    char word[100];
+    char word[MAX_WORD_SIZE];
 
     while (fscanf(input_file, "%s", word) != EOF) {
         if (strstr(word, sequence) != NULL) 
@@ -179,7 +179,6 @@ int task_19_4(const char *str, char sequence[20]) {
 }
 
 
-
 void test_task_19_4() {
     printf("test_task_19_4 - ");
     const char *str_1 =
@@ -192,12 +191,67 @@ void test_task_19_4() {
     printf("%d\n", assert_txt(str_1, str_2));
 }
 
+// Дан текстовый файл. Преобразовать его, оставив в каждой строке
+// только самое длинное слово.
+int task_19_5(const char *str) {
+    FILE *input_file = fopen(str, "r+");
+    if (input_file == NULL) {
+        printf("Error: input file not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "w");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+
+    char line[1000], longest_word[MAX_WORD_SIZE];
+    int max_len = 0;
+
+    while (fgets(line, sizeof(line), input_file)) {
+        char *token = strtok(line, " ");
+
+        while (token != NULL) {
+            if (strlen(token) > max_len) {
+                max_len = strlen(token);
+                strcpy(longest_word, token);
+            }
+            token = strtok(NULL, " ");
+        }
+
+        fprintf(output_file, "%s\n", longest_word);
+
+        max_len = 0;
+        longest_word[0] = '\0';
+    }
+    fclose(input_file);
+    fclose(output_file);
+    
+    copyFileContent("buffer_file.txt", str);
+    return 0;
+}
+
+
+void test_task_19_5() {
+    printf("test_task_19_5 - ");
+    const char *str_1 =
+        "task_5.txt";
+    const char *str_2 =
+        "task_5_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_5(str_1);
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
 
 void tests() {
     test_task_19_1();
     test_task_19_2();
     test_task_19_3();
     test_task_19_4();
+    test_task_19_5();
 }
 
 
