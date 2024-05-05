@@ -109,7 +109,7 @@ void test_task_19_2() {
 int task_19_3(const char *str) {
     FILE *input_file = fopen(str, "r+");
     if (input_file == NULL) {
-        printf("File opening error\n");
+        printf("Error: input file not found\n");
         return 1;
     }
 
@@ -138,7 +138,7 @@ int task_19_3(const char *str) {
 }
 
 void test_task_19_3() {
-    printf("test_for_task_19_3 - ");
+    printf("test_task_19_3 - ");
     const char *str_1 =
         "task_3.txt";
     const char *str_2 =
@@ -149,11 +149,55 @@ void test_task_19_3() {
     printf("%d\n", assert_txt(str_1, str_2));
 }
 
+// Дан текстовый файл. Сохранить в файле только те слова, которые
+// содержат данную последовательность символов
+int task_19_4(const char *str, char sequence[20]) {
+    FILE *input_file = fopen(str, "r+");
+    if (input_file == NULL) {
+        printf("Error: input file not found\n");
+        return 1;
+    }
+
+    FILE *output_file = fopen("buffer_file.txt", "w");
+    if (output_file == NULL) {
+        printf("Error: output file not created\n");
+        return 1;
+    }
+
+    char word[100];
+
+    while (fscanf(input_file, "%s", word) != EOF) {
+        if (strstr(word, sequence) != NULL) 
+            fprintf(output_file, "%s ", word);
+    }
+
+    fclose(input_file);
+    fclose(output_file);
+
+    copyFileContent("buffer_file.txt", str);
+    return 0;
+}
+
+
+
+void test_task_19_4() {
+    printf("test_task_19_4 - ");
+    const char *str_1 =
+        "task_4.txt";
+    const char *str_2 =
+        "task_4_ref.txt";
+    int answer = 1;
+    if (!assert_txt(str_1, str_2))
+        answer = task_19_4(str_1, "hi");
+    printf("%d\n", assert_txt(str_1, str_2));
+}
+
 
 void tests() {
     test_task_19_1();
     test_task_19_2();
     test_task_19_3();
+    test_task_19_4();
 }
 
 
