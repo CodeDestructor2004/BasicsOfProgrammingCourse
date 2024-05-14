@@ -191,6 +191,30 @@ libs/data_structures/files/files.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/files/files.c.s
 .PHONY : libs/data_structures/files/files.c.s
 
+libs/data_structures/stream/stream.obj: libs/data_structures/stream/stream.c.obj
+.PHONY : libs/data_structures/stream/stream.obj
+
+# target to build an object file
+libs/data_structures/stream/stream.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj
+.PHONY : libs/data_structures/stream/stream.c.obj
+
+libs/data_structures/stream/stream.i: libs/data_structures/stream/stream.c.i
+.PHONY : libs/data_structures/stream/stream.i
+
+# target to preprocess a source file
+libs/data_structures/stream/stream.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/stream/stream.c.i
+.PHONY : libs/data_structures/stream/stream.c.i
+
+libs/data_structures/stream/stream.s: libs/data_structures/stream/stream.c.s
+.PHONY : libs/data_structures/stream/stream.s
+
+# target to generate assembly for a file
+libs/data_structures/stream/stream.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/libs/data_structures/stream/stream.c.s
+.PHONY : libs/data_structures/stream/stream.c.s
+
 libs/data_structures/string/tasks/str_test.obj: libs/data_structures/string/tasks/str_test.c.obj
 .PHONY : libs/data_structures/string/tasks/str_test.obj
 
@@ -311,6 +335,30 @@ matrix_test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/matrix_test.c.s
 .PHONY : matrix_test.c.s
 
+test.obj: test.c.obj
+.PHONY : test.obj
+
+# target to build an object file
+test.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/test.c.obj
+.PHONY : test.c.obj
+
+test.i: test.c.i
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\course.dir\build.make CMakeFiles/course.dir/test.c.s
+.PHONY : test.c.s
+
 vec.obj: vec.c.obj
 .PHONY : vec.obj
 
@@ -374,6 +422,9 @@ help:
 	@echo ... libs/data_structures/files/files.obj
 	@echo ... libs/data_structures/files/files.i
 	@echo ... libs/data_structures/files/files.s
+	@echo ... libs/data_structures/stream/stream.obj
+	@echo ... libs/data_structures/stream/stream.i
+	@echo ... libs/data_structures/stream/stream.s
 	@echo ... libs/data_structures/string/tasks/str_test.obj
 	@echo ... libs/data_structures/string/tasks/str_test.i
 	@echo ... libs/data_structures/string/tasks/str_test.s
@@ -389,6 +440,9 @@ help:
 	@echo ... matrix_test.obj
 	@echo ... matrix_test.i
 	@echo ... matrix_test.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
 	@echo ... vec.obj
 	@echo ... vec.i
 	@echo ... vec.s

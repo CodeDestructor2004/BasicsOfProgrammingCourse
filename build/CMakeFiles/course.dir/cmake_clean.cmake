@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/course.dir/libs/data_structures/files/files.c.obj"
   "CMakeFiles/course.dir/libs/data_structures/files/files.c.obj.d"
+  "CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj"
+  "CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj.d"
   "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
   "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj.d"
   "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/course.dir/matrix_ex.c.obj.d"
   "CMakeFiles/course.dir/matrix_test.c.obj"
   "CMakeFiles/course.dir/matrix_test.c.obj.d"
+  "CMakeFiles/course.dir/test.c.obj"
+  "CMakeFiles/course.dir/test.c.obj.d"
   "CMakeFiles/course.dir/vec.c.obj"
   "CMakeFiles/course.dir/vec.c.obj.d"
   "CMakeFiles/course.dir/vecV.c.obj"
