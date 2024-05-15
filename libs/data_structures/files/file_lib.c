@@ -5,17 +5,14 @@ void copyFileContent(const char* source_file, const char* destination_file) {
     FILE *source, *destination;
     char ch;
 
-    source = fopen(source_file, "r");
-    if (source == NULL) {
-        printf("Error: source file couldn't be opened\n");
+    source = f_safetyOpen(source_file, "r");
+    if (source == NULL)
         return;
-    }
 
-    destination = fopen(destination_file, "w");
+    destination = f_safetyOpen(destination_file, "w");
     if (destination == NULL) {
-        printf("Error: destination file couldn't be opened\n");
         fclose(source);
-    return;
+        return;
     }
 
     while ((ch = fgetc(source)) != EOF) {
@@ -28,13 +25,11 @@ void copyFileContent(const char* source_file, const char* destination_file) {
 
 
 int assert_txt(const char *file1, const char *file2) {
-    FILE *f1 = fopen(file1, "r");
-    FILE *f2 = fopen(file2, "r");
+    FILE *f1 = f_safetyOpen(file1, "r");
+    FILE *f2 = f_safetyOpen(file2, "r");
 
-    if (f1 == NULL || f2 == NULL) {
-        printf("Error\n");
+    if (f1 == NULL || f2 == NULL)
         return 0;
-    }
 
     char buffer1[MAX_FILE_SIZE];
     char buffer2[MAX_FILE_SIZE];
@@ -50,4 +45,25 @@ int assert_txt(const char *file1, const char *file2) {
     fclose(f1);
     fclose(f2);
     return 1;
+}
+
+
+FILE* f_safetyOpen(const char *path, const char *mode) {
+    FILE *output;
+    if (mode == "r" || mode == "w" || mode == "a" 
+    || mode == "rb" || mode == "wb" || mode == "ab" 
+    || mode == "r+" || mode == "w+" || mode == "a+" 
+    || mode == "r+b" || mode == "w+b" || mode == "a+b" 
+    || mode == "rt" || mode == "wt" || mode == "at" 
+    || mode == "r+t" || mode == "w+t" || mode == "a+t") {
+        output = fopen(path, mode);
+        if (output == NULL)
+            printf("Error: '%s' - not aviable in mode %s", path, mode);
+    }
+    else {
+        printf("Error: incorrect mode: %s\n", mode);
+        output = NULL;
+    }
+
+    return output;
 }
