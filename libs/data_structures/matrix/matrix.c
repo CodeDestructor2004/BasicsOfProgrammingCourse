@@ -198,16 +198,9 @@ bool isSquareMatrix(matrix* m) {
 
 
 bool areTwoMatricesEqual(matrix* m1, matrix* m2) {
-    if (m1->rows != m2->rows || m1->cols != m2->rows) {
-        return false;
-    }
-
-    for (int i = 0; i < m1->rows; i++) {
-        if (!memcpy(m1->values[i], m2->values[i], m1->cols)) {
+    for (size_t i = 0; i < m1->rows; i++)
+        if (memcmp(m1->values[i], m2->values[i], m1->cols) != 0)
             return false;
-        }
-    }
-
     return true;
 }
 
