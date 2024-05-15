@@ -6,7 +6,8 @@
         "limits": "c",
         "ctype.h": "c",
         "string_.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdbool.h": "c"
     },
     "cmake.configureOnOpen": false
 }

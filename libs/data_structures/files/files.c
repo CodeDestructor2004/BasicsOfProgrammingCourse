@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "..\matrix\matrix.c"
+#include "..\string\string_.c"
 #include "file_lib.c"
 
 // В текстовом файле хранятся целочисленные квадратные матрицы

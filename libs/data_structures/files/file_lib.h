@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_WORD_SIZE 100
 #define MAX_FILE_SIZE 1024
 
 // Копирует содержимое файла по адресу source_file в файл по адресу destination_file

@@ -69,11 +69,12 @@ char* findSpaceReverse(char* rbegin, const char* rend) {
 
 
 int strcmp_(const char* left, const char* right) {
-    while (*left++ == *right++);
+    while (*left != '\0' && *right != '\0' && *left == *right) {
+        left++;
+        right++;
+    }
 
-    if (*left != 0 && *right != 0) return 0;
-
-    return (*right > *left) ? 1 : -1;
+    return *(const unsigned char*) left - *(const unsigned char*) right;
 }
 
 
@@ -174,6 +175,17 @@ int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word) {
         return 0;
         
     word->end = begin_search;
+
+    return 1;
+}
+
+
+int getWordWithoutSpace(char* begin_search, WordDescriptor* word) {
+    word->begin = findNonSpace(begin_search);
+    if (*word->begin == '\0')
+        return 0;
+
+    word->end = findSpace(word->begin) - 1;
 
     return 1;
 }
@@ -329,6 +341,25 @@ void printWord(WordDescriptor word) {
         word.begin++;
     }
     putc('\n', stdout);
+}
+
+
+void freeBag(BagOfWords* bag) {
+    for (size_t i = 0; i < bag->size; i++) {
+        bag->words[i].begin = NULL;
+        bag->words[i].end = NULL;
+    }
+
+    bag->size = 0;
+}
+
+
+void freeString(char* string) {
+    char* ptr = string;
+    while (*ptr) {
+        *ptr = '\0';
+        ptr++;
+    }
 }
 
 

@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <malloc.h>
+#include "..\string\string_.c"
 #include "..\matrix\matrix.c"
 #include "..\files\file_lib.c"
 
@@ -18,7 +19,7 @@ typedef struct coord {
 } coord;
 
 
-void fill_matrix(const char* filename) {
+void fillMatrix(const char* filename) {
     FILE* file = f_safetyOpen(filename, "rb");
     int n;
     fread(&n, sizeof(int), 1, file);
@@ -47,14 +48,14 @@ void fill_matrix(const char* filename) {
 }
 
 
-void test_fill_matrix_1_empty_file() {
+void test_fillMatrix_1_empty_file() {
     const char filename[] = "test_files/task_1_test_1.txt";
     FILE* file = f_safetyOpen(filename, "wb");
     int n = 0;
     fwrite(&n, sizeof(int), 1, file);
     fclose(file);
 
-    fill_matrix(filename);
+    fillMatrix(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
     fclose(file);
@@ -63,7 +64,7 @@ void test_fill_matrix_1_empty_file() {
 }
 
 
-void test_fill_matrix_2_unit_matrix() {
+void test_fillMatrix_2_unit_matrix() {
     const char filename[] = "test_files/task_1_test_2.txt";
     FILE* file = f_safetyOpen(filename, "wb");
     int n = 1;
@@ -73,7 +74,7 @@ void test_fill_matrix_2_unit_matrix() {
     fwrite(&c, sizeof(coord), 1, file);
     fclose(file);
 
-    fill_matrix(filename);
+    fillMatrix(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
 
@@ -86,7 +87,7 @@ void test_fill_matrix_2_unit_matrix() {
 }
 
 
-void test_fill_matrix_3_more_matrix_element() {
+void test_fillMatrix_3_more_matrix_element() {
     const char filename[] = "test_files/task_1_test_3.txt";
     FILE* file = f_safetyOpen(filename, "wb");
     int n = 3;
@@ -98,7 +99,7 @@ void test_fill_matrix_3_more_matrix_element() {
     fwrite(&c2, sizeof(coord), 1, file);
     fclose(file);
 
-    fill_matrix(filename);
+    fillMatrix(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
     matrix m = getMemMatrix(n, n);
@@ -117,10 +118,10 @@ void test_fill_matrix_3_more_matrix_element() {
 }
 
 
-void test_fill_matrix() {
-    test_fill_matrix_1_empty_file();
-    test_fill_matrix_2_unit_matrix();
-    test_fill_matrix_3_more_matrix_element();
+void test_fillMatrix() {
+    test_fillMatrix_1_empty_file();
+    test_fillMatrix_2_unit_matrix();
+    test_fillMatrix_3_more_matrix_element();
 }
 
 // . Согласно статье в Википедии : « Игра жизни» , также известная просто 
@@ -132,7 +133,7 @@ void test_fill_matrix() {
 // взаимодействует со своими восемью соседями 
 // (горизонтальными, вертикальными, диагональными), используя 
 // следующие четыре правила
-int is_point_alive(matrix *m, int i, int j) {
+int isPointAlive(matrix *m, int i, int j) {
     bool is_alive = m->values[i][j];
 
     int left_i = i > 0 ? i - 1 : i;
@@ -162,7 +163,7 @@ int is_point_alive(matrix *m, int i, int j) {
 }
 
 
-void game_life(const char* filename) {
+void gameLife(const char* filename) {
     FILE* file = fopen(filename, "rb");
     int n, m;
     fread(&n, sizeof(int), 1, file);
@@ -176,7 +177,7 @@ void game_life(const char* filename) {
     matrix res_mat = getMemMatrix(n, m);
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
-            res_mat.values[i][j] = is_point_alive(&mat, i, j);
+            res_mat.values[i][j] = isPointAlive(&mat, i, j);
 
     fclose(file);
 
@@ -197,7 +198,7 @@ void game_life(const char* filename) {
 }
 
 
-void test_game_life_1_empty_file() {
+void test_gameLife_1_empty_file() {
     const char filename[] = "test_files/task_2_test_1.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -207,7 +208,7 @@ void test_game_life_1_empty_file() {
     fwrite(&m, sizeof(int), 1, file);
     fclose(file);
 
-    game_life(filename);
+    gameLife(filename);
     file = f_safetyOpen(filename, "rb");
     if (file == NULL)
         return;
@@ -222,7 +223,7 @@ void test_game_life_1_empty_file() {
 }
 
 
-void test_game_life_2_unit_file() {
+void test_gameLife_2_unit_file() {
     const char filename[] = "test_files/task_2_test_2.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -234,7 +235,7 @@ void test_game_life_2_unit_file() {
     fwrite(&x, sizeof(int), 1, file);
     fclose(file);
 
-    game_life(filename);
+    gameLife(filename);
     file = f_safetyOpen(filename, "rb");
 
     fread(&n, sizeof(int), 1, file);
@@ -249,7 +250,7 @@ void test_game_life_2_unit_file() {
 }
 
 
-void test_game_life_3_more_elements() {
+void test_gameLife_3_more_elements() {
     const char filename[] = "test_files/task_2_test_3.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -266,7 +267,7 @@ void test_game_life_3_more_elements() {
             fwrite(&mat.values[i][j], sizeof(int), 1, file);
     fclose(file);
 
-    game_life(filename);
+    gameLife(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
     fread(&m, sizeof(int), 1, file);
@@ -289,10 +290,10 @@ void test_game_life_3_more_elements() {
 }
 
 
-void test_game_life() {
-    test_game_life_1_empty_file();
-    test_game_life_2_unit_file();
-    test_game_life_3_more_elements();
+void test_gameLife() {
+    test_gameLife_1_empty_file();
+    test_gameLife_2_unit_file();
+    test_gameLife_3_more_elements();
 }
 
 
@@ -305,7 +306,7 @@ int cmp(const void* a, const void* b) {
 }
 
 
-int get_median_in_area(matrix* m, const int i, const int j, const int filter) {
+int getMedianInArea(matrix* m, const int i, const int j, const int filter) {
     int border = filter * 2 + 1;
     int *temp = (int *) malloc((border * border) * sizeof(int));
     int size = 0;
@@ -325,7 +326,7 @@ int get_median_in_area(matrix* m, const int i, const int j, const int filter) {
 }
 
 
-void median_filter(const char* filename) {
+void medianFilter(const char* filename) {
     FILE* file = f_safetyOpen(filename, "rb");
 
     int n, filter;
@@ -341,7 +342,7 @@ void median_filter(const char* filename) {
 
     for (int i = filter; i < n - filter; i++)
         for (int j = filter; j < n - filter; j++)
-            m.values[i][j] = get_median_in_area(&m, i, j, filter);
+            m.values[i][j] = getMedianInArea(&m, i, j, filter);
 
     fclose(file);
 
@@ -358,7 +359,7 @@ void median_filter(const char* filename) {
 }
 
 
-void test_median_filter_1_empty_file() {
+void test_medianFilter_1_empty_file() {
     const char filename[] = "test_files/task_3_test_1.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -368,7 +369,7 @@ void test_median_filter_1_empty_file() {
     fwrite(&filter, sizeof(int), 1, file);
     fclose(file);
 
-    median_filter(filename);
+    medianFilter(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
     fread(&filter, sizeof(int), 1, file);
@@ -380,7 +381,7 @@ void test_median_filter_1_empty_file() {
 }
 
 
-void test_median_filter_2_unit_file() {
+void test_medianFilter_2_unit_file() {
     const char filename[] = "test_files/task_3_test_2.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -392,7 +393,7 @@ void test_median_filter_2_unit_file() {
     fwrite(&x, sizeof(int), 1, file);
     fclose(file);
 
-    median_filter(filename);
+    medianFilter(filename);
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
     fread(&filter, sizeof(int), 1, file);
@@ -406,7 +407,7 @@ void test_median_filter_2_unit_file() {
 }
 
 
-void test_median_filter_3_average_matrix() {
+void test_medianFilter_3_average_matrix() {
     const char filename[] = "test_files/task_3_test_3.txt";
     FILE* file = f_safetyOpen(filename, "wb");
 
@@ -424,7 +425,7 @@ void test_median_filter_3_average_matrix() {
             fwrite(&mat.values[i][j], sizeof(int), 1, file);
 
     fclose(file);
-    median_filter(filename);
+    medianFilter(filename);
 
     file = f_safetyOpen(filename, "rb");
     fread(&n, sizeof(int), 1, file);
@@ -451,16 +452,243 @@ void test_median_filter_3_average_matrix() {
 }
 
 
-void test_median_filter() {
-    test_median_filter_1_empty_file();
-    test_median_filter_2_unit_file();
-    test_median_filter_3_average_matrix();
+void test_medianFilter() {
+    test_medianFilter_1_empty_file();
+    test_medianFilter_2_unit_file();
+    test_medianFilter_3_average_matrix();
 }
 
+
+// Домен веб-сайта "discuss.codeforces.com"состоит из различных 
+// поддоменов. На верхнем уровне у нас есть "com", на следующем 
+// уровне " codeforces.com" и на самом низком уровне "discuss. 
+// codeforces.com". 
+// Когда мы посещаем такой домен "discuss. codeforces.com" , мы также 
+// неявно посещаем родительские домены ." codeforces.com" и "com"
+// Счетно -парный домен — это домен, который имеет один из двух 
+// форматов "rep d1.d2.d3"или "rep d1.d2"где rep— количество посещений 
+// домена и d1.d2.d3— сам домен.
+// Например, "9001 discuss.codeforces.com"это домен с парным счетчиком 
+// , который указывает количество discuss.leetcode.com посещений 9001.
+// Учитывая массив доменов с парным счетчиком cpdomains , верните 
+// массив доменов с парным счетчиком для каждого поддомена во 
+// входных данных . Вы можете вернуть ответ в любом порядке.
+#define MAX_LENGTH_DOMAIN 128
+#define MAX_DOMAIN 64
+
+
+typedef struct domain {
+    char name[MAX_LENGTH_DOMAIN];
+    int amount;
+} domain;
+
+
+typedef struct domains {
+    domain data[MAX_DOMAIN];
+    size_t size;
+} domains;
+
+
+int getWordToDot(char* begin_search, WordDescriptor* word) {
+    word->begin = findNonSpace(begin_search);
+    if (*word->begin == '\0')
+        return 0;
+
+    size_t len = strlen_(begin_search);
+    word->end = find(word->begin, word->begin + len, '.');
+
+    if (word->end == word->begin + len || *word->end == '\n')
+        word->end -= 2;
+
+    return 1;
+}
+
+
+void push_domain_in_domains(domains* ds, domain* d) {
+    ds->data[ds->size].amount = d->amount;
+    copy(d->name, d->name + strlen_(d->name) + 1, ds->data[ds->size].name);
+    ds->size++;
+}
+
+
+void merge_equal_domains(domains* ds) {
+    for (int i = 0; i < ds->size; i++)
+        for (int j = i + 1; j < ds->size; j++) {
+            if (strcmp_(ds->data[i].name, ds->data[j].name) == 0 
+            && ds->data[i].amount >= 0 
+            && ds->data[j].amount >= 0) {
+                ds->data[i].amount += ds->data[j].amount;
+                ds->data[j].amount = -1;
+            }
+
+        }
+}
+
+
+void _get_domains(char* s, domains* ds) {
+    char* read_ptr = s;
+
+    WordDescriptor amount_as_text, name_domain;
+    getWordWithoutSpace(read_ptr, &amount_as_text);
+    read_ptr = amount_as_text.end + 1;
+    getWordWithoutSpace(read_ptr, &name_domain);
+
+    int k = 1;
+    int amount = 0;
+    read_ptr = amount_as_text.end;
+    while (read_ptr >= amount_as_text.begin) {
+        amount += k * (*read_ptr - '0');
+        k *= 10;
+        read_ptr--;
+    }
+
+    read_ptr = name_domain.begin;
+    _bag.size = 0;
+    while (getWordToDot(read_ptr, &_bag.words[_bag.size])) {
+        read_ptr = _bag.words[_bag.size].end + 1;
+        _bag.size++;
+    }
+
+    for (int i = 0; i < _bag.size; i++) {
+        domain d = {.amount = amount};
+
+        char* begin = d.name;
+        begin = copy(_bag.words[i].begin, _bag.words[i].end + 1, begin);
+        for (int j = i + 1; j < _bag.size; j++)
+            begin = copy(_bag.words[j].begin, _bag.words[j].end + 1, begin);
+
+        push_domain_in_domains(ds, &d);
+    }
+
+    freeBag(&_bag);
+}
+
+
+void get_domains(const char* filename) {
+    FILE* file = f_safetyOpen(filename, "r");
+
+    domains ds = {.size = 0};
+
+    while (fgets(_string_buffer, 256, file)) {
+        _get_domains(_string_buffer, &ds);
+        freeString(_string_buffer);
+    }
+
+    merge_equal_domains(&ds);
+
+    fclose(file);
+
+
+    file = f_safetyOpen(filename, "w");
+
+    for (int i = 0; i < ds.size; i++) {
+        if (ds.data[i].amount >= 0)
+            fprintf(file, "%d %s\n", ds.data[i].amount, ds.data[i].name);
+    }
+
+    fclose(file);
+}
+
+
+void test_get_domains_1_empty_file() {
+    const char filename[] = "test_files/task_4_test_1.txt";
+
+    FILE* file = f_safetyOpen(filename, "w");
+    fclose(file);
+
+    get_domains(filename);
+
+
+    file = f_safetyOpen(filename, "r");
+
+    char dest[100] = "";
+    fscanf(file, "%s", dest);
+
+    fclose(file);
+
+    assert(strcmp_(dest, "") == 0);
+}
+
+
+void test_get_domains_2_one_domain() {
+    const char filename[] = "test_files/task_4_test_2.txt";
+
+    FILE* file = f_safetyOpen(filename, "w");
+
+    char s[100] = "900 discuss.codeforces.com";
+    fprintf(file, "%s\n", s);
+
+    fclose(file);
+
+
+    get_domains(filename);
+
+
+    file = f_safetyOpen(filename, "r");
+
+    char dest1[100] = "";
+    char dest2[100] = "";
+    char dest3[100] = "";
+    fgets(dest1, sizeof(dest1), file);
+    fgets(dest2, sizeof(dest2), file);
+    fgets(dest3, sizeof(dest3), file);
+
+    fclose(file);
+
+    assert(strcmp_(dest1, "900 discuss.codeforces.com\n") == 0);
+    assert(strcmp_(dest2, "900 codeforces.com\n") == 0);
+    assert(strcmp_(dest3, "900 com\n") == 0);
+}
+
+
+void test_get_domains_3_more_domain() {
+    const char filename[] = "test_files/task_4_test_3.txt";
+
+    FILE* file = f_safetyOpen(filename, "w");
+
+    char s1[100] = "900 discuss.codeforces.com";
+    char s2[100] = "69 mail.com";
+    fprintf(file, "%s\n", s1);
+    fprintf(file, "%s\n", s2);
+
+    fclose(file);
+
+
+    get_domains(filename);
+
+
+    file = f_safetyOpen(filename, "r");
+
+    char dest1[100] = "";
+    char dest2[100] = "";
+    char dest3[100] = "";
+    char dest4[100] = "";
+    fgets(dest1, sizeof(dest1), file);
+    fgets(dest2, sizeof(dest2), file);
+    fgets(dest3, sizeof(dest3), file);
+    fgets(dest4, sizeof(dest4), file);
+
+    fclose(file);
+
+    assert(strcmp_(dest1, "900 discuss.codeforces.com\n") == 0);
+    assert(strcmp_(dest2, "900 codeforces.com\n") == 0);
+    assert(strcmp_(dest3, "969 com\n") == 0);
+    assert(strcmp_(dest4, "69 mail.com\n") == 0);
+}
+
+
+void test_get_domains() {
+    test_get_domains_1_empty_file();
+    test_get_domains_2_one_domain();
+    test_get_domains_3_more_domain();
+}
+
+
 void tests() {
-    test_fill_matrix();
-    test_game_life();
-    test_median_filter();
+    test_fillMatrix();
+    test_gameLife();
+    test_medianFilter();
+    test_get_domains();
 }
 
 

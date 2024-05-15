@@ -88,6 +88,9 @@ void digitToStart(WordDescriptor word);
 // Аналогично getWord, но считывает слова с конца строки
 int getWordReverse(char *begin_search, char *end_search, WordDescriptor *word);
 
+// Аналогично getWord, но без пробела в конце
+int getWordWithoutSpace(char* begin_search, WordDescriptor* word);
+
 // Преобразовать строку таким образом, чтобы цифры каждого слова были
 // перенесены в конец слова без изменения порядка следования их в слове, а
 // буквы – в начало
@@ -115,6 +118,12 @@ BagOfWords _bag2;
 
 // Получает позиции начала и конца каждого слова строки
 void getBagOfWords(BagOfWords *bag, char *string);
+
+// Освобождает выделенную под bag память
+void freeBag(BagOfWords* bag);
+
+// Освобождает выделенную под string память
+void freeString(char* string);
 
 // Выводит слова данной строки в обратном порядке по одному в строке экрана
 void outputWordsInReverseOrder(char* string);
