@@ -569,39 +569,30 @@ void getDomains(const char* filename) {
     FILE* file = f_safetyOpen(filename, "r");
 
     domains ds = {.size = 0};
-
     while (fgets(_string_buffer, 256, file)) {
         getDomains_(_string_buffer, &ds);
         freeString(_string_buffer);
     }
-
     mergeEqualDomains(&ds);
-
     fclose(file);
 
-
     file = f_safetyOpen(filename, "w");
-
     for (int i = 0; i < ds.size; i++) {
         if (ds.data[i].amount >= 0)
             fprintf(file, "%d %s\n", ds.data[i].amount, ds.data[i].name);
     }
-
     fclose(file);
 }
 
 
 void test_getDomains_1_empty_file() {
     const char filename[] = "test_files/task_4_test_1.txt";
-
     FILE* file = f_safetyOpen(filename, "w");
     fclose(file);
 
     getDomains(filename);
 
-
     file = f_safetyOpen(filename, "r");
-
     char dest[100] = "";
     fscanf(file, "%s", dest);
 
@@ -613,20 +604,14 @@ void test_getDomains_1_empty_file() {
 
 void test_getDomains_2_one_domain() {
     const char filename[] = "test_files/task_4_test_2.txt";
-
     FILE* file = f_safetyOpen(filename, "w");
-
     char s[100] = "900 discuss.codeforces.com";
     fprintf(file, "%s\n", s);
-
     fclose(file);
-
 
     getDomains(filename);
 
-
     file = f_safetyOpen(filename, "r");
-
     char dest1[100] = "";
     char dest2[100] = "";
     char dest3[100] = "";
@@ -644,19 +629,14 @@ void test_getDomains_2_one_domain() {
 
 void test_getDomains_3_more_domain() {
     const char filename[] = "test_files/task_4_test_3.txt";
-
     FILE* file = f_safetyOpen(filename, "w");
-
     char s1[100] = "900 discuss.codeforces.com";
     char s2[100] = "69 mail.com";
     fprintf(file, "%s\n", s1);
     fprintf(file, "%s\n", s2);
-
     fclose(file);
 
-
     getDomains(filename);
-
 
     file = f_safetyOpen(filename, "r");
 
@@ -1027,12 +1007,12 @@ void rearrangeString(const char* filename) {
 
 void test_rearrangeString_1_empty_file() {
     const char filename[] = "test_files/task_8_test_1.txt";
-    FILE* file = fopen(filename, "w");
+    FILE* file = f_safetyOpen(filename, "w");
     fclose(file);
 
     rearrangeString(filename);
 
-    file = fopen(filename, "r");
+    file = f_safetyOpen(filename, "r");
     char res[100] = "";
     fscanf(file, "%s", res);
 
@@ -1044,14 +1024,14 @@ void test_rearrangeString_1_empty_file() {
 
 void test_rearrangeString_2_one_element() {
     const char filename[] = "test_files/task_8_test_2.txt";
-    FILE* file = fopen(filename, "w");
+    FILE* file = f_safetyOpen(filename, "w");
     fprintf(file, "s\n");
     fprintf(file, "0");
     fclose(file);
 
     rearrangeString(filename);
 
-    file = fopen(filename, "r");
+    file = f_safetyOpen(filename, "r");
     char res[100] = "";
     fscanf(file, "%s", res);
 
@@ -1063,14 +1043,14 @@ void test_rearrangeString_2_one_element() {
 
 void test_rearrangeString_3_more_element() {
     const char filename[] = "test_files/task_8_test_3.txt";
-    FILE* file = fopen(filename, "w");
+    FILE* file = f_safetyOpen(filename, "w");
     fprintf(file, "abap\n");
     fprintf(file, "0 3 2 1");
     fclose(file);
 
     rearrangeString(filename);
 
-    file = fopen(filename, "r");
+    file = f_safetyOpen(filename, "r");
     char res[100] = "";
     fscanf(file, "%s", res);
 
@@ -1087,6 +1067,97 @@ void test_rearrangeString() {
 }
 
 
+// В файле записана последовательность целых чисел. Создать файл, 
+// состоящий из чисел данного файла, значения которых меньше N. 
+// Имена файлов и величина N задаются в командной строке. 
+void filterNums(const char* filename, const int n) {
+    FILE* file = f_safetyOpen(filename, "r");
+
+    int x;
+    vector v = createVector(16);
+    while (fscanf(file, "%d ", &x) == 1)
+        if (x < n)
+            pushBack(&v, x);
+
+    fclose(file);
+
+    file = f_safetyOpen(filename, "w");
+    for (int i = 0; i < v.size; i++) {
+        x = getVectorValue(&v, i);
+        fprintf(file, "%d ", x);
+    }
+    fprintf(file, "\n");
+
+    fclose(file);
+}
+
+
+void test_filterNums_1_empty_file() {
+    const char filename[] = "test_files/task_9_test_1.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fclose(file);
+
+    filterNums(filename, 5);
+
+    file = f_safetyOpen(filename, "r");
+    char res[100] = "";
+    fscanf(file, "%s", res);
+
+    fclose(file);
+
+    assert(strcmp_(res, "") == 0);
+}
+
+
+void test_filterNums_2_unit_file() {
+    const char filename[] = "test_files/task_9_test_2.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fprintf(file, "1");
+    fclose(file);
+
+    filterNums(filename, 5);
+
+    file = f_safetyOpen(filename, "r");
+    char res[100] = "";
+    fscanf(file, "%s", res);
+
+    fclose(file);
+
+    assert(strcmp_(res, "1") == 0);
+}
+
+
+void test_filterNums_3_sequence_file() {
+    const char filename[] = "test_files/task_9_test_3.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fprintf(file, "3 4 1 2 5 6 7");
+    fclose(file);
+
+    filterNums(filename, 5);
+
+    file = f_safetyOpen(filename, "r");
+    char res[100] = "";
+    
+    fscanf(file, "%s", res);
+    assert(strcmp_(res, "3") == 0);
+    fscanf(file, "%s", res);
+    assert(strcmp_(res, "4") == 0);
+    fscanf(file, "%s", res);
+    assert(strcmp_(res, "1") == 0);
+    fscanf(file, "%s", res);
+    assert(strcmp_(res, "2") == 0);
+
+    fclose(file);
+}
+
+
+void test_filterNums() {
+    test_filterNums_1_empty_file();
+    test_filterNums_2_unit_file();
+    test_filterNums_3_sequence_file();
+}
+
+
 void tests() {
     test_fillMatrix();
     test_gameLife();
@@ -1096,9 +1167,5 @@ void tests() {
     test_generateNums();
     test_generateTree();
     test_rearrangeString();
-}
-
-
-int main() {
-    tests();
+    test_filterNums();
 }

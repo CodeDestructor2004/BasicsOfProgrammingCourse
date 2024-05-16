@@ -31,12 +31,6 @@
 },
 {
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\test.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\test.c\"",
-  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/test.c",
-  "output": "CMakeFiles/course.dir/test.c.obj"
-},
-{
-  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\libs\\data_structures\\string\\tasks\\str_test.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\string\\tasks\\str_test.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/string/tasks/str_test.c",
   "output": "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
@@ -58,6 +52,18 @@
   "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\libs\\data_structures\\stream\\stream.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\stream\\stream.c\"",
   "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/stream/stream.c",
   "output": "CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\libs\\data_structures\\stream\\task_9_console.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\stream\\task_9_console.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/stream/task_9_console.c",
+  "output": "CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj"
+},
+{
+  "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\course.dir\\libs\\data_structures\\stream\\tests.c.obj -c \"C:\\Users\\Danila\\Documents\\Лабы\\Основы программирования\\course\\libs\\data_structures\\stream\\tests.c\"",
+  "file": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/libs/data_structures/stream/tests.c",
+  "output": "CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj"
 },
 {
   "directory": "C:/Users/Danila/Documents/Лабы/Основы программирования/course/build/libs/data_structures",

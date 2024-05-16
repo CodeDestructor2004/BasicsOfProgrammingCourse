@@ -138,24 +138,10 @@ CMakeFiles/course.dir/matrix_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/course.dir/matrix_ex.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\matrix_ex.c" -o CMakeFiles\course.dir\matrix_ex.c.s
 
-CMakeFiles/course.dir/test.c.obj: CMakeFiles/course.dir/flags.make
-CMakeFiles/course.dir/test.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/test.c
-CMakeFiles/course.dir/test.c.obj: CMakeFiles/course.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/course.dir/test.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/test.c.obj -MF CMakeFiles\course.dir\test.c.obj.d -o CMakeFiles\course.dir\test.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\test.c"
-
-CMakeFiles/course.dir/test.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/course.dir/test.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Danila\Documents\Лабы\Основы программирования\course\test.c" > CMakeFiles\course.dir\test.c.i
-
-CMakeFiles/course.dir/test.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/course.dir/test.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\test.c" -o CMakeFiles\course.dir\test.c.s
-
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj: CMakeFiles/course.dir/flags.make
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/string/tasks/str_test.c
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj: CMakeFiles/course.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj -MF CMakeFiles\course.dir\libs\data_structures\string\tasks\str_test.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\string\tasks\str_test.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\string\tasks\str_test.c"
 
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.i: cmake_force
@@ -169,7 +155,7 @@ CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.s: cmake_forc
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj: CMakeFiles/course.dir/flags.make
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/string/tasks/str_test_2.c
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj: CMakeFiles/course.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj -MF CMakeFiles\course.dir\libs\data_structures\string\tasks\str_test_2.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\string\tasks\str_test_2.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\string\tasks\str_test_2.c"
 
 CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.i: cmake_force
@@ -183,7 +169,7 @@ CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.s: cmake_fo
 CMakeFiles/course.dir/libs/data_structures/files/files.c.obj: CMakeFiles/course.dir/flags.make
 CMakeFiles/course.dir/libs/data_structures/files/files.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/files/files.c
 CMakeFiles/course.dir/libs/data_structures/files/files.c.obj: CMakeFiles/course.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/course.dir/libs/data_structures/files/files.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/course.dir/libs/data_structures/files/files.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/files/files.c.obj -MF CMakeFiles\course.dir\libs\data_structures\files\files.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\files\files.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\files\files.c"
 
 CMakeFiles/course.dir/libs/data_structures/files/files.c.i: cmake_force
@@ -197,7 +183,7 @@ CMakeFiles/course.dir/libs/data_structures/files/files.c.s: cmake_force
 CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj: CMakeFiles/course.dir/flags.make
 CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/stream/stream.c
 CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj: CMakeFiles/course.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj -MF CMakeFiles\course.dir\libs\data_structures\stream\stream.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\stream\stream.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\stream.c"
 
 CMakeFiles/course.dir/libs/data_structures/stream/stream.c.i: cmake_force
@@ -208,6 +194,34 @@ CMakeFiles/course.dir/libs/data_structures/stream/stream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/course.dir/libs/data_structures/stream/stream.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\stream.c" -o CMakeFiles\course.dir\libs\data_structures\stream\stream.c.s
 
+CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj: CMakeFiles/course.dir/flags.make
+CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/stream/task_9_console.c
+CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj: CMakeFiles/course.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj -MF CMakeFiles\course.dir\libs\data_structures\stream\task_9_console.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\stream\task_9_console.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\task_9_console.c"
+
+CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\task_9_console.c" > CMakeFiles\course.dir\libs\data_structures\stream\task_9_console.c.i
+
+CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\task_9_console.c" -o CMakeFiles\course.dir\libs\data_structures\stream\task_9_console.c.s
+
+CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj: CMakeFiles/course.dir/flags.make
+CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj: C:/Users/Danila/Documents/Лабы/Основы\ программирования/course/libs/data_structures/stream/tests.c
+CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj: CMakeFiles/course.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj -MF CMakeFiles\course.dir\libs\data_structures\stream\tests.c.obj.d -o CMakeFiles\course.dir\libs\data_structures\stream\tests.c.obj -c "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\tests.c"
+
+CMakeFiles/course.dir/libs/data_structures/stream/tests.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/course.dir/libs/data_structures/stream/tests.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\tests.c" > CMakeFiles\course.dir\libs\data_structures\stream\tests.c.i
+
+CMakeFiles/course.dir/libs/data_structures/stream/tests.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/course.dir/libs/data_structures/stream/tests.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Danila\Documents\Лабы\Основы программирования\course\libs\data_structures\stream\tests.c" -o CMakeFiles\course.dir\libs\data_structures\stream\tests.c.s
+
 # Object files for target course
 course_OBJECTS = \
 "CMakeFiles/course.dir/main.c.obj" \
@@ -215,11 +229,12 @@ course_OBJECTS = \
 "CMakeFiles/course.dir/vecV.c.obj" \
 "CMakeFiles/course.dir/matrix_test.c.obj" \
 "CMakeFiles/course.dir/matrix_ex.c.obj" \
-"CMakeFiles/course.dir/test.c.obj" \
 "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj" \
 "CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj" \
 "CMakeFiles/course.dir/libs/data_structures/files/files.c.obj" \
-"CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj"
+"CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj" \
+"CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj" \
+"CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj"
 
 # External object files for target course
 course_EXTERNAL_OBJECTS =
@@ -229,11 +244,12 @@ course.exe: CMakeFiles/course.dir/vec.c.obj
 course.exe: CMakeFiles/course.dir/vecV.c.obj
 course.exe: CMakeFiles/course.dir/matrix_test.c.obj
 course.exe: CMakeFiles/course.dir/matrix_ex.c.obj
-course.exe: CMakeFiles/course.dir/test.c.obj
 course.exe: CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test.c.obj
 course.exe: CMakeFiles/course.dir/libs/data_structures/string/tasks/str_test_2.c.obj
 course.exe: CMakeFiles/course.dir/libs/data_structures/files/files.c.obj
 course.exe: CMakeFiles/course.dir/libs/data_structures/stream/stream.c.obj
+course.exe: CMakeFiles/course.dir/libs/data_structures/stream/task_9_console.c.obj
+course.exe: CMakeFiles/course.dir/libs/data_structures/stream/tests.c.obj
 course.exe: CMakeFiles/course.dir/build.make
 course.exe: libs/data_structures/libdata_structures.a
 course.exe: libs/algorithms/libalgorithms.a
@@ -241,7 +257,7 @@ course.exe: libs/util/libutil.a
 course.exe: CMakeFiles/course.dir/linkLibs.rsp
 course.exe: CMakeFiles/course.dir/objects1.rsp
 course.exe: CMakeFiles/course.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable course.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Danila\Documents\Лабы\Основы программирования\course\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable course.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\course.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

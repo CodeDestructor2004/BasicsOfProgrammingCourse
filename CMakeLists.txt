@@ -8,11 +8,12 @@ vec.c
 vecV.c
 matrix_test.c
 matrix_ex.c
-test.c
 libs/data_structures/string/tasks/str_test.c
 libs/data_structures/string/tasks/str_test_2.c
 libs/data_structures/files/files.c
-libs/data_structures/stream/stream.c)
+libs/data_structures/stream/stream.c
+libs/data_structures/stream/task_9_console.c
+libs/data_structures/stream/tests.c)
 
 add_subdirectory(libs)
 target_link_libraries(course data_structures)
