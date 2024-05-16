@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <malloc.h>
+#include <signal.h>
+#include <conio.h>
 #include "..\string\string_.c"
 #include "..\matrix\matrix.c"
 #include "..\files\file_lib.c"
@@ -1157,6 +1159,28 @@ void test_filterNums() {
     test_filterNums_3_sequence_file();
 }
 
+
+// Написать программу, выдающую на экран содержимое файла 
+// порциями по N строк: каждая последующая порция выдается после 
+// нажатия клавиш Ctrl+C. Имя файла и величина N задаются в 
+// командной строке.
+void pariallyOutputFile(const char* filename, const int n) {
+    FILE *file = f_safetyOpen(filename, "r");
+    char line[127];
+    size_t count = 0;
+
+    while (fgets(line, 127, file) != NULL) {
+        printf("%s", line);
+        count++;
+
+        if (count == n){
+            printf("Please, press Ctrl + C\n");
+            while (getch() != 3);
+        }
+    }
+    
+    fclose(file);
+}
 
 void tests() {
     test_fillMatrix();
