@@ -992,6 +992,101 @@ void test_generateTree() {
 }
 
 
+// Вам даны строка s и целочисленный массив indices одинаковой длины. 
+// Строка s будет перетасована таким образом, что символ в позиции [i] 
+// переместится в перетасованную строку indices[i] 
+// Верните перетасованную строку
+void rearrangeString_(const char* s, char* res, const int a[], const int n) {
+    for (int i = 0; i < n; i++)
+        res[i] = s[a[i]];
+}
+
+
+void rearrangeString(const char* filename) {
+    FILE* file = f_safetyOpen(filename, "r");
+
+    char s[1024] = "";
+    fscanf(file, "%s", s);
+    size_t len = strlen_(s);
+    int* numbers = (int *) malloc(len * sizeof(int));
+    for (int i = 0; i < len; i++)
+        fscanf(file, "%d", numbers + i);
+    fclose(file);
+
+    char res[1024] = "";
+    rearrangeString_(s, res, numbers, len);
+
+    file = f_safetyOpen(filename, "w");
+
+    fprintf(file, "%s", res);
+    fclose(file);
+
+    free(numbers);
+}
+
+
+void test_rearrangeString_1_empty_file() {
+    const char filename[] = "test_files/task_8_test_1.txt";
+    FILE* file = fopen(filename, "w");
+    fclose(file);
+
+    rearrangeString(filename);
+
+    file = fopen(filename, "r");
+    char res[100] = "";
+    fscanf(file, "%s", res);
+
+    fclose(file);
+
+    assert(strcmp_(res, "") == 0);
+}
+
+
+void test_rearrangeString_2_one_element() {
+    const char filename[] = "test_files/task_8_test_2.txt";
+    FILE* file = fopen(filename, "w");
+    fprintf(file, "s\n");
+    fprintf(file, "0");
+    fclose(file);
+
+    rearrangeString(filename);
+
+    file = fopen(filename, "r");
+    char res[100] = "";
+    fscanf(file, "%s", res);
+
+    fclose(file);
+
+    assert(strcmp_(res, "s") == 0);
+}
+
+
+void test_rearrangeString_3_more_element() {
+    const char filename[] = "test_files/task_8_test_3.txt";
+    FILE* file = fopen(filename, "w");
+    fprintf(file, "abap\n");
+    fprintf(file, "0 3 2 1");
+    fclose(file);
+
+    rearrangeString(filename);
+
+    file = fopen(filename, "r");
+    char res[100] = "";
+    fscanf(file, "%s", res);
+
+    fclose(file);
+
+    assert(strcmp_(res, "apab") == 0);
+}
+
+
+void test_rearrangeString() {
+    test_rearrangeString_1_empty_file();
+    test_rearrangeString_2_one_element();
+    test_rearrangeString_3_more_element();
+}
+
+
 void tests() {
     test_fillMatrix();
     test_gameLife();
@@ -1000,6 +1095,7 @@ void tests() {
     test_getSubmatrix();
     test_generateNums();
     test_generateTree();
+    test_rearrangeString();
 }
 
 
