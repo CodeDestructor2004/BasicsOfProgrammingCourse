@@ -122,9 +122,15 @@ void test_fillMatrix_3_more_matrix_element() {
 
 
 void test_fillMatrix() {
+    printf("test_fillMatrix_1_empty_file: ");
     test_fillMatrix_1_empty_file();
+    printf("OK\n");
+    printf("test_fillMatrix_2_unit_matrix: ");
     test_fillMatrix_2_unit_matrix();
+    printf("OK\n");
+    printf("test_fillMatrix_3_more_matrix_element: ");
     test_fillMatrix_3_more_matrix_element();
+    printf("OK\n");
 }
 
 // . Согласно статье в Википедии : « Игра жизни» , также известная просто 
@@ -294,9 +300,15 @@ void test_gameLife_3_more_elements() {
 
 
 void test_gameLife() {
+    printf("test_gameLife_1_empty_file: ");
     test_gameLife_1_empty_file();
+    printf("OK\n");
+    printf("test_gameLife_2_unit_file: ");
     test_gameLife_2_unit_file();
+    printf("OK\n");
+    printf("test_gameLife_3_more_elements: ");
     test_gameLife_3_more_elements();
+    printf("OK\n");
 }
 
 
@@ -456,9 +468,15 @@ void test_medianFilter_3_average_matrix() {
 
 
 void test_medianFilter() {
+    printf("test_medianFilter_1_empty_file: ");
     test_medianFilter_1_empty_file();
+    printf("OK\n");
+    printf("test_medianFilter_2_unit_file: ");
     test_medianFilter_2_unit_file();
+    printf("OK\n");
+    printf("test_medianFilter_3_average_matrix: ");
     test_medianFilter_3_average_matrix();
+    printf("OK\n");
 }
 
 
@@ -661,9 +679,15 @@ void test_getDomains_3_more_domain() {
 
 
 void test_getDomains() {
+    printf("test_getDomains_1_empty_file: ");
     test_getDomains_1_empty_file();
+    printf("OK\n");
+    printf("test_getDomains_2_one_domain: ");
     test_getDomains_2_one_domain();
+    printf("OK\n");
+    printf("test_getDomains_3_more_domain: ");
     test_getDomains_3_more_domain();
+    printf("OK\n");
 }
 
 
@@ -736,9 +760,15 @@ void test_getSubmatrix_3_more_element() {
 
 
 void test_getSubmatrix() {
+    printf("test_getSubmatrix_1_empty_matrix: ");
     test_getSubmatrix_1_empty_matrix();
+    printf("OK\n");
+    printf("test_getSubmatrix_2_unit_matrix: ");
     test_getSubmatrix_2_unit_matrix();
+    printf("OK\n");
+    printf("test_getSubmatrix_3_more_element: ");
     test_getSubmatrix_3_more_element();
+    printf("OK\n");
 }
 
 // Вам дан строковый шаблон длины n с нулевым индексом, состоящий 
@@ -844,9 +874,15 @@ void test_generateNums_3_average_length() {
 
 
 void test_generateNums() {
+    printf("test_generateNums_1_empty_file: ");
     test_generateNums_1_empty_file();
+    printf("OK\n");
+    printf("test_generateNums_2_unit_length: ");
     test_generateNums_2_unit_length();
+    printf("OK\n");
+    printf("test_generateNums_3_average_length: ");
     test_generateNums_3_average_length();
+    printf("OK\n");
 }
 
 // Вам дан целочисленный массив nums без дубликатов. Максимальное 
@@ -968,9 +1004,15 @@ void test_generateTree_3_random_element() {
 
 
 void test_generateTree() {
+    printf("test_generateTree_1_empty_file: ");
     test_generateTree_1_empty_file();
+    printf("OK\n");
+    printf("test_generateTree_2_one_element: ");
     test_generateTree_2_one_element();
+    printf("OK\n");
+    printf("test_generateTree_3_random_element: ");
     test_generateTree_3_random_element();
+    printf("OK\n");
 }
 
 
@@ -1063,9 +1105,15 @@ void test_rearrangeString_3_more_element() {
 
 
 void test_rearrangeString() {
+    printf("test_rearrangeString_1_empty_file: ");
     test_rearrangeString_1_empty_file();
+    printf("OK\n");
+    printf("test_rearrangeString_2_one_element: ");
     test_rearrangeString_2_one_element();
+    printf("OK\n");
+    printf("test_rearrangeString_3_more_element: ");
     test_rearrangeString_3_more_element();
+    printf("OK\n");
 }
 
 
@@ -1154,9 +1202,15 @@ void test_filterNums_3_sequence_file() {
 
 
 void test_filterNums() {
+    printf("test_filterNums_1_empty_file: ");
     test_filterNums_1_empty_file();
+    printf("OK\n");
+    printf("test_filterNums_2_unit_file: ");
     test_filterNums_2_unit_file();
+    printf("OK\n");
+    printf("test_filterNums_3_sequence_file: ");
     test_filterNums_3_sequence_file();
+    printf("OK\n");
 }
 
 
@@ -1342,9 +1396,15 @@ void test_autoCompletion_3_different_element() {
 
 
 void test_autoCompletion() {
+    printf("test_autoCompletion_1_empty_file: ");
     test_autoCompletion_1_empty_file();
+    printf("OK\n");
+    printf("test_autoCompletion_2_zero_q: ");
     test_autoCompletion_2_zero_q();
+    printf("OK\n");
+    printf("test_autoCompletion_3_different_element: ");
     test_autoCompletion_3_different_element();
+    printf("OK\n");
 }
 
 
