@@ -504,14 +504,14 @@ int getWordToDot(char* begin_search, WordDescriptor* word) {
 }
 
 
-void push_domain_in_domains(domains* ds, domain* d) {
+void pushDomainInDomains(domains* ds, domain* d) {
     ds->data[ds->size].amount = d->amount;
     copy(d->name, d->name + strlen_(d->name) + 1, ds->data[ds->size].name);
     ds->size++;
 }
 
 
-void merge_equal_domains(domains* ds) {
+void mergeEqualDomains(domains* ds) {
     for (int i = 0; i < ds->size; i++)
         for (int j = i + 1; j < ds->size; j++) {
             if (strcmp_(ds->data[i].name, ds->data[j].name) == 0 
@@ -525,7 +525,7 @@ void merge_equal_domains(domains* ds) {
 }
 
 
-void _get_domains(char* s, domains* ds) {
+void getDomains_(char* s, domains* ds) {
     char* read_ptr = s;
 
     WordDescriptor amount_as_text, name_domain;
@@ -557,24 +557,24 @@ void _get_domains(char* s, domains* ds) {
         for (int j = i + 1; j < _bag.size; j++)
             begin = copy(_bag.words[j].begin, _bag.words[j].end + 1, begin);
 
-        push_domain_in_domains(ds, &d);
+        pushDomainInDomains(ds, &d);
     }
 
     freeBag(&_bag);
 }
 
 
-void get_domains(const char* filename) {
+void getDomains(const char* filename) {
     FILE* file = f_safetyOpen(filename, "r");
 
     domains ds = {.size = 0};
 
     while (fgets(_string_buffer, 256, file)) {
-        _get_domains(_string_buffer, &ds);
+        getDomains_(_string_buffer, &ds);
         freeString(_string_buffer);
     }
 
-    merge_equal_domains(&ds);
+    mergeEqualDomains(&ds);
 
     fclose(file);
 
@@ -590,13 +590,13 @@ void get_domains(const char* filename) {
 }
 
 
-void test_get_domains_1_empty_file() {
+void test_getDomains_1_empty_file() {
     const char filename[] = "test_files/task_4_test_1.txt";
 
     FILE* file = f_safetyOpen(filename, "w");
     fclose(file);
 
-    get_domains(filename);
+    getDomains(filename);
 
 
     file = f_safetyOpen(filename, "r");
@@ -610,7 +610,7 @@ void test_get_domains_1_empty_file() {
 }
 
 
-void test_get_domains_2_one_domain() {
+void test_getDomains_2_one_domain() {
     const char filename[] = "test_files/task_4_test_2.txt";
 
     FILE* file = f_safetyOpen(filename, "w");
@@ -621,7 +621,7 @@ void test_get_domains_2_one_domain() {
     fclose(file);
 
 
-    get_domains(filename);
+    getDomains(filename);
 
 
     file = f_safetyOpen(filename, "r");
@@ -641,7 +641,7 @@ void test_get_domains_2_one_domain() {
 }
 
 
-void test_get_domains_3_more_domain() {
+void test_getDomains_3_more_domain() {
     const char filename[] = "test_files/task_4_test_3.txt";
 
     FILE* file = f_safetyOpen(filename, "w");
@@ -654,7 +654,7 @@ void test_get_domains_3_more_domain() {
     fclose(file);
 
 
-    get_domains(filename);
+    getDomains(filename);
 
 
     file = f_safetyOpen(filename, "r");
@@ -677,18 +677,93 @@ void test_get_domains_3_more_domain() {
 }
 
 
-void test_get_domains() {
-    test_get_domains_1_empty_file();
-    test_get_domains_2_one_domain();
-    test_get_domains_3_more_domain();
+void test_getDomains() {
+    test_getDomains_1_empty_file();
+    test_getDomains_2_one_domain();
+    test_getDomains_3_more_domain();
 }
 
+
+// Дана m x n двоичная матрица matrix, верните количество подматриц , в 
+// которых все единицы
+int getSubmatrix(matrix mat) {
+    int m = mat.rows;
+    int n = mat.cols;
+    int res = 0;
+
+    for (int i = 1; i < m; i++)
+        for (int j = 0; j < n; j++)
+            if (mat.values[i][j])
+                mat.values[i][j] += mat.values[i - 1][j];
+
+    for (int i = 0; i < m; i++) {
+        int stack[n];
+        int top = -1;
+        int sums[n + 1];
+        sums[0] = 0;
+
+        for (int j = 0; j < n; j++) {
+            while (top != -1 && mat.values[i][stack[top]] >= mat.values[i][j])
+                top--;
+            if (top != -1) {
+                int k = stack[top];
+                sums[j + 1] = sums[k + 1] + mat.values[i][j] * (j - k);
+            } else
+                sums[j + 1] = mat.values[i][j] * (j + 1);
+            stack[++top] = j;
+        }
+
+        for (int j = 0; j <= n; j++)
+            res += sums[j];
+    }
+    return res;
+}
+
+
+void test_getSubmatrix_1_empty_matrix() {
+    matrix m = createMatrixFromArray((int[]) {}, 0, 0);
+    int result = getSubmatrix(m);
+
+    freeMemMatrix(&m);
+
+    assert(result == 0);
+}
+
+
+void test_getSubmatrix_2_unit_matrix() {
+    matrix m = createMatrixFromArray((int[]) {1}, 1, 1);
+    int result = getSubmatrix(m);
+
+    freeMemMatrix(&m);
+
+    assert(result == 1);
+}
+
+
+void test_getSubmatrix_3_more_element() {
+    matrix m = createMatrixFromArray((int[]) {1, 0, 1,
+                                            1, 1, 0,
+                                            1, 1, 0}, 3, 3);
+    int result = getSubmatrix(m);
+
+    freeMemMatrix(&m);
+
+    assert(result == 13);
+}
+
+
+void test_getSubmatrix() {
+    test_getSubmatrix_1_empty_matrix();
+    test_getSubmatrix_2_unit_matrix();
+    test_getSubmatrix_3_more_element();
+}
 
 void tests() {
     test_fillMatrix();
     test_gameLife();
     test_medianFilter();
-    test_get_domains();
+    test_getDomains();
+    test_getSubmatrix();
 }
 
 
