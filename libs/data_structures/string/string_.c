@@ -785,3 +785,22 @@ int isStringIncludeLetters(char *string, char *word) {
 
     return 0;
 }
+
+
+int isSubWord(const WordDescriptor word1, const WordDescriptor word2) {
+    char* begin1 = word1.begin;
+    char* begin2 = word2.begin;
+
+    while (begin1 <= word1.end) {
+        if (*begin1 != *begin2)
+            return 0;
+
+        begin1++;
+        begin2++;
+    }
+
+    if (word1.end - begin1 > 0)
+        return 0;
+
+    return 1;
+}

@@ -173,4 +173,7 @@ void appendMissingWords(char *string_1, char *string_2);
 // Определяет, входит ли в данную строку каждая буква данного слова
 int isStringIncludeLetters(char *string, char *word);
 
+// Определяет, есть ли слово word1 в слове word2
+int isSubWord(const WordDescriptor word1, const WordDescriptor word2);
+
 #endif //STRING__H
