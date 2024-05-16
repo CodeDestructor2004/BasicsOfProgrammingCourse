@@ -758,12 +758,121 @@ void test_getSubmatrix() {
     test_getSubmatrix_3_more_element();
 }
 
+// Вам дан строковый шаблон длины n с нулевым индексом, состоящий 
+// из символов «I», означающих увеличение, и «D», означающих 
+// уменьшение.
+// Строка num с нулевым индексом длины n + 1 создается с 
+// использованием следующих условий:
+// • num состоит из цифр '1'до '9', где каждая цифра используется не 
+// более одного раза.
+// • Если pattern[i] == 'I', то num[i] < num[i + 1].
+// • Если pattern[i] == 'D', то num[i] > num[i + 1].
+// Возвращает лексикографически наименьшую возможную строку num, 
+// соответствующую условиям.
+#define ASCII_SHIFT 48
+
+void generateNums(const char* filename) {
+    int num[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    FILE* file = f_safetyOpen(filename, "r");
+
+    char res[10] = "";
+    char s[10] = "";
+    fscanf(file, "%s", s);
+    fclose(file);
+
+    unsigned int len_s = strlen_(s);
+    char* rec_ptr = res;
+    char* read_ptr = s;
+    unsigned int i_ind = 0;
+    unsigned int d_ind = len_s;
+
+    while (i_ind != d_ind) {
+        if (*read_ptr == 'I') {
+            *rec_ptr = (char) (num[i_ind] + ASCII_SHIFT);
+            i_ind++;
+        } else {
+            *rec_ptr = (char) (num[d_ind] + ASCII_SHIFT);
+            d_ind--;
+        }
+
+        read_ptr++;
+        rec_ptr++;
+    }
+
+    *rec_ptr = (char) (num[i_ind] + ASCII_SHIFT);
+    file = f_safetyOpen(filename, "w");
+    fprintf(file, "%s", res);
+
+    fclose(file);
+}
+
+
+void test_generateNums_1_empty_file() {
+    const char filename[] = "test_files/task_6_test_1.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fclose(file);
+
+    generateNums(filename);
+    file = f_safetyOpen(filename, "r");
+
+    int nums;
+    fscanf(file, "%d", &nums);
+
+    fclose(file);
+
+    assert(nums == 1);
+}
+
+
+void test_generateNums_2_unit_length() {
+    const char filename[] = "test_files/task_6_test_2.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fprintf(file, "I");
+    fclose(file);
+
+    generateNums(filename);
+    file = f_safetyOpen(filename, "r");
+
+    int nums;
+    fscanf(file, "%d", &nums);
+
+    fclose(file);
+
+    assert(nums == 12);
+}
+
+
+void test_generateNums_3_average_length() {
+    const char filename[] = "test_files/task_6_test_3.txt";
+    FILE* file = f_safetyOpen(filename, "w");
+    fprintf(file, "IIID");
+    fclose(file);
+
+    generateNums(filename);
+    file = f_safetyOpen(filename, "r");
+
+    int nums;
+    fscanf(file, "%d", &nums);
+
+    fclose(file);
+
+    assert(nums == 12354);
+}
+
+
+void test_generateNums() {
+    test_generateNums_1_empty_file();
+    test_generateNums_2_unit_length();
+    test_generateNums_3_average_length();
+}
+
 void tests() {
     test_fillMatrix();
     test_gameLife();
     test_medianFilter();
     test_getDomains();
     test_getSubmatrix();
+    test_generateNums();
 }
 
 
