@@ -50,4 +50,7 @@ int* back(vector *v);
 // возвращает указатель на нулевой элемент вектора
 int* front(vector *v);
 
+// Выводит вектор по адресу vec
+void printVector(vector *vec);
+
 #endif

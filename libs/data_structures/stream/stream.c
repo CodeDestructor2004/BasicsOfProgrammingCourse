@@ -5,6 +5,7 @@
 #include "..\string\string_.c"
 #include "..\matrix\matrix.c"
 #include "..\files\file_lib.c"
+#include "..\vector\vector.c"
 
 // Вам дано положительное целое число n, указывающее, что изначально 
 // у нас есть целочисленная матрица n x n, заполненная нулями.
@@ -866,6 +867,131 @@ void test_generateNums() {
     test_generateNums_3_average_length();
 }
 
+// Вам дан целочисленный массив nums без дубликатов. Максимальное 
+// двоичное дерево можно построить рекурсивно, nums используя 
+// следующий алгоритм:
+// 1. Создайте корневой узел, значение которого является 
+// максимальным значением в nums.
+// 2. Рекурсивно постройте левое поддерево на префиксе 
+// подмассива слева от максимального значения .
+// 3. Рекурсивно постройте правое поддерево на суффиксе 
+// подмассива справа от максимального значения.
+// Верните максимальное двоичное дерево, построенное из nums
+int getMaxVector(vector* vec) {
+    if (vec->size == 0)
+        return (int) -1e4;
+
+    int max = getVectorValue(vec, 0);
+    for (int i = 1; i < vec->size; i++) {
+        int x = getVectorValue(vec, i);
+        if (max < x)
+            max = x;
+    }
+
+    return max;
+}
+
+
+int getIndexVector(vector* vec, int x) {
+    int i = -1;
+    for (int j = 0; j < vec->size; j++)
+        if (getVectorValue(vec, j) == x)
+            i = j;
+    return i;
+}
+
+
+void generateTree_(vector* nums, vector* result) {
+    if (nums->size == 0) {
+        pushBack(result, -1);
+        return;
+    } else if (nums->size == 1) {
+        int x = getVectorValue(nums, 0);
+        pushBack(result, x);
+        return;
+    }
+
+    int mx = getMaxVector(nums);
+    int ind = getIndexVector(nums, mx);
+    pushBack(result, mx);
+
+    vector left = createVector(ind + 1);
+    for (int i = 0; i < ind; i++)
+        pushBack(&left, getVectorValue(nums, i));
+
+    vector right = createVector(nums->size - ind + 1);
+    for (int i = ind + 1; i < nums->size; i++)
+        pushBack(&right, getVectorValue(nums, i));
+
+    generateTree_(&left, result);
+    generateTree_(&right, result);
+
+    deleteVector(&left);
+    deleteVector(&right);
+}
+
+
+vector generateTree(vector* v) {
+    vector result = createVector(32);
+    generateTree_(v, &result);
+
+    return result;
+}
+
+
+void test_generateTree_1_empty_file() {
+    vector v = createVector(12);
+    v = generateTree(&v);
+
+    assert(getVectorValue(&v, 0) == -1);
+
+    deleteVector(&v);
+}
+
+
+void test_generateTree_2_one_element() {
+    vector v = createVector(12);
+    pushBack(&v, 3);
+    v = generateTree(&v);
+
+    assert(getVectorValue(&v, 0) == 3);
+
+    deleteVector(&v);
+}
+
+
+void test_generateTree_3_random_element() {
+    vector v = createVector(12);
+    pushBack(&v, 3);
+    pushBack(&v, 2);
+    pushBack(&v, 1);
+    pushBack(&v, 6);
+    pushBack(&v, 0);
+    pushBack(&v, 5);
+
+    v = generateTree(&v);
+
+    assert(getVectorValue(&v, 0) == 6);
+    assert(getVectorValue(&v, 1) == 3);
+    assert(getVectorValue(&v, 2) == -1);
+    assert(getVectorValue(&v, 3) == 2);
+    assert(getVectorValue(&v, 4) == -1);
+    assert(getVectorValue(&v, 5) == 1);
+    assert(getVectorValue(&v, 6) == 5);
+    assert(getVectorValue(&v, 7) == 0);
+    assert(getVectorValue(&v, 8) == -1);
+
+    deleteVector(&v);
+}
+
+
+void test_generateTree() {
+    test_generateTree_1_empty_file();
+    test_generateTree_2_one_element();
+    test_generateTree_3_random_element();
+}
+
+
 void tests() {
     test_fillMatrix();
     test_gameLife();
@@ -873,6 +999,7 @@ void tests() {
     test_getDomains();
     test_getSubmatrix();
     test_generateNums();
+    test_generateTree();
 }
 
 

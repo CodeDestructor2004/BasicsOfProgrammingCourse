@@ -114,3 +114,10 @@ int* back(vector* vec) {
 int* front(vector* vec) {
     return atVector(vec, 0);
 }
+
+
+void printVector(vector *vec) {
+    for (int i = 0; i < vec->size; i++)
+        printf("%d ", getVectorValue(vec, i));
+    printf("\n");
+}
